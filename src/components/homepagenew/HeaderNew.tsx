@@ -132,9 +132,12 @@ export function HeaderNew({
         };
     }, [supabase, initialUser]);
 
-    const handleSignOut = async () => {
-        await supabase.auth.signOut();
-        window.location.href = "/";
+    const handleSignOut = () => {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '/auth/signout';
+        document.body.appendChild(form);
+        form.submit();
     };
 
     const renderRoleBadge = () => {
