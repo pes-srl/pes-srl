@@ -14,6 +14,8 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { MediaLibraryModal } from "@/components/admin/MediaLibraryModal";
 
+import { updateChannelAdmin } from "../actions";
+
 interface ChannelData {
     id: string;
     name: string;
@@ -126,27 +128,30 @@ export default function SingleChannelAdminPage() {
         setSavedStatus(null);
         setErrorStatus(null);
 
-        const { error } = await supabase
-            .from("radio_channels")
-            .update({
+        try {
+            const result = await updateChannelAdmin(channel.id, {
                 name: channel.name,
                 slug: channel.slug,
-                stream_url_hls: channel.stream_url_hls,
-                stream_url_mp3: channel.stream_url_mp3,
-                stream_url_mp3_mobile: channel.stream_url_mp3_mobile,
+                stream_url_hls: channel.stream_url_hls?.trim() || null,
+                stream_url_mp3: channel.stream_url_mp3?.trim() || null,
+                stream_url_mp3_mobile: channel.stream_url_mp3_mobile?.trim() || null,
                 subtitle: channel.subtitle,
                 is_default: channel.is_default
-            })
-            .eq("id", channel.id);
+            });
 
-        setIsSaving(false);
+            if (result.error) {
+                console.error("Error saving via server action:", result.error);
+                setErrorStatus("Aggiornamento fallito: " + result.error);
+                return;
+            }
 
-        if (error) {
-            console.error("Error saving:", error);
-            setErrorStatus("Aggiornamento fallito: " + error.message);
-        } else {
             setSavedStatus("Canale aggiornato con successo!");
             setTimeout(() => setSavedStatus(null), 3000);
+        } catch (err: any) {
+            console.error("Critical error saving channel:", err);
+            setErrorStatus("Si è verificato un errore critico: " + (err.message || String(err)));
+        } finally {
+            setIsSaving(false);
         }
     };
 

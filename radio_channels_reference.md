@@ -1,42 +1,44 @@
-# 📻 Beautify Channel - Radio & Abbonamenti (Reference)
+# 📻 Beautify Channel - Documentazione Logica Canali & Abbonamenti
+*(Ultimo Aggiornamento: Marzo 2026)*
 
-Questo documento serve come riferimento centrale per tutti i canali radio disponibili e le regole di accesso per ogni piano di abbonamento.
-
-## 🎶 Elenco Canali Radio
-
-Ecco la lista ufficiale e aggiornata dei canali musicali di Beautify:
-
-1. **RELAX**
-2. **LOUNGE**
-3. **JAZZ**
-4. **AMBIENT MASSAGE**
-5. **ACOUSTIC VOCAL**
-6. **DEEP SOFT**
-
-*(Nota: in futuro possiamo aggiungere qui anche il Basic Channel, Laser Channel, Cosmetic Channel o Premium menzionati in precedenza, se sono ancora validi).*
+Questo file spiega come funziona **ora** il motore dietro le quinte di Beautify Channel. Abbiamo aggiornato il sistema: i canali non sono più "bloccati" direttamente nel codice, ma sono al 100% gestibili da te tramite il **Channel Manager** nel pannello di amministrazione.
 
 ---
 
-## 🔒 Regole di Accesso (Condizioni)
+## ⚙️ I Due Pilastri della Visibilità (Come assegni la musica)
 
-Quale piano può ascoltare cosa? Ecco le logiche che andremo a programmare nel sistema per bloccare/sbloccare i player:
+La visibilità dei canali nell'Area Riservata (chi può ascoltare cosa) dipende da due interruttori nel database, controllabili dall'Admin:
 
-### Piano `free_trial` (7 Giorni)
-- **Accesso:** Totale ai 6 canali principali.
-- **Canali sbloccati:** Relax, Lounge, Jazz, Ambient Massage, Acoustic Vocal, Deep Soft.
-- **Note:** Dopo i 7 giorni scadrà e perderà l'accesso se non acquista un piano.
+### 1. Il "Canale di Default" (Pubblico)
+Se dal Channel Manager accendi la levetta **"Canale di Default"** per un canale (es. *Relax*, *Lounge*, *BeautiFy Channel Basic*), questo diventa istantaneamente **visibile e ascoltabile da tutti i clienti paganti o in prova**. È il modo per gestire i classici "6 canali" base in massa.
 
-### Piano `basic`
-- **Accesso:** Totale ai 6 canali principali.
-- **Canali sbloccati:** Relax, Lounge, Jazz, Ambient Massage, Acoustic Vocal, Deep Soft.
-
-### Piano `premium`
-- **Accesso:** *(Da definire con te)* - Ma di norma avrà accesso a tutti i canali del Basic + Canali esclusivi (es. "Premium", "Laser Channel", "Cosmetic Channel").
-
-### Piano `free`
-- **Accesso:** Nessun canale o solo un canale "Demo" di benvenuto? *(Da definire)*.
+### 2. "L'Assegnazione Utenti" (Privato / White-Label)
+Se un canale **NON** è di Default ma è "Privato", puoi sbloccarlo solo a chi dici tu.
+Nel Channel Manager (quando lo attiveremo) ci sarà "Gestisci Assegnazioni", dove potrai mettere la spunta solo su istituti specifici (es. "Salone Zvenia").
+Questo ti permette di creare **Canali Brandizzati per singoli Franchising** che nessun altro cliente BeautiFy vedrà mai.
 
 ---
 
-> **Da sviluppatore a te:** 
-> Nel prossimo futuro andremo a scrivere una funzione React che controllerà in automatico if `user.plan_type === 'basic'` allora mostra solo questi 6 bottoni. Terremo questo documento sempre aggiornato con le tue decisioni di marketing!
+## 🔒 Regole di Accesso (Cosa vedono gli utenti)
+
+Ecco cosa succede esattamente quando un cliente fa il login, in base al suo abbonamento:
+
+### 🔴 Utenti "Free" (Non Paganti o Scaduti)
+- **Cosa vedono:** Non possono accedere ai canali radio. Vengono bloccati da un **Paywall** "Informativo" (o schermata di pricing) che dice: *"Il tuo periodo di prova o abbonamento è scaduto / non esiste. Procedi all'acquisto o contatta l'assistenza."*
+- **Cosa ascoltano:** Niente. Il player non parte per loro.
+
+### 🟡 Utenti "Free Trial" (Prova 7 Giorni)
+- **Cosa vedono/ascoltano:** Entrano nell'Area Riservata e hanno l'esperienza completa. Vedono l'Hero Banner grosso in alto ("BeautiFy Channel Basic") e tutti i canali della griglia sottostante che tu hai impostato come **"Canali di Default"** (Relax, Lounge, ecc.).
+- **Logica:** Vivi l'esperienza top per 7 giorni. Al termine, l'account viene declassato o scaduto a *Free*, perdendo l'accesso ai player e scontrandosi col Paywall.
+
+### 🔵 Utenti "Basic"
+- **Cosa vedono/ascoltano:** Esattamente come il Free Trial. Ascoltano il "BeautiFy Channel Basic" dal banner e tutti gli altri **"Canali di Default"** standard presenti nel catalogo.
+- **Logica:** Pagano per avere la tranquillità e l'accesso ininterrotto al servizio base.
+
+### 🟣 Utenti "Premium"
+- **Cosa vedono/ascoltano:** Oltre a tutti i **"Canali di Default"** e il banner Basic, gli utenti Premium sono i candidati ideali per canali extra in futuro (Es. *Laser Channel*). Se decidi di vendere un pacchetto superiore, andrai semplicemente a creare quel canale sul DB e attivarlo per loro.
+
+---
+
+> **🚀 Nota per l'Admin (Mirko):**
+> Essendo tu l'Admin, hai sempre il potere supremo. Attraverso la pagina `/admin/users`, puoi *cambiare al volo* il ruolo (User/Admin) o l'abbonamento (Free/Trial/Basic/Premium) di un cliente per risolvere problemi o estendere periodi di prova senza toccare righe di codice o database manualmente!
