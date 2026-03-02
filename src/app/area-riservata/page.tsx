@@ -1,6 +1,7 @@
 import { ChannelGrid } from "@/components/player/ChannelGrid";
+import { BasicHeroChannel } from "@/components/player/BasicHeroChannel";
 import { createClient } from "@/utils/supabase/server";
-import { LogOut, Sparkles, AlertCircle, CheckCircle2, Lock } from "lucide-react";
+import { LogOut, Sparkles, AlertCircle, CheckCircle2, Lock, Radio } from "lucide-react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -96,7 +97,25 @@ export default async function AreaClientePage() {
 
             {/* MAIN CONTENT OR PAYWALL */}
             {(!isExpired || isAdmin) ? (
-                <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} />
+                <>
+                    {/* Basic Channel Hero for Trial / Basic plans */}
+                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic') && (
+                        <div className="mb-8">
+                            <BasicHeroChannel
+                                channel={channels?.find((c: any) =>
+                                    c.name.toLowerCase().includes('basic') ||
+                                    c.name.toLowerCase() === 'beautify channel basic'
+                                ) || channels?.[0]}
+                            />
+                            <h3 className="text-xl font-bold text-white mb-4 mt-8 flex items-center gap-2">
+                                <Radio className="w-5 h-5 text-zinc-400" />
+                                Altri Canali Disponibili
+                            </h3>
+                        </div>
+                    )}
+
+                    <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} />
+                </>
             ) : (
                 <Paywall salonName={profile?.salon_name || user.email || 'Utente'} />
             )}
