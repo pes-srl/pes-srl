@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, Radio, Settings, Image as ImageIcon } from "lucide-react";
+import { LayoutDashboard, Users, Radio, Settings, Image as ImageIcon, HandCoins } from "lucide-react";
 
 export function AdminSidebarNav() {
     const pathname = usePathname();
@@ -27,6 +27,11 @@ export function AdminSidebarNav() {
             name: "Media Library",
             href: "/admin/media",
             icon: ImageIcon
+        },
+        {
+            name: "Richieste Upgrade",
+            href: "/admin/richieste",
+            icon: HandCoins
         }
     ];
 

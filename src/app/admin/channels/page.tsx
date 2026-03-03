@@ -62,11 +62,11 @@ export default function AdminChannelsListPage() {
         setErrorStatus(null);
 
         try {
-            // Seleziona tutto ordina per created_at
+            // Seleziona tutto ordina per nome in ordine alfabetico
             const { data, error } = await supabase
                 .from("radio_channels")
                 .select("*")
-                .order("created_at", { ascending: true });
+                .order("name", { ascending: true });
 
             if (error) {
                 console.error("Error fetching channels:", error);

@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Paywall } from "./Paywall";
+import { UpgradeForm } from "@/components/UpgradeForm";
 
 export const dynamic = "force-dynamic";
 
@@ -40,11 +41,28 @@ export default async function AreaClientePage() {
     }
 
     // Server-side fetching of channels to prevent client-side lock contention
-    const { data: channels, error: channelsError } = await supabase
+    let { data: channels, error: channelsError } = await supabase
         .rpc('get_authorized_channels', { req_user_id: user.id });
 
     if (channelsError) {
         console.error("Error fetching channels on server:", channelsError);
+    }
+
+    channels = channels || [];
+
+    // If Premium, automatically add Laser Channel and Cosmetic Channel
+    if (profile?.plan_type === 'premium') {
+        const { data: premiumExclusives } = await supabase
+            .from('radio_channels')
+            .select('*')
+            .in('name', ['Laser Channel', 'Cosmetic Channel'])
+            .eq('is_active', true);
+
+        if (premiumExclusives && premiumExclusives.length > 0) {
+            const existingIds = new Set(channels.map((c: any) => c.id));
+            const newChannels = premiumExclusives.filter(c => !existingIds.has(c.id));
+            channels = [...channels, ...newChannels];
+        }
     }
 
     return (
@@ -63,7 +81,7 @@ export default async function AreaClientePage() {
                             <p className="text-fuchsia-100 text-sm">Scade tra <strong className="text-white bg-black/20 px-2 py-0.5 rounded-md mx-1">{daysLeft} giorni</strong>. Sblocca tutto prima della scadenza.</p>
                         </div>
                     </div>
-                    <Link href="#pricing" className="relative z-10 shrink-0 bg-white text-zinc-950 px-6 py-3 rounded-xl font-bold text-sm tracking-wide hover:bg-zinc-100 transition-colors shadow-xl">
+                    <Link href="#upgrade-section" className="relative z-10 shrink-0 bg-white text-zinc-950 px-6 py-3 rounded-xl font-bold text-sm tracking-wide hover:bg-zinc-100 transition-colors shadow-xl">
                         Vedi Piani Premium
                     </Link>
                 </div>
@@ -98,13 +116,15 @@ export default async function AreaClientePage() {
             {/* MAIN CONTENT OR PAYWALL */}
             {(!isExpired || isAdmin) ? (
                 <>
-                    {/* Basic Channel Hero for Trial / Basic plans */}
-                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic') && (
+                    {/* Basic/Premium Channel Hero */}
+                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic' || profile?.plan_type === 'premium') && (
                         <div className="mb-8">
                             <BasicHeroChannel
+                                planType={profile?.plan_type}
                                 channel={channels?.find((c: any) =>
-                                    c.name.toLowerCase().includes('basic') ||
-                                    c.name.toLowerCase() === 'beautify channel basic'
+                                    profile?.plan_type === 'premium'
+                                        ? (c.name.toLowerCase().includes('premium') || c.name.toLowerCase() === 'beautify channel premium')
+                                        : (c.name.toLowerCase().includes('basic') || c.name.toLowerCase() === 'beautify channel basic')
                                 ) || null}
                             />
                             <h3 className="text-xl font-bold text-white mb-4 mt-8 flex items-center gap-2">
@@ -115,6 +135,90 @@ export default async function AreaClientePage() {
                     )}
 
                     <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} />
+
+                    {/* WELCOME BANNER (Pricing / Account info) */}
+                    <div id="welcome-pricing-banner" className="bg-[#17092b] w-full py-12 px-6 md:px-12 rounded-3xl mt-16 mb-8 flex flex-col items-center shadow-xl border border-white/5">
+
+                        {/* Header Section */}
+                        <div className="flex flex-col items-center justify-center text-center mb-16">
+                            <h2 className="text-xl md:text-2xl font-black text-white mb-1 uppercase tracking-wider">
+                                Benvenuta su Beautify Channel
+                            </h2>
+                            <p className="text-lg md:text-xl text-zinc-200 font-semibold mb-8 max-w-2xl leading-normal">
+                                il servizio che trasforma<br /> radicalmente l'atmosfera del tuo istituto!
+                            </p>
+                            <button className="text-white font-bold text-lg tracking-widest uppercase hover:text-fuchsia-400 transition-colors">
+                                Come funziona?
+                            </button>
+                        </div>
+
+                        {/* Additional Block: Account BASIC */}
+                        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                            {/* Text Content */}
+                            <div className="flex-1 text-left space-y-6">
+                                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                    Account BASIC
+                                </h3>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed">
+                                    Contiene <span className="font-semibold">BEAUTIFY CHANNEL</span>, il canale principale!
+                                </p>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed">
+                                    Propone una raffinata selezione musicale intervallata da eleganti e generici suggerimenti vocali, studiati per stimolare l'interesse e l'acquisto dei tuoi servizi in istituto.
+                                </p>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed">
+                                    Inoltre hai a disposizione altri 6 canali per cambiare mood durante la giornata o magari con <span className="font-semibold">DEEP SOFT</span> nel weekend, tutti con eleganti suggerimenti per stimolare l'interesse all'acquisto.
+                                </p>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed mt-4">
+                                    Altri servizi di settore prossimamente, stay tuned!
+                                </p>
+                            </div>
+
+                            {/* Image Content */}
+                            <div className="flex-1 w-full max-w-md shrink-0">
+                                <img
+                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772556955956-qdtntc.webp"
+                                    alt="Account Basic Ambientazione"
+                                    className="w-full h-auto rounded-3xl"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Additional Block: Account PREMIUM */}
+                        <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16 mt-20">
+                            {/* Text Content */}
+                            <div className="flex-1 text-left space-y-6">
+                                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                                    Account PREMIUM
+                                </h3>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed">
+                                    Tutto quello compreso nell'account BASIC più:
+                                </p>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed font-semibold uppercase tracking-wider">
+                                    SUGGERIMENTI PERSONALIZZATI
+                                </p>
+                                <p className="text-zinc-50 text-base md:text-lg leading-relaxed">
+                                    Oltre ai suggerimenti generici come nell'account BASIC, puoi ordinarci via email 2 suggerimenti (promozioni) al mese del tuo centro che ascolterai successivamente nel tuo canale radio in istituto. Utili da sfruttare quando hai delle promo attive o nei periodi in cui hai nuovi servizi, anche stagionali (estate, inverno, ecc).
+                                </p>
+                            </div>
+
+                            {/* Image Content */}
+                            <div className="flex-1 w-full max-w-md shrink-0">
+                                <img
+                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772557078224-cv84w3.png"
+                                    alt="Account Premium Assistente"
+                                    className="w-full h-auto rounded-3xl border border-white/5"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Upgrade Form for Free Trial Users */}
+                        {profile?.plan_type === 'free_trial' && !isAdmin && (
+                            <div className="w-full max-w-4xl mx-auto mt-24">
+                                <UpgradeForm userEmail={user.email} />
+                            </div>
+                        )}
+
+                    </div>
                 </>
             ) : (
                 <Paywall salonName={profile?.salon_name || user.email || 'Utente'} />

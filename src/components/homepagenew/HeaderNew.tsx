@@ -240,6 +240,12 @@ export function HeaderNew({
                                         <span className="text-zinc-200">Area riservata</span>
                                     </Link>
                                 </DropdownMenuItem>
+                                <DropdownMenuItem asChild className="cursor-pointer focus:bg-white/10 rounded-lg px-3 py-2.5 mt-1">
+                                    <Link href="/area-riservata/le-mie-richieste" className="flex items-center gap-3 w-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-400"><path d="M12 2v20" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                                        <span className="text-zinc-200">Le mie Richieste</span>
+                                    </Link>
+                                </DropdownMenuItem>
                                 {profile?.role === 'Admin' && (
                                     <>
                                         <DropdownMenuSeparator className="bg-white/5 my-2" />
