@@ -3,6 +3,8 @@
 import { useAudioStore } from "@/store/useAudioStore";
 import { Play, Pause, Volume2, VolumeX, Loader2, Radio } from "lucide-react";
 import { GlobalAudioPlayer } from "./GlobalAudioPlayer";
+import { useEffect, useRef } from "react";
+import { logChannelPlay } from "@/app/actions/analytics-actions";
 
 export function AudioPlayer() {
     const {
@@ -13,6 +15,20 @@ export function AudioPlayer() {
         togglePlay,
         setVolume
     } = useAudioStore();
+
+    const lastLoggedChannel = useRef<string | null>(null);
+
+    // Register a play event for analytics whenever the channel starts playing
+    useEffect(() => {
+        if (isPlaying && currentChannel?.id && lastLoggedChannel.current !== currentChannel.id) {
+            logChannelPlay(currentChannel.id).catch(console.error);
+            lastLoggedChannel.current = currentChannel.id;
+        } else if (!isPlaying) {
+            // Reset so we log again if they pause and play the same channel later?
+            // Usually, analytics count distinct sessions, we can reset this if we want every 'Play' click.
+            lastLoggedChannel.current = null;
+        }
+    }, [isPlaying, currentChannel?.id]);
 
     if (!currentChannel) return null;
 

@@ -43,7 +43,8 @@ export async function updateChannelAdmin(channelId: string, data: any) {
             stream_url_mp3: data.stream_url_mp3,
             stream_url_mp3_mobile: data.stream_url_mp3_mobile,
             subtitle: data.subtitle,
-            is_default: data.is_default
+            is_default: data.is_default,
+            card_image_url: data.card_image_url
         })
         .eq("id", channelId);
 

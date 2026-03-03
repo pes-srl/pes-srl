@@ -5,6 +5,8 @@ import { LayoutDashboard, Users, Radio, LogOut } from "lucide-react";
 import { AdminSidebarNav } from "@/components/admin/AdminSidebarNav";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 
+import { MobileAdminNav } from "@/components/admin/MobileAdminNav";
+
 export const dynamic = 'force-dynamic';
 
 export default async function AdminLayout({
@@ -59,7 +61,16 @@ export default async function AdminLayout({
             </aside>
 
             {/* Main Content */}
-            <main className="flex-1 flex flex-col min-h-[calc(100vh-64px)] overflow-hidden">
+            <main className="flex-1 flex flex-col min-h-[calc(100vh-64px)] overflow-hidden relative">
+
+                {/* Mobile Navigation Header (Only visible on small screens) */}
+                <div className="md:hidden flex items-center justify-between p-4 border-b border-white/10 sticky top-0 bg-zinc-950/95 backdrop-blur z-30">
+                    <div className="flex items-center gap-3">
+                        <MobileAdminNav />
+                        <span className="font-semibold text-lg tracking-tight">Admin Dashboard</span>
+                    </div>
+                </div>
+
                 <div className="flex-1 overflow-y-auto p-4 md:p-8">
                     {children}
                 </div>

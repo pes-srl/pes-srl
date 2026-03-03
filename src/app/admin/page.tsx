@@ -1,11 +1,31 @@
-import { Users, Radio, Headphones, Activity } from "lucide-react";
+import { Users, UserPlus, Crown, UserCheck } from "lucide-react";
+import { createClient } from "@/utils/supabase/server";
+import { TopChannelsWidget } from "@/components/admin/TopChannelsWidget";
+import { RecentActivityWidget } from "@/components/admin/RecentActivityWidget";
 
-export default function AdminOverview() {
+export const dynamic = "force-dynamic";
+
+export default async function AdminOverview() {
+    const supabase = await createClient();
+
+    // Fetch counts for all plan types concurrently for performance
+    const [
+        { count: freeTrialCount },
+        { count: basicCount },
+        { count: premiumCount },
+        { count: freeCount }
+    ] = await Promise.all([
+        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free_trial'),
+        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'basic'),
+        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'premium'),
+        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free')
+    ]);
+
     const stats = [
-        { label: "Istituti Attivi", value: "142", trend: "+12% this month", icon: Users },
-        { label: "Active Channels", value: "8", trend: "0 offline", icon: Radio },
-        { label: "Concurrent Listeners", value: "3,405", trend: "+450 today", icon: Headphones },
-        { label: "Total Voice Spots", value: "24", trend: "Playing normally", icon: Activity },
+        { label: "In Prova 7 Giorni", value: freeTrialCount?.toString() || "0", trend: "Piano Free Trial", icon: Users, color: "text-amber-400" },
+        { label: "Utenti Basic", value: basicCount?.toString() || "0", trend: "Piano Basic", icon: UserCheck, color: "text-indigo-400" },
+        { label: "Utenti Premium", value: premiumCount?.toString() || "0", trend: "Piano Premium", icon: Crown, color: "text-fuchsia-400" },
+        { label: "Prova Scaduta", value: freeCount?.toString() || "0", trend: "Piano Free (Inattivi)", icon: UserPlus, color: "text-red-400" },
     ];
 
     return (
@@ -14,43 +34,26 @@ export default function AdminOverview() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 {stats.map((stat, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-white/2 border border-white/10">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center">
-                                <stat.icon className="w-5 h-5 text-fuchsia-400" />
+                    <div key={i} className="p-6 rounded-2xl bg-[#17092b] border border-white/5 shadow-xl relative overflow-hidden group hover:border-white/10 transition-colors">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+                        <div className="flex items-start justify-between mb-4 relative z-10">
+                            <div className="h-10 w-10 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
+                                <stat.icon className={`w-5 h-5 ${stat.color}`} />
                             </div>
                         </div>
-                        <div>
+                        <div className="relative z-10">
                             <p className="text-sm font-medium text-zinc-400 mb-1">{stat.label}</p>
-                            <h3 className="text-3xl font-bold text-white mb-2">{stat.value}</h3>
-                            <p className="text-xs text-zinc-500">{stat.trend}</p>
+                            <h3 className="text-4xl font-black text-white mb-2">{stat.value}</h3>
+                            <p className="text-xs text-zinc-500 font-medium uppercase tracking-wider">{stat.trend}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2 p-8 rounded-2xl bg-white/2 border border-white/10 h-96 flex flex-col">
-                    <h3 className="font-semibold text-lg mb-6">Concurrent Streams (Real-time)</h3>
-                    <div className="flex-1 flex items-center justify-center border-2 border-dashed border-white/5 rounded-xl">
-                        <p className="text-zinc-500">Analytics Chart Placeholder</p>
-                    </div>
-                </div>
-
-                <div className="p-8 rounded-2xl bg-white/2 border border-white/10 flex flex-col">
-                    <h3 className="font-semibold text-lg mb-6">Recent Activity</h3>
-                    <div className="flex-1 space-y-6">
-                        {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="flex gap-4">
-                                <div className="w-2 h-2 rounded-full bg-fuchsia-500 mt-2 shrink-0" />
-                                <div>
-                                    <p className="text-sm text-zinc-300">Nuovo istituto "Beauty Lounge Milano" registrato.</p>
-                                    <p className="text-xs text-zinc-500 mt-1">2 hours ago</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <TopChannelsWidget />
+                <RecentActivityWidget />
             </div>
         </div>
     );

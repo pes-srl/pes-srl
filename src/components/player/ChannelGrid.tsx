@@ -37,7 +37,7 @@ export function ChannelGrid({ initialChannels, serverError }: ChannelGridProps) 
                 <div className="mt-4 p-4 bg-black/40 rounded-lg text-left">
                     <p className="text-xs text-zinc-500">Istruzioni (Per Mirko):</p>
                     <ol className="text-xs text-zinc-400 list-decimal pl-4 mt-2 space-y-1">
-                        <li>Se dice "Could not find function get_authorized_channels", significa che non hai eseguito il file SQL en Supabase.</li>
+                        <li>Se dice "Could not find function get_authorized_channels", significa che non hai eseguito il file SQL in Supabase.</li>
                         <li>Se dice "0 canali attivi", significa che in Supabase `radio_channels` è vuoto o nessun canale ha `is_active = true`.</li>
                     </ol>
                 </div>
@@ -46,7 +46,7 @@ export function ChannelGrid({ initialChannels, serverError }: ChannelGridProps) 
     }
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {initialChannels.map((channel: any, idx: number) => {
                 const isActive = currentChannel?.id === channel.id;
                 const isCurrentlyPlaying = isActive && isPlaying;
@@ -66,26 +66,31 @@ export function ChannelGrid({ initialChannels, serverError }: ChannelGridProps) 
                     >
                         {/* Background Image & Overlay */}
                         <div className="aspect-square w-full relative">
-                            <div className="absolute inset-0 bg-zinc-950/40 group-hover:bg-zinc-950/20 transition-colors z-10" />
-                            {channel.imageUrl ? (
-                                <img
-                                    src={channel.imageUrl}
-                                    alt={channel.name}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                />
+                            {channel.card_image_url ? (
+                                <>
+                                    {/* Ridotto l'overlay centrale (da bg-black/40 a bg-black/10) */}
+                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 duration-500" />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        src={channel.card_image_url}
+                                        alt={channel.name}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                </>
                             ) : (
-                                <div className="w-full h-full bg-zinc-900 bg-linear-to-b from-zinc-800 to-zinc-900 flex flex-col items-center justify-center border border-white/5">
-                                    {/* Hide Radio icon entirely to avoid overlap with permanent Play button */}
-                                    <span className="text-zinc-500 text-xs tracking-widest font-medium uppercase mt-24">{channel.subtitle || "Premium Music"}</span>
-                                </div>
+                                <>
+                                    <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-transparent transition-colors z-10" />
+                                    <div className="w-full h-full bg-zinc-900 bg-linear-to-b from-zinc-800 to-zinc-900 flex flex-col items-center justify-center border border-white/5 relative z-0">
+                                    </div>
+                                </>
                             )}
 
                             {/* Play Button Overlay */}
                             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                                 <div className={`
-                  w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-lg shadow-fuchsia-500/20
-                  ${isActive ? 'bg-fuchsia-600 outline-4 outline-fuchsia-500/30' : 'bg-fuchsia-500/90 text-white group-hover:scale-110'}
-                `}>
+                                    w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-lg shadow-fuchsia-500/20
+                                    ${isActive ? 'bg-fuchsia-600 outline-4 outline-fuchsia-500/30' : 'bg-fuchsia-500/90 text-white group-hover:scale-110'}
+                                `}>
                                     {isCurrentlyPlaying ? (
                                         <Pause className="w-8 h-8 fill-current text-white" />
                                     ) : (
@@ -96,17 +101,17 @@ export function ChannelGrid({ initialChannels, serverError }: ChannelGridProps) 
 
                             {/* Status Badge */}
                             <div className="absolute top-4 right-4 z-20">
-                                <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full backdrop-blur-md shadow-lg
-                                    ${isActive ? 'bg-fuchsia-500 text-white border-transparent' : 'bg-black/50 text-white/70 border border-white/10'}
-                                `}>
-                                    {isActive ? 'In Riproduzione' : 'Disponibile'}
-                                </span>
+                                {isActive && (
+                                    <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full backdrop-blur-md shadow-lg bg-fuchsia-500 text-white border-transparent">
+                                        In Riproduzione
+                                    </span>
+                                )}
                             </div>
                         </div>
 
                         {/* Content info */}
                         <div className="absolute bottom-0 left-0 right-0 p-5 bg-linear-to-t from-black via-black/80 to-transparent z-20 pt-16">
-                            <h3 className="text-lg font-bold text-white truncate drop-shadow-md">{channel.name}</h3>
+                            <h3 className="text-lg font-bold text-white truncate drop-shadow-md mt-[3px]">{channel.name}</h3>
                             {isActive && (
                                 <div className="flex items-center gap-2 mt-2">
                                     <div className="flex gap-1 items-end h-3">

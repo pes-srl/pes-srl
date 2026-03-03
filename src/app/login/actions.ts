@@ -2,6 +2,7 @@
 
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import { logActivity } from "@/app/actions/activity-actions";
 
 export async function login(formData: FormData) {
     const email = formData.get("email") as string;
@@ -20,6 +21,8 @@ export async function login(formData: FormData) {
     // Determine where to redirect based on user role
     const { data: { user } } = await supabase.auth.getUser();
     if (user) {
+        await logActivity(user.id, 'login');
+
         // Redirection based on role
         const { data: profile } = await supabase
             .from("profiles")

@@ -136,7 +136,8 @@ export default function SingleChannelAdminPage() {
                 stream_url_mp3: channel.stream_url_mp3?.trim() || null,
                 stream_url_mp3_mobile: channel.stream_url_mp3_mobile?.trim() || null,
                 subtitle: channel.subtitle,
-                is_default: channel.is_default
+                is_default: channel.is_default,
+                card_image_url: channel.card_image_url
             });
 
             if (result.error) {

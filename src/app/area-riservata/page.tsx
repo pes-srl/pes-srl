@@ -50,17 +50,20 @@ export default async function AreaClientePage() {
 
     channels = channels || [];
 
-    // If Premium, automatically add Laser Channel and Cosmetic Channel
+    // If Premium, automatically add Laser Channel and Cosmetic Channel via hardcoded UUIDs
     if (profile?.plan_type === 'premium') {
         const { data: premiumExclusives } = await supabase
             .from('radio_channels')
             .select('*')
-            .in('name', ['Laser Channel', 'Cosmetic Channel'])
+            .in('id', [
+                'ef6cd00d-1966-4aff-b8a5-4d416deae0ec', // Cosmetic Channel
+                '850d1e16-7842-4e12-a66f-8879a0662d57'  // Laser Channel
+            ])
             .eq('is_active', true);
 
         if (premiumExclusives && premiumExclusives.length > 0) {
             const existingIds = new Set(channels.map((c: any) => c.id));
-            const newChannels = premiumExclusives.filter(c => !existingIds.has(c.id));
+            const newChannels = premiumExclusives.filter((c: any) => !existingIds.has(c.id));
             channels = [...channels, ...newChannels];
         }
     }

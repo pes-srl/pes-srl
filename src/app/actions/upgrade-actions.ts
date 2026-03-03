@@ -2,6 +2,7 @@
 
 import { createClient } from '@/utils/supabase/server'
 import { revalidatePath } from 'next/cache'
+import { logActivity } from '@/app/actions/activity-actions'
 
 export async function submitUpgradeRequest(formData: FormData) {
     const supabase = await createClient()
@@ -59,6 +60,9 @@ export async function submitUpgradeRequest(formData: FormData) {
         }
         return { error: 'Si è verificato un errore durante l\'invio della richiesta. Riprova.' }
     }
+
+    // Log the event for the dashboard Recent Activity
+    await logActivity(user.id, 'upgrade_request', { plan: requested_plan });
 
     // Send Emails via Resend
     try {

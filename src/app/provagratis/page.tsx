@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
+import { logActivity } from "@/app/actions/activity-actions";
+
 export default function ProvaGratisPage() {
     const [fullName, setFullName] = useState("");
     const [salonName, setSalonName] = useState("");
@@ -64,6 +66,10 @@ export default function ProvaGratisPage() {
                 });
             } catch (err) {
                 console.error("Failed to trigger welcome email:", err);
+            }
+
+            if (data.user) {
+                await logActivity(data.user.id, 'signup_freetrial');
             }
 
             // Se l'email confirmation è spenta su Supabase, entra subito
