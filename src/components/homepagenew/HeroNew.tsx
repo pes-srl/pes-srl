@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 export function HeroNew() {
     return (
         <section
-            className="relative w-full h-[70vh] md:h-[60vh] min-h-[500px] flex items-center overflow-hidden"
+            className="relative w-full min-h-[60vh] md:min-h-screen flex items-center overflow-hidden"
             style={{
-                backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/hero-assistente-tati-webp.webp')`,
+                backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477085817-oajaaf.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
@@ -45,19 +45,7 @@ export function HeroNew() {
                     </Link>
                 </motion.div>
 
-                {/* Right Side: Absolute Positioned Cutout Character */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                    className="absolute bottom-0 right-0 md:right-10 w-[70%] sm:w-[50%] md:w-[45%] lg:w-[35%] max-w-[600px] pointer-events-none"
-                >
-                    <img
-                        src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772627761288-rotgha.png"
-                        alt="Tati Assistente Digitale"
-                        className="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                    />
-                </motion.div>
+
 
             </div>
         </section>
