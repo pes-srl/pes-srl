@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function HeroNew() {
     return (
         <section
-            className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-10 md:pb-32 flex-col justify-end overflow-hidden px-6 md:px-12"
+            className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-10 md:pb-20 flex-col justify-end overflow-hidden px-6 md:px-12"
             style={{
                 backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477085817-oajaaf.png')`,
                 backgroundSize: 'cover',
@@ -29,7 +29,7 @@ export function HeroNew() {
                     className="w-full md:w-1/2 max-w-2xl"
                 >
                     <h1
-                        className="text-4xl md:text-5xl lg:text-6xl font-black bg-linear-to-r from-blue-500 to-fuchsia-500 bg-clip-text text-white leading-[1.1] mb-8 drop-shadow-lg tracking-tight"
+                        className="text-4xl md:text-5xl lg:text-7xl font-black bg-linear-to-r from-blue-500 to-fuchsia-500 bg-clip-text text-white leading-[1.1] mb-8 drop-shadow-lg tracking-tight"
                         style={{ WebkitTextStroke: '2px transparent' }}
                     >
                         COME FAI SENZA BEAUTIFY?
@@ -39,7 +39,7 @@ export function HeroNew() {
                         <Button
                             className="bg-linear-to-r from-blue-500 to-fuchsia-500 hover:from-blue-400 hover:to-fuchsia-400 text-white font-bold tracking-wider uppercase px-10 py-6 text-lg rounded-full shadow-[0_0_20px_rgba(217,70,239,0.4)] transition-all"
                         >
-                            Scoprimi
+                            Scoprici
                         </Button>
                     </Link>
                 </motion.div>
