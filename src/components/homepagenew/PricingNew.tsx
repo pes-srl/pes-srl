@@ -71,7 +71,7 @@ export function PricingNew() {
                                 <div className="flex flex-col lg:w-1/3 shrink-0 lg:border-r border-zinc-200 lg:pr-8">
                                     <div className="text-center mb-6 lg:mb-8 min-h-[90px] flex items-center justify-center w-full">
                                         {plan.price && (
-                                            <div className="flex flex-col items-center justify-center text-[#9F00FF] font-black w-full text-center">
+                                            <div className="flex flex-col items-center justify-center text-[#9F00FF] font-black w-full text-center pr-2 lg:pr-0">
                                                 <div className="flex items-start justify-center">
                                                     <span className="text-3xl mt-2 mr-1">€</span>
                                                     <span className="text-7xl leading-none tracking-tighter drop-shadow-sm">{plan.price}</span>
@@ -83,9 +83,9 @@ export function PricingNew() {
 
                                     {/* CTA Button & Footer */}
                                     <div className="mt-8 lg:mt-auto space-y-6">
-                                        <div className="flex justify-center w-full">
-                                            <Link href="#trial-form" className="w-[108%] sm:w-full -ml-[4%] sm:ml-0">
-                                                <Button className={`w-full rounded-md py-4 sm:py-5 px-1 sm:px-6 text-[10px] sm:text-[13px] font-black uppercase tracking-wide text-center whitespace-normal md:whitespace-nowrap leading-tight transition-all ${plan.buttonClasses}`}>
+                                        <div className="flex justify-center w-full px-0 sm:px-0">
+                                            <Link href="#trial-form" className="w-[110%] sm:w-full -ml-[5%] sm:ml-0">
+                                                <Button className={`w-full rounded-md py-4 sm:py-5 px-1 sm:px-4 text-[9px] sm:text-[13px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.2] transition-all ${plan.buttonClasses}`}>
                                                     {plan.buttonText}
                                                 </Button>
                                             </Link>
