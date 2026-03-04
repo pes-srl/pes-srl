@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function HeroNew() {
     return (
         <section
-            className="relative w-full h-[60vh] min-h-[500px] flex items-center overflow-hidden"
+            className="relative w-full h-[70vh] md:h-[60vh] min-h-[500px] flex items-center overflow-hidden"
             style={{
                 backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/hero-assistente-tati-webp.webp')`,
                 backgroundSize: 'cover',

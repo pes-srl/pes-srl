@@ -180,14 +180,14 @@ export function HeaderNew({
 
 
     const navLinks = [
-        { name: "Vantaggi", href: "#" },
+        { name: "Vantaggi", href: "#vantaggi" },
         { name: "Servizio", href: "#" },
         { name: "Prezzo", href: "#pricing" },
     ];
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-zinc-950/80 backdrop-blur-lg shadow-lg ${isScrolled || pathname?.startsWith("/area-riservata") || pathname?.startsWith("/admin") ? "border-white/10" : "border-transparent py-4"
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-zinc-950/80 backdrop-blur-lg shadow-lg ${isScrolled || pathname?.startsWith("/area-riservata") || pathname?.startsWith("/admin") ? "border-white/10" : "border-transparent"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -197,7 +197,7 @@ export function HeaderNew({
                         <img
                             src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
                             alt="Beautify Channel Logo"
-                            className="h-7 w-auto md:h-8 group-hover:scale-105 transition-transform"
+                            className="h-[38px] w-auto md:h-[42px] group-hover:scale-105 transition-transform"
                         />
                     </Link>
                 </div>
@@ -268,9 +268,21 @@ export function HeaderNew({
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : !isLoading ? (
-                        <Link href="/login" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">
-                            Accedi
-                        </Link>
+                        <>
+                            <Link href="#trial-form" className="hidden md:inline-block">
+                                <Button
+                                    className="text-white hover:opacity-90 transition-opacity font-bold border-0 shadow-lg shadow-fuchsia-900/20"
+                                    style={{ background: 'linear-gradient(254.25deg, #fa12e3 -31.16%, #7612fa 74.17%)' }}
+                                >
+                                    Prova GRATUITA
+                                </Button>
+                            </Link>
+                            <Link href="/login" className="hidden md:inline-block">
+                                <Button variant="outline" className="text-zinc-300 border-zinc-700 bg-transparent hover:bg-zinc-800 hover:text-white transition-colors">
+                                    Accedi
+                                </Button>
+                            </Link>
+                        </>
                     ) : null}
                 </div>
 

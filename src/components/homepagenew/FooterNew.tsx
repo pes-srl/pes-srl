@@ -68,7 +68,7 @@ export function FooterNew() {
 
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-zinc-500 text-sm text-center md:text-left">
-                        &copy; 2026 Beautify Channel. Tutti i diritti riservati.
+                        &copy; 2026 BeautiFy Channel è un progetto di <a href="https://www.pes-srl.it/" target="_blank" rel="noopener noreferrer" className="text-fuchsia-400 hover:text-fuchsia-300 transition-colors font-medium">PES S.r.l.</a> Tutti i diritti riservati.
                     </p>
                     <p className="text-zinc-600 text-xs flex items-center gap-1">
                         Made with <span className="text-red-500">♥</span> in Italy

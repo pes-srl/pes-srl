@@ -1,6 +1,7 @@
 import { HeroNew } from "@/components/homepagenew/HeroNew";
 import { InfoBlocksNew } from "@/components/homepagenew/InfoBlocksNew";
 import { PricingNew } from "@/components/homepagenew/PricingNew";
+import { TestimonialsNew } from "@/components/homepagenew/TestimonialsNew";
 import { BottomCTANew } from "@/components/homepagenew/BottomCTANew";
 
 export default function HomePageNew() {
@@ -17,6 +18,7 @@ export default function HomePageNew() {
                 <HeroNew />
                 <InfoBlocksNew />
                 <PricingNew />
+                <TestimonialsNew />
                 <BottomCTANew />
             </div>
         </main>

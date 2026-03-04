@@ -18,12 +18,13 @@ export function InfoBlocksNew() {
                         transition={{ duration: 0.8 }}
                         className="flex-1 space-y-6"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight font-sans">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans">
                             BeautiFy Channel<br />
                             La tua Beauty Routine Sonora
                         </h2>
-                        <p className="text-zinc-300 text-lg leading-relaxed">
-                            Finalmente anche in Italia lo strumento di vendita, comunicazione e promozione pensato per il tuo istituto di bellezza! Un'esperienza immersiva e personalizzata per il tuo settore!
+                        <p className="text-zinc-300 text-lg md:text-xl leading-relaxed">
+                            <strong>COME FAI SENZA BEAUTIFY?</strong> Finalmente anche in Italia un vero must have per gli istituti di bellezza: il <strong className="text-fuchsia-400">MARKETING SONORO</strong>.<br /><br />
+                            Estremamente innovativo, straordinariamente utile, elegantemente coinvolgente. La soluzione ideata per aumentare le vendite, la professionalità e la customer experience nel tuo salone!
                         </p>
                         <div className="pt-4">
                             <Link href="#trial-form">
@@ -58,11 +59,14 @@ export function InfoBlocksNew() {
                         transition={{ duration: 0.8 }}
                         className="flex-1 space-y-6"
                     >
-                        <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight font-sans">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans">
                             La tua assistente BeautiFy suggerisce elegantemente alle tue clienti, servizi e trattamenti!
                         </h2>
                         <p className="text-zinc-300 text-lg leading-relaxed">
-                            Efficaci suggerimenti vocali e armonie musicali perfettamente contestualizzate, una combo adatta ad informare, fidelizzare e aiutarti ad aumentare le vendite!
+                            Nel corso di un intrattenimento musicale dal sound ricercato, l'assistente digitale interviene con dolcezza e professionalità, per offrire spunti legati al mondo della bellezza e del benessere.
+                        </p>
+                        <p className="text-zinc-300 text-lg leading-relaxed">
+                            Un'eccellenza nell'intrattenimento in salone: una potente combo creata per arricchire il sottofondo musicale con efficaci input promozionali. Il modo più smart e godibile per fidelizzare e aumentare le vendite!
                         </p>
                     </motion.div>
 
@@ -116,24 +120,24 @@ export function InfoBlocksNew() {
                         />
                     </div>
 
-                    <div className="space-y-6 text-zinc-300 text-lg font-medium leading-relaxed max-w-3xl">
+                    <div className="space-y-6 text-zinc-300 text-lg font-medium leading-relaxed max-w-3xl text-left md:text-center">
+                        <h3 className="text-2xl font-bold text-white mb-4">Come? Con un semplice clic.</h3>
+
                         <p>
-                            BeautiFy suona musica adeguata e propone eleganti soluzioni finalizzate a promuovere trattamenti di tecnologie, trattamenti viso e corpo e qualsiasi cosa ti serva comunicare del tuo istituto!<br />
-                            <span className="text-[#FFA5D0]">Un supporto ai tuoi banner e flyer, non dovrai più preoccuparti della comunicazione interna</span>
+                            BeautiFy suona musica adeguata e propone eleganti soluzioni finalizzate a promuovere tecnologie, trattamenti viso e corpo e qualsiasi cosa ti serva comunicare del tuo istituto!<br />
+                            <span className="text-[#FFA5D0]">Questo stimola efficacemente l'interesse delle clienti e sollecita la loro richiesta di informazioni proprio mentre sono nel tuo salone.</span>
                         </p>
 
                         <p>
-                            Nella versione Basic, oltre a BeautiFy Channel, avrai a disposizione altri 6 canali audio:<br />
-                            <span className="text-[#FFA5D0]">Relax, Lounge, Jazz, Massage, Acoustic Vocal e Deep Soft</span>
+                            BeautiFy Channel è un supporto irrinunciabile per la tua professione, perché ti consentirà di <strong>non preoccuparti più della comunicazione interna del tuo salone</strong>, ma di dedicarti e concentrarti pienamente sullo svolgimento del tuo lavoro.
                         </p>
 
                         <p>
-                            Nelle versione Premium, si aggiungono<br />
-                            <span className="text-[#FFA5D0]">Laser Channel e Cosmetic Channel</span>
+                            Inoltre, avrai a disposizione <span className="text-white font-bold">altri 6 canali musicali tematici</span> (Relax, Lounge, Jazz, Massage, Acoustic Vocal e Deep Soft) per cambiare mood durante la giornata, sempre con il supporto della tua assistente digitale.
                         </p>
 
                         <p>
-                            Canali dedicati a tecnologia e cosmetica per quando vuoi promuovere servizi specifici nel tuo istituto
+                            Nelle versione Premium, si aggiungono i canali <strong>Laser</strong> e <strong>Cosmetic</strong>, pensati appositamente per spingere i servizi ad altissimo margine quando ne hai più bisogno.
                         </p>
                     </div>
 
@@ -148,6 +152,7 @@ export function InfoBlocksNew() {
 
                 {/* Block 4: Advantages Comparison */}
                 <motion.div
+                    id="vantaggi"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}

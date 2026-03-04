@@ -16,7 +16,7 @@ const plans = [
         features: [
             "Licenza di diffusione musicale per l'istituto",
             "Assistenza legale per diritti d'autore musicali",
-            "Atmosfere musicali dedicate al mondo Beauty",
+            "Atmosfere musicali dedicate al mondo Beauty, fruibili anche con Alexa",
             "Eleganti suggerimenti vocali di settore per informare e promuovere le vendite",
             "Oltre al canale principale hai a disposizione altri 6 canali: Relax, Lounge, Jazz, Ambient Massage, Vocal e Deep",
         ],
@@ -172,6 +172,22 @@ export function PricingNew() {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Stay Tuned Banner */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="mt-20 pt-16 border-t border-white/10 text-center max-w-2xl mx-auto"
+                >
+                    <p className="text-xl md:text-2xl font-black text-white tracking-widest uppercase mb-4 drop-shadow-md">
+                        Stay Tuned!
+                    </p>
+                    <p className="text-zinc-400 text-lg md:text-xl italic">
+                        Per te altri servizi e grandi opportunità prossimamente in arrivo...
+                    </p>
+                </motion.div>
             </div>
         </section>
     );

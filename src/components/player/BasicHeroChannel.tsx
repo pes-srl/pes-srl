@@ -89,8 +89,8 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                 </div>
 
                 {/* Right side: Abstract Art / Vinyl Visualizer & Play Button */}
-                <div className="hidden md:flex flex-col w-1/3 relative items-center justify-center p-12">
-                    <div className="absolute inset-0 bg-linear-to-l from-black/80 to-transparent pointer-events-none" />
+                <div className="flex flex-col w-full md:w-1/3 relative items-center justify-center p-8 md:p-12 border-t md:border-t-0 md:border-l border-white/5 bg-black/10">
+                    <div className="absolute inset-0 bg-linear-to-b md:bg-linear-to-l from-black/80 to-transparent pointer-events-none" />
 
                     {/* Pulsing rings if active */}
                     {isCurrentlyPlaying && (
