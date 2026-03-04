@@ -23,7 +23,7 @@ export function InfoBlocksNew() {
                             La tua Beauty Routine Sonora
                         </h2>
                         <p className="text-zinc-300 text-lg md:text-xl leading-relaxed">
-                            <strong>COME FAI SENZA BEAUTIFY?</strong> Finalmente anche in Italia un vero must have per gli istituti di bellezza: il <strong className="text-fuchsia-400">MARKETING SONORO</strong>.<br /><br />
+                            Finalmente anche in Italia un vero must have per gli istituti di bellezza: il <strong className="text-fuchsia-400">MARKETING SONORO</strong>.<br /><br />
                             Estremamente innovativo, straordinariamente utile, elegantemente coinvolgente. La soluzione ideata per aumentare le vendite, la professionalità e la customer experience nel tuo salone!
                         </p>
                         <div className="pt-4">
@@ -349,6 +349,6 @@ export function InfoBlocksNew() {
                 </motion.div>
 
             </div>
-        </section>
+        </section >
     );
 }

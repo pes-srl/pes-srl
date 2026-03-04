@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function HeroNew() {
     return (
         <section
-            className="relative w-full min-h-[60vh] md:min-h-screen flex items-end pb-10 md:pb-32 flex-col justify-end overflow-hidden"
+            className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-10 md:pb-32 flex-col justify-end overflow-hidden px-6 md:px-12"
             style={{
                 backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477085817-oajaaf.png')`,
                 backgroundSize: 'cover',
@@ -19,7 +19,7 @@ export function HeroNew() {
             <div className="absolute inset-0 bg-black/40 md:bg-black/30 w-full h-full"></div>
 
             {/* Container for Content */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="relative z-10 w-full max-w-7xl mx-auto">
 
                 {/* Left Side: Text and Buttons */}
                 <motion.div
@@ -34,7 +34,7 @@ export function HeroNew() {
 
                     <Link href="#pricing">
                         <Button
-                            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold tracking-wider uppercase px-10 py-6 text-lg rounded-xl shadow-2xl transition-all border border-emerald-500/50"
+                            className="bg-linear-to-r from-fuchsia-500 to-fuchsia-400 hover:from-fuchsia-400 hover:to-fuchsia-300 text-white font-bold tracking-wider uppercase px-10 py-6 text-lg rounded-full shadow-[0_0_20px_rgba(217,70,239,0.4)] transition-all"
                         >
                             Scoprimi
                         </Button>
