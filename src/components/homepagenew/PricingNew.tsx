@@ -69,15 +69,14 @@ export function PricingNew() {
 
                                 {/* Left Side on PC: Price + CTA */}
                                 <div className="flex flex-col lg:w-1/3 shrink-0 lg:border-r border-zinc-200 lg:pr-8">
-                                    {/* Price block */}
-                                    <div className="text-center mb-8 min-h-[90px] flex items-center justify-center w-full">
+                                    <div className="text-center mb-6 lg:mb-8 min-h-[90px] flex items-center justify-center w-full">
                                         {plan.price && (
-                                            <div className="flex flex-col items-center justify-center text-[#9F00FF] font-black w-full">
-                                                <div className="flex items-start">
+                                            <div className="flex flex-col items-center justify-center text-[#9F00FF] font-black w-full text-center">
+                                                <div className="flex items-start justify-center">
                                                     <span className="text-3xl mt-2 mr-1">€</span>
                                                     <span className="text-7xl leading-none tracking-tighter drop-shadow-sm">{plan.price}</span>
                                                 </div>
-                                                <span className="text-zinc-500 text-lg md:text-xl font-bold mt-2 uppercase tracking-wide">{plan.period}</span>
+                                                <span className="text-zinc-500 text-lg md:text-md font-bold mt-1 uppercase tracking-wide block text-center w-full">{plan.period}</span>
                                             </div>
                                         )}
                                     </div>
@@ -85,8 +84,8 @@ export function PricingNew() {
                                     {/* CTA Button & Footer */}
                                     <div className="mt-8 lg:mt-auto space-y-6">
                                         <div className="flex justify-center w-full">
-                                            <Link href="#trial-form" className="w-full">
-                                                <Button className={`w-full rounded-md py-5 px-6 md:px-8 text-[12px] sm:text-[13px] font-black uppercase tracking-widest text-center whitespace-normal md:whitespace-nowrap leading-tight transition-all ${plan.buttonClasses}`}>
+                                            <Link href="#trial-form" className="w-[108%] sm:w-full -ml-[4%] sm:ml-0">
+                                                <Button className={`w-full rounded-md py-4 sm:py-5 px-1 sm:px-6 text-[10px] sm:text-[13px] font-black uppercase tracking-wide text-center whitespace-normal md:whitespace-nowrap leading-tight transition-all ${plan.buttonClasses}`}>
                                                     {plan.buttonText}
                                                 </Button>
                                             </Link>
@@ -103,8 +102,8 @@ export function PricingNew() {
                                     <ul className="space-y-6">
                                         {plan.features.map((feat, idx) => (
                                             <li key={idx} className="flex items-start gap-4">
-                                                <div className={`mt-1.5 bg-[#9F00FF] shadow-sm rounded-full shrink-0 flex items-center justify-center w-[18px] h-[18px]`}>
-                                                    <Check className="w-3 h-3 text-white stroke-[3.5]" />
+                                                <div className={`mt-1.5 bg-[#9F00FF] shadow-sm rounded-full shrink-0 flex items-center justify-center w-[15px] h-[15px]`}>
+                                                    <Check className="w-[10px] h-[10px] text-white stroke-[3.5]" />
                                                 </div>
                                                 <span className="text-[#333333] font-medium leading-[1.6] text-[14px] lg:text-[15px]">
                                                     {feat}
