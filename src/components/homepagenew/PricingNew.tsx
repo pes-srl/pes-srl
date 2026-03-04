@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
@@ -54,11 +54,11 @@ export function PricingNew() {
                         >
                             {/* Color Header */}
                             <div className={`${plan.headerColor} px-6 pt-10 pb-8 lg:p-12 text-center lg:text-left min-h-[170px] flex flex-col justify-center lg:w-1/3 shrink-0`}>
-                                <h3 className={`text-3xl lg:text-4xl font-black uppercase tracking-wide mb-4 ${plan.headerTextColor}`}>
+                                <h3 className={`text-4xl lg:text-5xl font-black uppercase tracking-wide mb-4 text-white`}>
                                     {plan.name}
                                 </h3>
                                 {plan.subtitle && (
-                                    <p className={`text-sm md:text-base leading-snug whitespace-pre-line ${plan.headerTextColor} opacity-90`}>
+                                    <p className={`text-base md:text-lg lg:text-xl font-medium leading-relaxed whitespace-pre-line text-white`}>
                                         {plan.subtitle}
                                     </p>
                                 )}
@@ -70,7 +70,7 @@ export function PricingNew() {
                                 {/* Left Side on PC: Price + CTA */}
                                 <div className="flex flex-col lg:w-1/3 shrink-0 lg:border-r border-zinc-200 lg:pr-8">
                                     {/* Price block */}
-                                    <div className="text-center lg:text-left mb-8 min-h-[90px] flex items-center justify-center lg:justify-start">
+                                    <div className="text-center mb-8 min-h-[90px] flex items-center justify-center">
                                         {plan.price && (
                                             <div className="flex items-start justify-center text-[#9F00FF] font-black">
                                                 <span className={`text-2xl mt-2 mr-1 ${plan.name === 'Premium' ? 'text-[#DF3745]' : ''}`}>€</span>
@@ -82,9 +82,9 @@ export function PricingNew() {
 
                                     {/* CTA Button & Footer */}
                                     <div className="mt-8 lg:mt-auto space-y-6">
-                                        <div className="flex justify-center">
+                                        <div className="flex justify-center w-full">
                                             <Link href="#trial-form" className="w-full">
-                                                <Button className={`w-full rounded-md h-14 text-[16px] md:text-lg font-bold uppercase tracking-wide transition-all ${plan.buttonClasses}`}>
+                                                <Button className={`w-full rounded-md h-auto py-4 px-2 text-[14px] sm:text-[15px] xl:text-[17px] font-black uppercase tracking-wide whitespace-normal sm:whitespace-nowrap transition-all ${plan.buttonClasses}`}>
                                                     {plan.buttonText}
                                                 </Button>
                                             </Link>
@@ -98,11 +98,11 @@ export function PricingNew() {
 
                                 {/* Right Side on PC: Features List */}
                                 <div className="flex-1">
-                                    <ul className="space-y-5">
+                                    <ul className="space-y-6">
                                         {plan.features.map((feat, idx) => (
                                             <li key={idx} className="flex items-start gap-4">
-                                                <div className={`mt-1 bg-white border border-zinc-200 shadow-sm rounded-full shrink-0 flex items-center justify-center w-5 h-5`}>
-                                                    <CheckCircle2 className="w-4 h-4 text-zinc-800" />
+                                                <div className={`mt-1 bg-[#9F00FF] shadow-md rounded-full shrink-0 flex items-center justify-center w-6 h-6`}>
+                                                    <Check className="w-4 h-4 text-white stroke-[3]" />
                                                 </div>
                                                 <span className="text-[#333333] font-medium leading-[1.6] text-[14px] lg:text-[15px]">
                                                     {feat}
