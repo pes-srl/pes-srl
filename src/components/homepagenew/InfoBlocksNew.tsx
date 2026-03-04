@@ -25,7 +25,9 @@ export function InfoBlocksNew() {
                         <p className="text-zinc-300 text-lg md:text-xl leading-relaxed">
                             Finalmente anche in Italia un vero must have per gli istituti di bellezza: <br className="block md:hidden" />
                             <span className="whitespace-nowrap inline-block mt-1 md:mt-0">il <strong className="text-fuchsia-400">MARKETING SONORO</strong></span><br /><br />
-                            Estremamente innovativo, straordinariamente utile, elegantemente coinvolgente. La soluzione ideata per aumentare le vendite, la professionalità e la customer experience nel tuo salone!
+                            Estremamente innovativo, straordinariamente utile, elegantemente coinvolgente. BeautiFy Channel è la soluzione innovativa di marketing sonoro ideata per aumentare le
+                            vendite, la professionalità e la customer experience nel settore del beauty, inducendo una
+                            piacevole sensazione di coinvolgimento
                         </p>
                         <div className="pt-4">
                             <Link href="#trial-form">
@@ -61,13 +63,16 @@ export function InfoBlocksNew() {
                         className="flex-1 space-y-6"
                     >
                         <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans">
-                            La tua assistente BeautiFy suggerisce elegantemente alle tue clienti, servizi e trattamenti!
+                            Un'eccellenza nell’intrattenimento in istituto
                         </h2>
                         <p className="text-zinc-300 text-lg leading-relaxed">
-                            Nel corso di un intrattenimento musicale dal sound ricercato, l'assistente digitale interviene con dolcezza e professionalità, per offrire spunti legati al mondo della bellezza e del benessere.
+                            In grado di arricchire un raffinato sottofondo
+                            sonoro - scelto in perfetta coerenza con il settore - con efficaci input informativi e
+                            promozionali.
                         </p>
                         <p className="text-zinc-300 text-lg leading-relaxed">
-                            Un'eccellenza nell'intrattenimento in salone: una potente combo creata per arricchire il sottofondo musicale con efficaci input promozionali. Il modo più smart e godibile per fidelizzare e aumentare le vendite!
+                            Una potente combo creata per regalare alle tue clienti momenti di immediate e coinvolgenti
+                            sensazioni, aiutandoti ad aumentare le vendite in un modo mai così smart e godibile!
                         </p>
                     </motion.div>
 
@@ -105,8 +110,59 @@ export function InfoBlocksNew() {
                     className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pt-16 space-y-8"
                 >
                     <h2 className="text-2xl md:text-4xl font-bold text-white leading-snug">
-                        Comunicazione e armonie musicali, studiate per rendere innovativa l'esperienza nel tuo istituto!
+                        Come? Con un semplice clic per accendere in modo semplice a BeautiFy Channel
                     </h2>
+
+                    {/* 4 Elegant Square Blocks */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl pt-8 pb-12">
+                        {/* Block 1 */}
+                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center aspect-square shadow-2xl hover:bg-white/10 transition-all duration-300">
+                            <div className="w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center mb-6 text-fuchsia-400 shrink-0">
+                                <span className="text-xl font-bold">1</span>
+                            </div>
+                            <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                Nel corso di un intrattenimento musicale dal sound ricercato, l’assistente digitale BeautiFy
+                                interviene, con dolcezza e professionalità, per offrire spunti generici legati al mondo della
+                                bellezza e del benessere, regalando così una vera e propria beauty routine sonora
+                            </p>
+                        </div>
+
+                        {/* Block 2 */}
+                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center aspect-square shadow-2xl hover:bg-white/10 transition-all duration-300">
+                            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 shrink-0">
+                                <span className="text-xl font-bold">2</span>
+                            </div>
+                            <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                Questo stimola efficacemente l’interesse delle clienti e sollecita la loro richiesta di informazioni
+                                su prodotti e trattamenti proprio mentre sono nel tuo salone, creando una percezione positiva
+                                dell’ambiente che ne aumenta la fidelizzazione
+                            </p>
+                        </div>
+
+                        {/* Block 3 */}
+                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center aspect-square shadow-2xl hover:bg-white/10 transition-all duration-300">
+                            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-6 text-blue-400 shrink-0">
+                                <span className="text-xl font-bold">3</span>
+                            </div>
+                            <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                BeautiFy Channel è un supporto irrinunciabile per la tua professione, perché ti consentirà di non
+                                preoccuparti più della comunicazione interna del tuo salone, ma di dedicarti e concentrarti
+                                pienamente sullo svolgimento del tuo lavoro
+                            </p>
+                        </div>
+
+                        {/* Block 4 */}
+                        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 flex flex-col items-center justify-center text-center aspect-square shadow-2xl hover:bg-white/10 transition-all duration-300">
+                            <div className="w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center mb-6 text-fuchsia-400 shrink-0">
+                                <span className="text-xl font-bold">4</span>
+                            </div>
+                            <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                Inoltre, BeautiFy Channel ti mette a disposizione altri 6 canali oltre al canale principale, per cambiare mood durante la
+                                giornata, magari con DEEP SOFT nel weekend o Jazz a fine giornata, sempre con il supporto dell’assistente digitale
+                                BeautiFy
+                            </p>
+                        </div>
+                    </div>
 
                     <div className="space-y-2">
                         <p className="text-white text-xl font-medium tracking-wide">QUANTO MI COSTA?</p>
@@ -122,21 +178,6 @@ export function InfoBlocksNew() {
                     </div>
 
                     <div className="space-y-6 text-zinc-300 text-lg font-medium leading-relaxed max-w-3xl text-left md:text-center">
-                        <h3 className="text-2xl font-bold text-white mb-4">Come? Con un semplice clic.</h3>
-
-                        <p>
-                            BeautiFy suona musica adeguata e propone eleganti soluzioni finalizzate a promuovere tecnologie, trattamenti viso e corpo e qualsiasi cosa ti serva comunicare del tuo istituto!<br />
-                            <span className="text-[#FFA5D0]">Questo stimola efficacemente l'interesse delle clienti e sollecita la loro richiesta di informazioni proprio mentre sono nel tuo salone.</span>
-                        </p>
-
-                        <p>
-                            BeautiFy Channel è un supporto irrinunciabile per la tua professione, perché ti consentirà di <strong>non preoccuparti più della comunicazione interna del tuo salone</strong>, ma di dedicarti e concentrarti pienamente sullo svolgimento del tuo lavoro.
-                        </p>
-
-                        <p>
-                            Inoltre, avrai a disposizione <span className="text-white font-bold">altri 6 canali musicali tematici</span> (Relax, Lounge, Jazz, Massage, Acoustic Vocal e Deep Soft) per cambiare mood durante la giornata, sempre con il supporto della tua assistente digitale.
-                        </p>
-
                         <p>
                             Nelle versione Premium, si aggiungono i canali <strong>Laser</strong> e <strong>Cosmetic</strong>, pensati appositamente per spingere i servizi ad altissimo margine quando ne hai più bisogno.
                         </p>
