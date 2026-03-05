@@ -103,7 +103,7 @@ export function BottomCTANew() {
                             <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 backdrop-blur-md mb-6 shadow-[0_0_30px_rgba(217,70,239,0.2)]">
                                 <Sparkles className="w-8 h-8 text-fuchsia-400" />
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 tracking-tight">
                                 Inizia la Prova Gratuita
                             </h2>
                             <p className="text-zinc-400 text-lg">

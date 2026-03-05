@@ -116,7 +116,7 @@ export function InfoBlocksNew() {
                         className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto pt-24 space-y-8"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                            <span className="text-4xl md:text-6xl block mb-4 text-white-400 font-black">Come?</span>
+                            <span className="text-5xl md:text-7xl lg:text-8xl block mb-4 text-white-400 font-black">Come?</span>
                             Con un semplice clic accedendo in modo semplice e <br className="hidden md:block" />
                             sicuro a BeautiFy Channel
                         </h2>
