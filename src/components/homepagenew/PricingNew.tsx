@@ -154,6 +154,22 @@ export function PricingNew() {
                     </div>
                 </motion.div>
 
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    className="text-center mt-24 mb-6 space-y-6"
+                >
+                    <h2 className="text-3xl md:text-5xl font-black mb-2 text-white leading-tight tracking-tight">
+                        Con BeautiFy acquisisci un potente, elegante<br className="hidden md:block" />
+                        strumento di vendita e promozione che...
+                    </h2>
+                    <p className="text-[#FFA5D0] max-w-4xl mx-auto text-2xl md:text-4xl font-light italic tracking-wider drop-shadow-md">
+                        TRASFORMA RADICALMENTE L'ATMOSFERA DEL TUO ISTITUTO!
+                    </p>
+                </motion.div>
+
                 {/* Stay Tuned Banner */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
