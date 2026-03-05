@@ -111,8 +111,10 @@ export function InfoBlocksNew() {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pt-16 space-y-8"
                     >
-                        <h2 className="text-2xl md:text-4xl font-bold text-white leading-snug">
-                            Come? Con un semplice clic per accendere in modo semplice a BeautiFy Channel
+                        <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
+                            <span className="text-4xl md:text-6xl block mb-4 text-white-400">Come?</span>
+                            Con un semplice clic accedendo in modo semplice e <br className="hidden md:block" />
+                            sicuro a BeautiFy Channel
                         </h2>
 
                         {/* 4 Elegant Square Blocks */}

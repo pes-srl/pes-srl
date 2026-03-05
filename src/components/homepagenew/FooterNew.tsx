@@ -25,7 +25,7 @@ export function FooterNew() {
                             className="h-12 w-auto mb-6 transition-all duration-300"
                         />
                         <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                            La tua radio in-store dedicata. Un vero strumento di marketing per il tuo istituto, studiato per rendere innovativa l'esperienza nel tuo Istituto.
+                            Un vero strumento di audio marketing per il tuo settore, studiato per rendere innovativa l'esperienza nel tuo Istituto.
                         </p>
                         <div className="flex items-center gap-4">
                             <a href="https://www.instagram.com/beautify_channel/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 hover:text-fuchsia-400 hover:bg-fuchsia-500/10 transition-all">
@@ -60,7 +60,7 @@ export function FooterNew() {
                             </li>
                             <li className="flex items-start gap-3 text-zinc-400 text-sm">
                                 <Mail size={18} className="text-fuchsia-400 shrink-0" />
-                                <span>info@beautifychannel.it</span>
+                                <span>info@beautify-channel.it</span>
                             </li>
                         </ul>
                     </div>

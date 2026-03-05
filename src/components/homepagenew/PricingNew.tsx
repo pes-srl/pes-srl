@@ -16,7 +16,7 @@ const plans = [
         features: [
             "Licenza di diffusione musicale per l'istituto",
             "Assistenza legale per diritti d'autore musicali",
-            "Atmosfere musicali dedicate al mondo Beauty, fruibili anche con Alexa",
+            "Atmosfere musicali dedicate al mondo Beauty",
             "Eleganti suggerimenti vocali di settore per informare e promuovere le vendite",
             "Oltre al canale principale hai a disposizione altri 6 canali: Relax, Lounge, Jazz, Ambient Massage, Vocal e Deep",
         ],

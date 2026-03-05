@@ -196,7 +196,7 @@ export function BottomCTANew() {
                                     disabled={isLoading}
                                     className="w-full h-16 mt-4 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-2xl font-bold text-lg shadow-[0_0_25px_rgba(147,51,234,0.4)] transition-all tracking-wide"
                                 >
-                                    {isLoading ? "Creazione account in corso..." : "INIZIA SUBITO LA PROVA 🚀"}
+                                    {isLoading ? "Creazione account in corso..." : "INIZIA SUBITO LA PROVA GRATUITA 🚀"}
                                 </Button>
                             </div>
                         </form>
