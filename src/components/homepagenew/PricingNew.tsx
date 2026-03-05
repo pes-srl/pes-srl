@@ -53,8 +53,7 @@ export function PricingNew() {
                         >
                             {/* Color Header */}
                             <div
-                                className={`px-6 pt-10 pb-8 lg:p-12 text-center lg:text-left min-h-[170px] flex flex-col justify-center lg:w-1/3 shrink-0`}
-                                style={plan.name === "Basic" ? { background: 'linear-gradient(90deg, #2D0A4E 0%, #7B2CBF 50%, #F5F3F7 100%)' } : { backgroundColor: '#9F00FF' }}
+                                className={`px-6 pt-10 pb-8 lg:p-12 text-center lg:text-left min-h-[170px] flex flex-col justify-center lg:w-1/3 shrink-0 bg-[#9F00FF]`}
                             >
                                 <h3 className={`text-4xl lg:text-5xl font-black uppercase tracking-wide mb-4 text-white`}>
                                     {plan.name}
@@ -88,8 +87,7 @@ export function PricingNew() {
                                         <div className="flex justify-center w-full px-0 sm:px-0">
                                             <Link href="#trial-form" className="w-[110%] sm:w-full -ml-[5%] sm:ml-0">
                                                 <Button
-                                                    className={`w-full rounded-md h-auto py-5 sm:py-5 px-1 sm:px-4 text-[9px] sm:text-[13px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.3] transition-all ${plan.buttonClasses}`}
-                                                    style={(plan as any).buttonStyle}
+                                                    className={`w-full rounded-md h-auto py-5 sm:py-5 px-1 sm:px-4 text-[9px] sm:text-[13px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.3] transition-all bg-[#7B2CBF] hover:bg-[#6A25A3] ${plan.buttonClasses}`}
                                                 >
                                                     {plan.buttonText}
                                                 </Button>
@@ -219,20 +217,26 @@ export function PricingNew() {
                     </p>
                 </motion.div>
 
-                {/* Stay Tuned Banner */}
+                {/* WhatsApp CTA - Moved here */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-20 pt-16 border-t border-white/10 text-center max-w-2xl mx-auto"
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                    className="pt-16 pb-0 flex flex-col items-center justify-center text-center space-y-6 border-t border-white/10"
                 >
-                    <p className="text-xl md:text-2xl font-black text-white tracking-widest uppercase mb-4 drop-shadow-md">
-                        Stay Tuned!
-                    </p>
-                    <p className="text-zinc-400 text-lg md:text-xl italic">
-                        Per te altri servizi e grandi opportunità prossimamente in arrivo...
-                    </p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
+                        CHIEDICI ALTRE INFO
+                    </h2>
+                    <a
+                        href="https://wa.link/5apci9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg md:text-xl rounded-full px-10 py-4 shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all hover:scale-105 gap-3"
+                    >
+                        Scrivici su WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    </a>
                 </motion.div>
             </div>
         </section>

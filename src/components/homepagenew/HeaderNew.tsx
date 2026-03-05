@@ -271,8 +271,7 @@ export function HeaderNew({
                         <>
                             <Link href="#trial-form" className="hidden md:inline-block">
                                 <Button
-                                    className="text-white hover:brightness-110 transition-all font-bold border-0 shadow-lg shadow-[#2D0A4E]/20"
-                                    style={{ background: 'linear-gradient(90deg, #2D0A4E 0%, #7B2CBF 50%, #F5F3F7 100%)' }}
+                                    className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg shadow-[#2D0A4E]/20"
                                 >
                                     Prova GRATUITA
                                 </Button>
@@ -331,8 +330,7 @@ export function HeaderNew({
                                 </Link>
                                 <Link href="#trial-form" onClick={() => setIsMobileMenuOpen(false)}>
                                     <Button
-                                        className="w-full text-white hover:brightness-110 transition-all font-bold border-0 shadow-lg"
-                                        style={{ background: 'linear-gradient(90deg, #2D0A4E 0%, #7B2CBF 50%, #F5F3F7 100%)' }}
+                                        className="w-full bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg"
                                     >
                                         Prova GRATUITA
                                     </Button>

@@ -88,13 +88,13 @@ export function ChannelGrid({ initialChannels, serverError }: ChannelGridProps) 
                             {/* Play Button Overlay */}
                             <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                                 <div className={`
-                                    w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-lg shadow-fuchsia-500/20
-                                    ${isActive ? 'bg-fuchsia-600 outline-4 outline-fuchsia-500/30' : 'bg-fuchsia-500/90 text-white group-hover:scale-110'}
+                                    w-16 h-16 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-lg shadow-fuchsia-500/20 bg-white
+                                    ${isActive ? 'outline-4 outline-fuchsia-500/30 ring-2 ring-fuchsia-400' : 'group-hover:scale-110'}
                                 `}>
                                     {isCurrentlyPlaying ? (
-                                        <Pause className="w-8 h-8 fill-current text-white" />
+                                        <Pause className="w-8 h-8 fill-white stroke-black stroke-[2px]" />
                                     ) : (
-                                        <Play className="w-8 h-8 fill-current text-white ml-1" />
+                                        <Play className="w-8 h-8 fill-white stroke-black stroke-[2px] ml-1" />
                                     )}
                                 </div>
                             </div>

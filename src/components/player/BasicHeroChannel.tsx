@@ -137,24 +137,21 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         onClick={handlePlayClick}
                         className={`
                             flex items-center justify-center gap-3 w-3/4
-                            px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl relative z-20
+                            px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl relative z-20 bg-white
                             ${isActive
-                                ? 'bg-white text-zinc-950 hover:bg-zinc-200 shadow-white/10'
-                                : (isPremium
-                                    ? 'bg-linear-to-r from-amber-600 to-orange-600 text-white hover:scale-105 hover:shadow-amber-500/25'
-                                    : 'bg-linear-to-r from-fuchsia-600 to-indigo-600 text-white hover:scale-105 hover:shadow-fuchsia-500/25'
-                                )
+                                ? 'text-zinc-950 hover:bg-zinc-200 shadow-white/10'
+                                : 'text-zinc-950 hover:scale-105 hover:bg-zinc-100'
                             }
                         `}
                     >
                         {isCurrentlyPlaying ? (
                             <>
-                                <Pause className="w-6 h-6 fill-current" />
+                                <Pause className="w-6 h-6 fill-white stroke-black stroke-[2px]" />
                                 <span>Metti in Pausa</span>
                             </>
                         ) : (
                             <>
-                                <Play className="w-6 h-6 fill-current ml-1" />
+                                <Play className="w-6 h-6 fill-white stroke-black stroke-[2px] ml-1" />
                                 <span>{isActive ? 'Play' : 'Ascolta Ora'}</span>
                             </>
                         )}
