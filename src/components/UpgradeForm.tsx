@@ -217,33 +217,47 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                 Durata abbonamento*
               </label>
               <div className="flex flex-col sm:flex-row gap-4 mb-2">
-                <label className="flex items-center gap-2 text-white cursor-pointer bg-black/40 px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors">
-                  <input
-                    type="radio"
-                    name="durataAbbonamento"
-                    value="6 mesi"
-                    checked={durataAbbonamento === '6 mesi'}
-                    onChange={() => setDurataAbbonamento('6 mesi')}
-                    className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
-                  />
-                  6 mesi
+                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '6 mesi' ? 'bg-fuchsia-600/20 border-fuchsia-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
+                  <div className="flex items-center gap-2 text-white font-bold text-lg">
+                    <input
+                      type="radio"
+                      name="durataAbbonamento"
+                      value="6 mesi"
+                      checked={durataAbbonamento === '6 mesi'}
+                      onChange={() => setDurataAbbonamento('6 mesi')}
+                      className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                    />
+                    6 mesi
+                  </div>
+                  <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '6 mesi' ? 'text-fuchsia-300' : 'text-zinc-500'}`}>
+                    € 25,90 / mese
+                    <br />
+                    <span className="text-[10px] sm:text-[11px] font-normal leading-tight hidden text-zinc-400 mt-1 block">
+                      (pagamento unica soluzione)
+                    </span>
+                  </div>
                 </label>
-                <label className="flex items-center gap-2 text-white cursor-pointer bg-black/40 px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors">
-                  <input
-                    type="radio"
-                    name="durataAbbonamento"
-                    value="12 mesi"
-                    checked={durataAbbonamento === '12 mesi'}
-                    onChange={() => setDurataAbbonamento('12 mesi')}
-                    className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
-                  />
-                  12 mesi
+
+                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '12 mesi' ? 'bg-fuchsia-600/20 border-fuchsia-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
+                  <div className="flex items-center gap-2 text-white font-bold text-lg">
+                    <input
+                      type="radio"
+                      name="durataAbbonamento"
+                      value="12 mesi"
+                      checked={durataAbbonamento === '12 mesi'}
+                      onChange={() => setDurataAbbonamento('12 mesi')}
+                      className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                    />
+                    12 mesi
+                  </div>
+                  <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '12 mesi' ? 'text-fuchsia-300' : 'text-zinc-500'}`}>
+                    € 20,90 / mese
+                    <br />
+                    <span className="text-[10px] sm:text-[11px] font-normal leading-tight hidden text-zinc-400 mt-1 block">
+                      (pagamento unica soluzione)
+                    </span>
+                  </div>
                 </label>
-              </div>
-              <div className="mt-1 text-sm text-fuchsia-400 font-medium italic">
-                {durataAbbonamento === '6 mesi'
-                  ? '€ 25,90 / mese (pagamento unica soluzione)'
-                  : '€ 20,90 / mese (pagamento unica soluzione)'}
               </div>
             </div>
             {/* Responsabile istituto */}
