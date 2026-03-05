@@ -130,44 +130,6 @@ export function BottomCTANew() {
                     </motion.div>
                 </div>
 
-                {/* 2. Three Steps Guide */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-12"
-                >
-                    <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide">
-                        Accedi un'atmosfera innovativa nel tuo istituto in 3<br className="hidden md:block" />
-                        passaggi
-                    </h2>
-
-                    <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {[
-                            { step: "1", text: "Registrati in pochi secondi nel form qui sotto e inizia la prova gratuita!" },
-                            { step: "2", text: "Accedi dal tuo dispositivo preferito (PC, Mac, smartphone, tablet)" },
-                            { step: "3", text: "Premi Play sul canale che preferisci e lascia che BeautiFy faccia il resto" }
-                        ].map((item) => (
-                            <div key={item.step} className="bg-white rounded-[20px] p-8 text-center shadow-xl space-y-4">
-                                <span className="block text-6xl font-black text-[#9F00FF] mb-6 drop-shadow-sm">
-                                    {item.step}
-                                </span>
-                                <p className="text-[#333333] font-bold text-[15px] leading-snug">
-                                    {item.text}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center pt-8">
-                        <Link href="#trial-form">
-                            <Button className="bg-[#DF27F1] hover:bg-[#c31dd6] text-white font-black text-sm md:text-base px-8 py-6 rounded-md uppercase tracking-wide shadow-[0_0_30px_rgba(223,39,241,0.4)] transition-all">
-                                PROVA GRATUITA 7 GIORNI SENZA IMPEGNO
-                            </Button>
-                        </Link>
-                    </div>
-                </motion.div>
 
                 {/* 3. Registration Form (Imported from provagratis) */}
                 <motion.div
