@@ -166,9 +166,7 @@ export function InfoBlocksNew() {
                                 </div>
                                 <div className="flex-1 flex flex-col justify-center">
                                     <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
-                                        Inoltre, BeautiFy Channel ti mette a disposizione altri 6 canali oltre al canale principale, per cambiare mood durante la
-                                        giornata, magari con DEEP SOFT nel weekend o Jazz a fine giornata, sempre con il supporto dell’assistente digitale
-                                        BeautiFy
+                                        Inoltre, BeautiFy Channel ti mette a disposizione altri 6 canali audio oltre al canale principale, per cambiare mood durante la giornata, magari con DEEP SOFT nel weekend o Jazz nell'orario di chiusura, sempre con il supporto di suggerimenti audio dell’assistente digitale BeautiFy
                                     </p>
                                 </div>
                             </div>

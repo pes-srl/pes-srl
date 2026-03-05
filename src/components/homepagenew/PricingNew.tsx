@@ -132,7 +132,7 @@ export function PricingNew() {
                             LASER CHANNEL
                         </h3>
                         <p className="text-[#554868] text-sm md:text-[15px] font-medium leading-snug relative z-10 transition-all">
-                            *Lo ottieni con il piano Premium.<br />
+                            *Lo ottieni con il piano <span className="text-[#D1A054] font-bold">Premium</span>.<br />
                             Lo puoi utilizzare quando vuoi promuovere i tuoi<br />
                             pacchetti dedicati a laser e tecnologie
                         </p>
@@ -147,7 +147,7 @@ export function PricingNew() {
                             COSMETIC CHANNEL
                         </h3>
                         <p className="text-white text-sm md:text-[15px] font-medium leading-snug drop-shadow-sm relative z-10 transition-all">
-                            **Incluso nel piano Premium<br />
+                            **Incluso nel piano <span className="text-[#D1A054] font-bold">Premium</span><br />
                             Lo puoi utilizzare in istituto quando vuoi<br />
                             promuovere servizi di cosmetica
                         </p>
@@ -163,8 +163,8 @@ export function PricingNew() {
                     className="space-y-12 mt-24"
                 >
                     <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide">
-                        Accedi un'atmosfera innovativa nel tuo istituto in 3<br className="hidden md:block" />
-                        passaggi
+                        Accedi un'atmosfera innovativa nel tuo istituto in<br />
+                        3 passaggi
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
