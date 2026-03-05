@@ -19,8 +19,8 @@ const MOCK_DATA = {
 };
 
 import { createClient } from "@/utils/supabase/client";
-import { useEffect, useState } from "react";
-import { Loader2 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { Loader2, Play, Pause, Volume2 } from "lucide-react";
 import Link from "next/link";
 
 interface Articolo {
@@ -29,6 +29,56 @@ interface Articolo {
     immagine_copertina: string | null;
     contenuto: string;
     created_at: string;
+}
+
+function CustomAudioPlayer({ src }: { src: string }) {
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [progress, setProgress] = useState(0);
+
+    const togglePlay = () => {
+        if (audioRef.current) {
+            if (isPlaying) {
+                audioRef.current.pause();
+            } else {
+                audioRef.current.play();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    };
+
+    const handleTimeUpdate = () => {
+        if (audioRef.current) {
+            const current = audioRef.current.currentTime;
+            const duration = audioRef.current.duration;
+            if (duration) {
+                setProgress((current / duration) * 100);
+            }
+        }
+    };
+
+    const handleEnded = () => {
+        setIsPlaying(false);
+        setProgress(0);
+    };
+
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px', backgroundColor: '#111', padding: '15px 20px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.1)', marginTop: '10px' }}>
+            <button onClick={togglePlay} style={{ width: '44px', height: '44px', borderRadius: '50%', backgroundColor: '#fff', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', border: 'none', cursor: 'pointer', flexShrink: 0 }}>
+                {isPlaying ? <Pause size={20} fill="currentColor" /> : <Play size={20} fill="currentColor" style={{ marginLeft: '4px' }} />}
+            </button>
+            <div style={{ flexGrow: 1, height: '4px', backgroundColor: '#333', borderRadius: '2px', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: `${progress}%`, backgroundColor: '#fff', transition: 'width 0.1s linear' }} />
+            </div>
+            <Volume2 size={20} color="#666" style={{ flexShrink: 0 }} />
+            <audio
+                ref={audioRef}
+                src={src}
+                onTimeUpdate={handleTimeUpdate}
+                onEnded={handleEnded}
+            />
+        </div>
+    );
 }
 
 export default function MediaHub() {
@@ -66,24 +116,21 @@ export default function MediaHub() {
                 {/* Sezione News Audio */}
                 <section style={styles.section}>
                     <h2 style={styles.sectionTitle}>
-                        <span style={styles.icon}>🎙️</span> News Audio
+                        <span style={styles.icon}>AUDIO</span>
                     </h2>
                     <div style={styles.audioCard}>
                         <div style={styles.audioInfo}>
                             <h3 style={styles.audioTitle}>{MOCK_DATA.newsAudio.title}</h3>
                             <p style={styles.audioDate}>{MOCK_DATA.newsAudio.date}</p>
                         </div>
-                        <audio controls style={styles.audioPlayer}>
-                            <source src={MOCK_DATA.newsAudio.audioSrc} type="audio/mpeg" />
-                            Il tuo browser non supporta l'elemento audio.
-                        </audio>
+                        <CustomAudioPlayer src={MOCK_DATA.newsAudio.audioSrc} />
                     </div>
                 </section>
 
                 {/* Sezione Blog/Articoli */}
                 <section style={styles.section}>
                     <h2 style={styles.sectionTitle}>
-                        <span style={styles.icon}>📰</span> Ultimi Articoli
+                        <span style={styles.icon}>LATEST STORIES</span>
                     </h2>
 
                     {isLoading ? (
@@ -139,7 +186,7 @@ export default function MediaHub() {
                 {/* Sezione Video */}
                 <section style={styles.section}>
                     <h2 style={styles.sectionTitle}>
-                        <span style={styles.icon}>📺</span> Video In Evidenza
+                        <span style={styles.icon}>FEATURED VISUALS</span>
                     </h2>
                     <div style={styles.videoContainer}>
                         {MOCK_DATA.videos.map((video) => (
@@ -175,9 +222,30 @@ export default function MediaHub() {
           transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
+        /* Stili CSS interattivi isolati (Premium Redesign) */
+        .article-card {
+          transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+        }
+        .article-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.15);
+          border-color: rgba(212, 175, 55, 0.4);
+        }
+        .article-card:hover .card-img {
+          transform: scale(1.05);
+        }
+        .card-img {
+          transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
         /* Custom Audio Player resets for Webkit */
         audio::-webkit-media-controls-panel {
-          background-color: #f1f5f9;
+          background-color: #1a1a1a;
+          color: #fff;
+        }
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: #fff;
         }
         
         /* Utility styles for article preview */
@@ -189,141 +257,146 @@ export default function MediaHub() {
         }
         .prose-invert p {
           margin: 0;
-          color: #94a3b8;
+          color: #a3a3a3; /* text-neutral-400 */
           font-size: 0.95rem;
-          line-height: 1.5;
+          line-height: 1.6;
+          font-weight: 300;
         }
       `}</style>
         </div>
     );
 }
 
-// Inline Styles (Vanilla CSS object)
+// Inline Styles (Premium/Exclusive Theme)
 const styles = {
     pageContainer: {
-        fontFamily: "'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-        backgroundColor: "#030712", // Very dark sleek background
-        color: "#f8fafc",
+        fontFamily: "'Outfit', 'Inter', 'Segoe UI', sans-serif",
+        backgroundColor: "#050505", // Deepest black
+        backgroundImage: "radial-gradient(circle at 50% 0%, #151515 0%, #050505 70%)",
+        color: "#ffffff",
         minHeight: "100vh",
-        padding: "60px 20px",
+        padding: "80px 20px",
     },
     header: {
         textAlign: "center" as const,
-        marginBottom: "50px",
+        marginBottom: "80px",
     },
     mainTitle: {
-        fontSize: "3.5rem",
-        fontWeight: "900",
-        margin: "0 0 10px 0",
-        letterSpacing: "-0.02em",
-        background: "linear-gradient(135deg, #a855f7, #3b82f6)",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
+        fontSize: "4.5rem",
+        fontWeight: "400",
+        margin: "0 0 15px 0",
+        letterSpacing: "-0.03em",
+        color: "#ffffff",
+        textTransform: "uppercase" as const,
     },
     subtitle: {
-        fontSize: "1.2rem",
-        color: "#94a3b8",
+        fontSize: "1.1rem",
+        color: "#D4AF37", // Metallic Gold
         margin: 0,
-        fontWeight: "400",
+        fontWeight: "300",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase" as const,
     },
     mainContent: {
-        maxWidth: "1000px",
+        maxWidth: "1100px",
         margin: "0 auto",
         display: "flex",
         flexDirection: "column" as const,
-        gap: "60px",
+        gap: "80px",
     },
     section: {
-        backgroundColor: "#0f172a",
-        borderRadius: "20px",
-        padding: "35px",
-        border: "1px solid #1e293b",
-        boxShadow: "0 10px 30px -5px rgba(0, 0, 0, 0.3)",
+        backgroundColor: "transparent",
     },
     sectionTitle: {
-        display: "flex",
-        alignItems: "center",
-        gap: "10px",
-        fontSize: "1.8rem",
-        fontWeight: "700",
-        margin: "0 0 25px 0",
+        fontSize: "0.85rem",
+        fontWeight: "300",
+        margin: "0 0 30px 0",
         paddingBottom: "15px",
-        borderBottom: "1px solid #1e293b",
-        color: "#f8fafc",
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
+        color: "#ffffff",
+        letterSpacing: "0.25em",
+        textTransform: "uppercase" as const,
     },
     icon: {
-        fontSize: "2rem",
+        opacity: 0.6,
+        color: "#ffffff",
     },
     audioCard: {
-        backgroundColor: "#1e293b",
+        backgroundColor: "#0a0a0a",
         borderRadius: "16px",
-        padding: "25px",
-        border: "1px solid #334155",
+        padding: "30px",
+        border: "1px solid rgba(255,255,255,0.1)",
         display: "flex",
         flexDirection: "column" as const,
-        gap: "15px",
+        gap: "20px",
+        boxShadow: "0 20px 40px rgba(0,0,0,0.5)",
     },
     audioInfo: {
         display: "flex",
         flexDirection: "column" as const,
-        gap: "4px",
+        gap: "8px",
     },
     audioTitle: {
         margin: 0,
-        fontSize: "1.3rem",
-        fontWeight: "600",
-        color: "#f1f5f9",
+        fontSize: "1.5rem",
+        fontWeight: "400",
+        color: "#ffffff",
     },
     audioDate: {
         margin: 0,
-        fontSize: "0.9rem",
-        color: "#94a3b8",
+        fontSize: "0.85rem",
+        color: "#ffffff",
+        letterSpacing: "0.1em",
+        textTransform: "uppercase" as const,
     },
     audioPlayer: {
         width: "100%",
-        marginTop: "5px",
+        marginTop: "10px",
         outline: "none",
-        borderRadius: "8px",
+        borderRadius: "0",
+        filter: "invert(1) grayscale(1) brightness(1.5)", // Trucco CSS per scurire il player nativo
     },
     grid: {
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-        gap: "30px",
+        gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+        gap: "40px",
     },
     card: {
-        backgroundColor: "#1e293b",
+        backgroundColor: "#0a0a0a",
         borderRadius: "16px",
         overflow: "hidden",
-        border: "1px solid #334155",
-        cursor: "pointer", // Ora sono cliccabili
+        border: "1px solid rgba(255,255,255,0.05)",
+        cursor: "pointer",
         display: "flex",
         flexDirection: "column" as const,
-        height: "100%", // Fa sì che le card abbiano altezza uniforme
+        height: "100%",
     },
     imageOverflow: {
         width: "100%",
-        height: "180px",
-        overflow: "hidden", // Contiene l'ingrandimento dell'immagine
+        height: "220px",
+        overflow: "hidden",
     },
     cardImage: {
         width: "100%",
         height: "100%",
         objectFit: "cover" as const,
         display: "block",
+        filter: "contrast(1.1) brightness(0.9)", // Moody look
     },
     cardContent: {
-        padding: "25px",
-        flexGrow: 1, // Spinge l'eventuale contenuto vuoto in fondo
+        padding: "30px",
+        flexGrow: 1,
         display: "flex",
         flexDirection: "column" as const,
-        gap: "10px",
+        gap: "15px",
+        backgroundColor: "#0a0a0a",
     },
     cardTitle: {
-        fontSize: "1.25rem",
-        fontWeight: "700",
-        margin: "0 0 5px 0",
-        color: "#f1f5f9",
-        lineHeight: "1.4",
+        fontSize: "1.4rem",
+        fontWeight: "400",
+        margin: "0 0 10px 0",
+        color: "#ffffff",
+        lineHeight: "1.3",
         display: "-webkit-box",
         WebkitLineClamp: 2,
         WebkitBoxOrient: "vertical" as const,
@@ -331,22 +404,23 @@ const styles = {
     },
     articleDate: {
         fontSize: "0.75rem",
-        color: "#a855f7",
-        fontWeight: "600",
+        color: "#ffffff",
+        fontWeight: "400",
         margin: 0,
         textTransform: "uppercase" as const,
-        letterSpacing: "0.05em",
+        letterSpacing: "0.15em",
     },
     cardText: {
-        fontSize: "1rem",
+        fontSize: "0.95rem",
         lineHeight: "1.6",
-        color: "#94a3b8",
+        color: "#a3a3a3",
         margin: 0,
+        fontWeight: "300",
     },
     videoContainer: {
         display: "flex",
         flexDirection: "column" as const,
-        gap: "20px",
+        gap: "40px",
     },
     videoWrapper: {
         position: "relative" as const,
@@ -355,7 +429,8 @@ const styles = {
         overflow: "hidden",
         borderRadius: "16px",
         backgroundColor: "#000",
-        border: "1px solid #334155",
+        border: "1px solid rgba(255,255,255,0.1)",
+        boxShadow: "0 30px 60px rgba(0,0,0,0.6)",
     },
     iframe: {
         position: "absolute" as const,
@@ -363,5 +438,6 @@ const styles = {
         left: 0,
         width: "100%",
         height: "100%",
+        filter: "contrast(1.05)",
     },
 };
