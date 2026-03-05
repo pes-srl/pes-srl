@@ -224,7 +224,7 @@ export function PricingNew() {
                     transition={{ duration: 0.8 }}
                     className="pt-16 pb-0 flex flex-col items-center justify-center text-center space-y-6 border-t border-white/10"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
+                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide">
                         CHIEDICI ALTRE INFO
                     </h2>
                     <a
