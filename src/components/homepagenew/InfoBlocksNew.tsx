@@ -174,23 +174,14 @@ export function InfoBlocksNew() {
                             </div>
                         </div>
 
-                        <div className="space-y-4 pt-16 text-center">
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans">
-                                QUANTO MI COSTA?
+                        <div className="text-center mt-24 mb-6 space-y-6">
+                            <h2 className="text-3xl md:text-5xl font-black mb-2 text-white leading-tight tracking-tight">
+                                Con BeautiFy acquisisci un potente, elegante<br className="hidden md:block" />
+                                strumento di vendita e promozione che...
                             </h2>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans">
-                                Probabilmente ti costa di più non averlo
-                            </h2>
-                        </div>
-
-                        <div className="flex justify-center w-full pt-8 pb-4">
-                            <div className="bg-white/5 backdrop-blur-md border border-fuchsia-500/30 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-2xl hover:bg-white/10 transition-all duration-300 w-full max-w-xs md:max-w-sm aspect-square bg-[#9F00FF]/10">
-                                <h4 className="text-2xl md:text-3xl font-black text-[#9F00FF] mb-4 tracking-widest uppercase">BASIC</h4>
-                                <p className="text-4xl md:text-6xl font-black text-white tracking-tighter">
-                                    € 20,90<br />
-                                    <span className="text-lg md:text-xl text-zinc-400 font-medium tracking-normal block mt-3">/mese</span>
-                                </p>
-                            </div>
+                            <p className="text-[#FFA5D0] max-w-4xl mx-auto text-2xl md:text-4xl font-light italic tracking-wider drop-shadow-md">
+                                TRASFORMA RADICALMENTE L'ATMOSFERA DEL TUO ISTITUTO!
+                            </p>
                         </div>
                     </motion.div>
                 </div>

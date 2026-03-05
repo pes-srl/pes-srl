@@ -30,15 +30,13 @@ export function PricingNew() {
     return (
         <section id="pricing" className="bg-[#1E0C31] py-32 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20 space-y-6">
-                    <h2 className="text-3xl md:text-5xl font-black mb-2 text-white leading-tight tracking-tight">
-                        Con BeautiFy acquisisci un potente, elegante<br className="hidden md:block" />
-                        strumento di vendita e promozione che...
+                <div className="text-center mb-16 space-y-4">
+                    <h2 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight font-sans">
+                        QUANTO MI COSTA?
                     </h2>
-                    {/* Pink italic text imitating handwritten marker */}
-                    <p className="text-[#FFA5D0] max-w-4xl mx-auto text-2xl md:text-4xl font-light italic tracking-wider drop-shadow-md">
-                        TRASFORMA RADICALMENTE L'ATMOSFERA DEL TUO ISTITUTO!
-                    </p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight font-sans drop-shadow-md">
+                        Probabilmente ti costa di più non averlo
+                    </h2>
                 </div>
 
                 <div className="flex justify-center max-w-sm lg:max-w-5xl mx-auto">
