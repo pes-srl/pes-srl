@@ -164,24 +164,34 @@ export async function updateUpgradeRequestStatus(requestId: string, newStatus: s
             expirationDate = targetDate.toISOString();
 
             // Bypass RLS to update profile
-            const { createClient: createSupabaseClient } = await import('@supabase/supabase-js');
-            const supabaseAdmin = createSupabaseClient(
-                process.env.NEXT_PUBLIC_SUPABASE_URL!,
-                process.env.SUPABASE_SERVICE_ROLE_KEY!,
-                { auth: { autoRefreshToken: false, persistSession: false } }
-            );
+            try {
+                const { createClient: createSupabaseClient } = await import('@supabase/supabase-js');
 
-            const { error: profileError } = await supabaseAdmin
-                .from('profiles')
-                .update({
-                    plan_type: requestedPlanStr.toLowerCase(),
-                    subscription_expiration: expirationDate
-                })
-                .eq('id', requestData.user_id);
+                if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+                    throw new Error("Mancano le variabili d'ambiente SUPABASE per l'Admin Client.");
+                }
 
-            if (profileError) {
-                console.error('Error updating user profile upon approval:', profileError);
-                return { error: 'Errore durante l\'aggiornamento del profilo utente.' };
+                const supabaseAdmin = createSupabaseClient(
+                    process.env.NEXT_PUBLIC_SUPABASE_URL,
+                    process.env.SUPABASE_SERVICE_ROLE_KEY,
+                    { auth: { autoRefreshToken: false, persistSession: false } }
+                );
+
+                const { error: profileError } = await supabaseAdmin
+                    .from('profiles')
+                    .update({
+                        plan_type: requestedPlanStr.toLowerCase(),
+                        subscription_expiration: expirationDate
+                    })
+                    .eq('id', requestData.user_id);
+
+                if (profileError) {
+                    console.error('SERVER LOG - Error updating profile in Supabase:', profileError);
+                    return { error: `Errore database: ${profileError.message || JSON.stringify(profileError)}` };
+                }
+            } catch (err: any) {
+                console.error("Critical error instantiating Supabase Admin or updating:", err);
+                return { error: `Errore Critico Server: ${err.message || 'Manca la chiave Service Role, assicurati di aver messo SUPABASE_SERVICE_ROLE_KEY e NEXT_PUBLIC_SUPABASE_URL in Vercel e .env'}` };
             }
         }
     }

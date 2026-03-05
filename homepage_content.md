@@ -10,7 +10,7 @@
 ---
 
 ## Hero Section
-- **Titolo Principale:** Ciao sono Tati, la tua assistente digitale Beautify
+- **Titolo Principale:** COME FAI SENZA BEAUTIFY?
 - **Sottotitolo:** Dall'accoglienza alla cassa, ti aiuto a gestire le attività del tuo salone.
 - **Bottone CTA:** VOGLIO INIZIARE
 - *(Immagine di riferimento: Donna sorridente alla reception di un salone)*
