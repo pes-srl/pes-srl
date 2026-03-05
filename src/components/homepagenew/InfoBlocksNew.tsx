@@ -113,10 +113,10 @@ export function InfoBlocksNew() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto pt-24 space-y-8"
+                        className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto pt-8 md:pt-24 space-y-8"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                            <span className="text-2xl md:text-4xl lg:text-5xl block mb-4 text-white font-black">COME?</span>
+                            <span className="text-4xl md:text-5xl lg:text-6xl block mb-4 text-white font-black">COME?</span>
                             Con un semplice clic accedendo in modo semplice e <br className="hidden md:block" />
                             sicuro a BeautiFy Channel
                         </h2>
