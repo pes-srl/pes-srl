@@ -51,7 +51,7 @@ export function InfoBlocksNew() {
                             className="flex-[1.2] w-full"
                         >
                             <img
-                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727863694-a5hng8.png"
+                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"
                                 alt="BeautiFy Channel Beauty Room"
                                 className="w-full h-auto md:h-[450px] object-cover rounded-xl shadow-2xl"
                             />

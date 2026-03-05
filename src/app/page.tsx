@@ -16,7 +16,7 @@ export default function HomePageNew() {
             <div className="relative z-10 w-full overflow-hidden">
                 <HeroNew />
                 <InfoBlocksNew />
-                <TestimonialsNew />
+                {/* <TestimonialsNew /> */}
                 <BottomCTANew />
             </div>
         </main>
