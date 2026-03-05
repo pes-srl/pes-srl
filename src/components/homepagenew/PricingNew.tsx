@@ -117,6 +117,45 @@ export function PricingNew() {
                     ))}
                 </div>
 
+                {/* Laser & Cosmetic Channel Boxes */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                    className="mt-6 mb-8 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
+                >
+                    {/* LASER CHANNEL */}
+                    <div className="flex-1 bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
+                        <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
+                            <div className="w-64 h-64 border-[8px] border-[#1e0d36] rotate-45 rounded-3xl"></div>
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-black text-[#2e2045] tracking-wide mb-3 relative z-10 uppercase">
+                            LASER CHANNEL
+                        </h3>
+                        <p className="text-[#554868] text-sm md:text-[15px] font-medium leading-snug relative z-10 transition-all">
+                            *Lo ottieni con il piano Premium.<br />
+                            Lo puoi utilizzare quando vuoi promuovere i tuoi<br />
+                            pacchetti dedicati a laser e tecnologie
+                        </p>
+                    </div>
+
+                    {/* COSMETIC CHANNEL */}
+                    <div className="flex-1 bg-linear-to-b from-[#b224ef] to-[#7500c0] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
+                        <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
+                            <div className="w-64 h-64 border-[8px] border-white/40 rotate-45 rounded-3xl"></div>
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-black text-white tracking-wide mb-3 drop-shadow-md relative z-10 uppercase">
+                            COSMETIC CHANNEL
+                        </h3>
+                        <p className="text-white text-sm md:text-[15px] font-medium leading-snug drop-shadow-sm relative z-10 transition-all">
+                            **Incluso nel piano Premium<br />
+                            Lo puoi utilizzare in istituto quando vuoi<br />
+                            promuovere servizi di cosmetica
+                        </p>
+                    </div>
+                </motion.div>
+
                 {/* Stay Tuned Banner */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

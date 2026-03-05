@@ -29,8 +29,8 @@ export function HeroNew() {
                     className="w-full md:w-1/2 max-w-2xl"
                 >
                     <h1
-                        className="text-4xl md:text-5xl lg:text-7xl font-black bg-linear-to-r from-blue-500 to-fuchsia-500 bg-clip-text text-white leading-[1.1] mb-8 drop-shadow-lg tracking-tight"
-                        style={{ WebkitTextStroke: '2px transparent' }}
+                        className="text-4xl md:text-5xl lg:text-7xl font-black bg-linear-to-r from-blue-500 to-fuchsia-500 bg-clip-text text-white leading-[1.1] mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] tracking-tight"
+                        style={{ WebkitTextStroke: '0.5px rgba(0,0,0,0.4)' }}
                     >
                         COME FAI SENZA BEAUTIFY?
                     </h1>
