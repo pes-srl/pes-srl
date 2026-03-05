@@ -84,7 +84,7 @@ export function BottomCTANew() {
     };
 
     return (
-        <section className="bg-[#1E0C31] pt-12 pb-32 px-6 overflow-hidden relative">
+        <section className="bg-[#1E0C31] py-24 px-6 md:px-12 overflow-hidden relative">
             <div className="max-w-6xl mx-auto space-y-24">
 
 

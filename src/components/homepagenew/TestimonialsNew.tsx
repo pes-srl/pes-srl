@@ -50,7 +50,7 @@ const testimonials = [
 
 export function TestimonialsNew() {
     return (
-        <section className="bg-zinc-950 py-24 overflow-hidden relative border-t border-white/5">
+        <section className="bg-zinc-950 py-24 px-6 md:px-12 overflow-hidden relative border-t border-white/5">
             {/* Subtle background glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-fuchsia-600/5 blur-[120px] rounded-full pointer-events-none" />
 

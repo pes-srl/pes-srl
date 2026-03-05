@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function HeroNew() {
     return (
         <section
-            className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-10 md:pb-20 flex-col justify-end overflow-hidden px-6 md:px-12"
+            className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-12 md:pb-24 flex-col justify-end overflow-hidden px-6 md:px-12"
             style={{
                 backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477085817-oajaaf.png')`,
                 backgroundSize: 'cover',

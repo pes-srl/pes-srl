@@ -9,7 +9,7 @@ export function InfoBlocksNew() {
     return (
         <>
             <section className="bg-[#1E0C31] w-full py-24 px-6 md:px-12 overflow-hidden">
-                <div className="max-w-7xl mx-auto space-y-32">
+                <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
 
                     {/* Block 1: Text Left, Image Right */}
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
@@ -45,12 +45,12 @@ export function InfoBlocksNew() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
-                            className="flex-1 w-full"
+                            className="flex-[1.2] w-full"
                         >
                             <img
-                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772718578403-qvhvj.png"
+                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727863694-a5hng8.png"
                                 alt="BeautiFy Channel Beauty Room"
-                                className="w-full h-auto rounded-xl shadow-2xl"
+                                className="w-full h-auto md:h-[450px] object-cover rounded-xl shadow-2xl"
                             />
                         </motion.div>
                     </div>
@@ -87,9 +87,9 @@ export function InfoBlocksNew() {
                         >
                             <div className="relative">
                                 <img
-                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772719971536-50rxw6.png"
+                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727853683-sr1147.png"
                                     alt="Assistente Tati"
-                                    className="w-full h-auto rounded-xl shadow-2xl"
+                                    className="w-full h-auto md:h-[450px] object-cover rounded-xl shadow-2xl"
                                 />
                                 {/* Absolute Button matching the mockup layout */}
                                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center">
@@ -109,23 +109,23 @@ export function InfoBlocksNew() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pt-16 space-y-8"
+                        className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto pt-24 space-y-8"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                            <span className="text-4xl md:text-6xl block mb-4 text-white-400">Come?</span>
+                            <span className="text-4xl md:text-6xl block mb-4 text-white-400 font-black">Come?</span>
                             Con un semplice clic accedendo in modo semplice e <br className="hidden md:block" />
                             sicuro a BeautiFy Channel
                         </h2>
 
                         {/* 4 Elegant Square Blocks */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl pt-8 pb-12">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-5xl pt-8 pb-12">
                             {/* Block 1 */}
                             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-start text-center h-full shadow-2xl hover:bg-white/10 transition-all duration-300">
                                 <div className="w-12 h-12 rounded-full bg-fuchsia-500/20 flex items-center justify-center mb-4 sm:mb-6 text-fuchsia-400 shrink-0">
                                     <span className="text-xl font-bold">1</span>
                                 </div>
                                 <div className="flex-1 flex flex-col justify-center">
-                                    <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                    <p className="text-zinc-200 text-base leading-relaxed">
                                         Nel corso di un intrattenimento musicale dal sound ricercato, l’assistente digitale BeautiFy
                                         interviene, con dolcezza e professionalità, per offrire spunti generici legati al mondo della
                                         bellezza e del benessere, regalando così una vera e propria beauty routine sonora
@@ -139,7 +139,7 @@ export function InfoBlocksNew() {
                                     <span className="text-xl font-bold">2</span>
                                 </div>
                                 <div className="flex-1 flex flex-col justify-center">
-                                    <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                    <p className="text-zinc-200 text-base leading-relaxed">
                                         Questo stimola efficacemente l’interesse delle clienti e sollecita la loro richiesta di informazioni
                                         su prodotti e trattamenti proprio mentre sono nel tuo salone, creando una percezione positiva
                                         dell’ambiente che ne aumenta la fidelizzazione
@@ -153,7 +153,7 @@ export function InfoBlocksNew() {
                                     <span className="text-xl font-bold">3</span>
                                 </div>
                                 <div className="flex-1 flex flex-col justify-center">
-                                    <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                    <p className="text-zinc-200 text-base leading-relaxed">
                                         BeautiFy Channel è un supporto irrinunciabile per la tua professione, perché ti consentirà di non
                                         preoccuparti più della comunicazione interna del tuo salone, ma di dedicarti e concentrarti
                                         pienamente sullo svolgimento del tuo lavoro
@@ -167,7 +167,7 @@ export function InfoBlocksNew() {
                                     <span className="text-xl font-bold">4</span>
                                 </div>
                                 <div className="flex-1 flex flex-col justify-center">
-                                    <p className="text-zinc-200 text-sm md:text-base leading-relaxed">
+                                    <p className="text-zinc-200 text-base leading-relaxed">
                                         Inoltre, BeautiFy Channel ti mette a disposizione altri 6 canali audio oltre al canale principale, per cambiare mood durante la giornata, magari con DEEP SOFT nel weekend o Jazz nell'orario di chiusura, sempre con il supporto di suggerimenti audio dell’assistente digitale BeautiFy
                                     </p>
                                 </div>
@@ -180,7 +180,7 @@ export function InfoBlocksNew() {
             <PricingNew />
 
 
-            <section className="bg-[#1E0C31] w-full pb-24 px-6 md:px-12 overflow-hidden">
+            <section className="bg-[#1E0C31] w-full py-24 px-6 md:px-12 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     {/* WhatsApp CTA */}
                     <motion.div
@@ -188,7 +188,7 @@ export function InfoBlocksNew() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="pt-16 pb-8 flex flex-col items-center justify-center text-center space-y-6"
+                        className="pt-8 pb-8 flex flex-col items-center justify-center text-center space-y-6"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white tracking-wide">
                             CHIEDICI ALTRE INFO

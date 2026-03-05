@@ -28,7 +28,7 @@ const plans = [
 ];
 export function PricingNew() {
     return (
-        <section id="pricing" className="bg-[#1E0C31] py-32 px-6 overflow-hidden">
+        <section id="pricing" className="bg-[#1E0C31] py-24 px-6 md:px-12 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-4xl md:text-6xl font-bold text-white leading-[1.1] tracking-tight font-sans">
