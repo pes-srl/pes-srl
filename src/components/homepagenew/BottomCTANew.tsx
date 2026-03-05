@@ -87,48 +87,6 @@ export function BottomCTANew() {
         <section className="bg-[#1E0C31] pt-12 pb-32 px-6 overflow-hidden relative">
             <div className="max-w-6xl mx-auto space-y-24">
 
-                {/* 1. Laser and Cosmetic Channels Cards */}
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    {/* Laser Channel - White */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
-                        className="bg-white rounded-[24px] p-8 md:p-12 text-center shadow-2xl relative overflow-hidden h-full flex flex-col justify-center border border-zinc-100"
-                    >
-                        {/* Faint background mandala icon */}
-                        <div className="absolute inset-0 bg-[url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477157202-gueksp.png')] bg-contain bg-center bg-no-repeat opacity-[0.03] scale-[1.8] pointer-events-none"></div>
-
-                        <h3 className="text-2xl font-black text-zinc-900 tracking-wider mb-4 relative z-10">
-                            LASER CHANNEL
-                        </h3>
-                        <p className="text-zinc-600 font-medium text-[15px] leading-relaxed relative z-10">
-                            *Lo ottieni con il piano Premium.<br />
-                            Lo puoi utilizzare quando vuoi promuovere i tuoi pacchetti dedicati a laser e tecnologie
-                        </p>
-                    </motion.div>
-
-                    {/* Cosmetic Channel - Light Purple */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.15 }}
-                        className="bg-[#D3ADFF] rounded-[24px] p-8 md:p-12 text-center shadow-2xl shadow-purple-500/10 relative overflow-hidden h-full flex flex-col justify-center"
-                    >
-                        {/* Faint background mandala icon */}
-                        <div className="absolute inset-0 bg-[url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477157202-gueksp.png')] bg-contain bg-center bg-no-repeat opacity-10 blur-[1px] scale-[1.8] pointer-events-none mix-blend-overlay"></div>
-
-                        <h3 className="text-2xl font-black text-white tracking-wider mb-4 relative z-10 drop-shadow-sm">
-                            COSMETIC CHANNEL
-                        </h3>
-                        <p className="text-white/90 font-medium text-[15px] leading-relaxed relative z-10 drop-shadow-sm">
-                            **Incluso nel piano Premium<br />
-                            Lo puoi utilizzare in istituto quando vuoi promuovere servizi di cosmetica
-                        </p>
-                    </motion.div>
-                </div>
 
 
                 {/* 3. Registration Form (Imported from provagratis) */}
