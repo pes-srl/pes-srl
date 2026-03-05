@@ -8,7 +8,7 @@ import { PricingNew } from "./PricingNew";
 export function InfoBlocksNew() {
     return (
         <>
-            <section className="bg-[#1E0C31] w-full py-24 px-6 md:px-12 overflow-hidden">
+            <section className="bg-[#1E0C31] w-full pt-24 pb-2 md:pb-16 px-6 md:px-12 overflow-hidden">
                 <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
 
                     {/* Block 1: Text Left, Image Right */}
@@ -116,7 +116,7 @@ export function InfoBlocksNew() {
                         className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto pt-24 space-y-8"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
-                            <span className="text-5xl md:text-7xl lg:text-8xl block mb-4 text-white-400 font-black">Come?</span>
+                            <span className="text-2xl md:text-4xl lg:text-5xl block mb-4 text-white font-black">COME?</span>
                             Con un semplice clic accedendo in modo semplice e <br className="hidden md:block" />
                             sicuro a BeautiFy Channel
                         </h2>
