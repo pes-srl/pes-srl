@@ -81,12 +81,12 @@ export function InfoBlocks2026() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="flex-[1.2] w-full flex justify-center"
+                        className="flex-1 w-full flex justify-center"
                     >
                         <img
                             src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"
                             alt="BeautiFy Channel Beauty Room"
-                            className="w-full h-auto md:h-[450px] object-cover rounded-[2.5rem] shadow-2xl"
+                            className="w-full h-auto md:h-[450px] aspect-[16/10] md:aspect-auto object-cover rounded-[2.5rem] shadow-2xl"
                         />
                     </motion.div>
                 </div>
@@ -112,6 +112,15 @@ export function InfoBlocks2026() {
                             Una potente combo creata per regalare alle tue clienti momenti di immediate e coinvolgenti
                             sensazioni, aiutandoti ad aumentare le vendite in un modo mai così smart e godibile!
                         </p>
+                        <div className="pt-4 flex justify-center md:justify-start">
+                            <Link href="#trial-form">
+                                <Button
+                                    className="bg-[#AB7169] hover:bg-[#5D6676] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(171,113,105,0.4)] transition-all border-none"
+                                >
+                                    PROVAMI GRATIS 7 GIORNI
+                                </Button>
+                            </Link>
+                        </div>
                     </motion.div>
 
                     <motion.div
@@ -121,22 +130,12 @@ export function InfoBlocks2026() {
                         transition={{ duration: 0.8 }}
                         className="flex-1 w-full flex justify-center md:justify-start"
                     >
-                        <div className="relative">
+                        <div className="relative w-full">
                             <img
                                 src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727853683-sr1147.png"
                                 alt="Assistente Tati"
-                                className="w-full h-auto md:h-[450px] object-cover rounded-[2.5rem] shadow-2xl"
+                                className="w-full h-auto md:h-[450px] aspect-[16/10] md:aspect-auto object-cover rounded-[2.5rem] shadow-2xl"
                             />
-                            {/* Absolute Button matching the mockup layout */}
-                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full flex justify-center">
-                                <Link href="#trial-form">
-                                    <Button
-                                        className="bg-[#AB7169] hover:bg-[#5D6676] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(171,113,105,0.4)] transition-all border-none"
-                                    >
-                                        PROVAMI GRATIS 7 GIORNI
-                                    </Button>
-                                </Link>
-                            </div>
                         </div>
                     </motion.div>
                 </div>
