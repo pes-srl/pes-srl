@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,14 +12,22 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { UserRowActions } from "./UserRowActions";
-import { formatDistanceToNow, differenceInMinutes, parseISO } from "date-fns";
+import { formatDistanceToNow, differenceInMinutes, differenceInSeconds, parseISO } from "date-fns";
 import { it } from "date-fns/locale";
 import { Search, Clock } from "lucide-react";
 import { format } from "date-fns";
 
 export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }) {
     const [searchTerm, setSearchTerm] = useState("");
-    const now = new Date();
+    const [now, setNow] = useState(new Date());
+
+    // Update 'now' every 30 seconds to keep the session timing and online status fresh
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setNow(new Date());
+        }, 30000);
+        return () => clearInterval(timer);
+    }, []);
 
     // Filter profiles based on searchTerm (checking salon_name and email)
     const filteredProfiles = initialProfiles.filter((user) => {
@@ -60,8 +68,15 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                     </TableHeader>
                     <TableBody>
                         {filteredProfiles.map((user) => {
-                            // isOnline dipende direttamente dal DB
-                            const isOnline = user.is_online === true;
+                            // UNA PERSONA È CONSIDERATA "EFFETTIVAMENTE ONLINE" SE 
+                            // 1. Il flag is_online è true
+                            // 2. Ha mandato un ping negli ultimi 3 minuti (grace period più stretto)
+                            const isDbOnline = user.is_online === true;
+                            const lastPingDate = user.last_ping_at ? parseISO(user.last_ping_at) : null;
+                            const isPingRecent = lastPingDate && (differenceInMinutes(now, lastPingDate) < 3);
+
+                            const isOnline = isDbOnline && isPingRecent;
+
                             let lastSeenText = "Mai connesso";
 
                             if (user.last_seen) {
@@ -101,22 +116,38 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                 if (user.last_login_at) {
                                     const loginTime = parseISO(user.last_login_at);
                                     const mins = differenceInMinutes(now, loginTime);
-                                    timingText = `${mins} min`;
+                                    if (mins === 0) {
+                                        const secs = differenceInSeconds(now, loginTime);
+                                        timingText = `${secs} sec`;
+                                    } else {
+                                        timingText = `${mins} min`;
+                                    }
                                 } else {
-                                    timingText = "In corso...";
+                                    timingText = "-";
                                 }
                             } else {
-                                if (user.last_login_at && user.last_logout_at) {
+                                // Se è offline, usiamo l'ultimo momento utile: il logout esplicito o l'ultimo ping (heartbeat)
+                                if (user.last_login_at) {
                                     const loginTime = parseISO(user.last_login_at);
-                                    const logoutTime = parseISO(user.last_logout_at);
+                                    const logoutTime = user.last_logout_at ? parseISO(user.last_logout_at) : null;
+                                    const pingTime = user.last_ping_at ? parseISO(user.last_ping_at) : null;
 
-                                    // Make sure logout happened after login
-                                    if (logoutTime > loginTime) {
-                                        const mins = differenceInMinutes(logoutTime, loginTime);
-                                        timingText = `${mins} min`;
+                                    // Scegliamo il più recente tra logout e ping come fine sessione
+                                    let endTime = logoutTime;
+                                    if (pingTime && (!endTime || pingTime > endTime)) {
+                                        endTime = pingTime;
+                                    }
+
+                                    // Se abbiamo un orario di fine e questo è successivo o uguale al login
+                                    if (endTime && endTime >= loginTime) {
+                                        const mins = differenceInMinutes(endTime, loginTime);
+                                        if (mins === 0) {
+                                            const secs = differenceInSeconds(endTime, loginTime);
+                                            timingText = `${secs} sec`;
+                                        } else {
+                                            timingText = `${mins} min`;
+                                        }
                                     } else {
-                                        // This happens if they logged in but never cleanly logged out before a previous session
-                                        // or if data is missing
                                         timingText = "-";
                                     }
                                 }

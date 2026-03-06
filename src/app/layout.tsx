@@ -21,6 +21,7 @@ import { HeaderNew } from "@/components/homepagenew/HeaderNew";
 import { FooterNew } from "@/components/homepagenew/FooterNew";
 import { AuthHashCatcher } from "@/components/AuthHashCatcher";
 import { Toaster } from "@/components/ui/sonner";
+import { PresencePing } from "@/components/PresencePing";
 
 import { createClient } from "@/utils/supabase/server";
 
@@ -48,6 +49,7 @@ export default async function RootLayout({
         className={`${figtree.variable} font-sans antialiased bg-zinc-950 text-zinc-50 flex flex-col min-h-screen`}
       >
         <AuthHashCatcher />
+        {user && <PresencePing />}
         <HeaderNew initialUser={user} initialProfile={profile} />
         <div className="flex-1">
           {children}
