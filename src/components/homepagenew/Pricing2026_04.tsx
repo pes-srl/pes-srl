@@ -130,7 +130,7 @@ export function Pricing2026_04() {
                     className="mt-12 mb-4 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
                 >
                     {/* LASER CHANNEL */}
-                    <div className="flex-1 bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-[#D9ADA2]/40">
+                    <div className="flex-1 bg-white rounded-[20px] md:rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-[#D9ADA2]/40">
                         <h3 className="text-2xl md:text-3xl font-black text-[#C68981] tracking-wide mb-3 relative z-10 uppercase">
                             LASER CHANNEL
                         </h3>
@@ -142,7 +142,7 @@ export function Pricing2026_04() {
                     </div>
 
                     {/* COSMETIC CHANNEL */}
-                    <div className="flex-1 bg-gradient-to-b from-[#727C8F] to-[#2D3E44] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
+                    <div className="flex-1 bg-gradient-to-b from-[#727C8F] to-[#2D3E44] rounded-[20px] md:rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
                         <h3 className="text-2xl md:text-3xl font-black text-white tracking-wide mb-3 drop-shadow-md relative z-10 uppercase">
                             COSMETIC CHANNEL
                         </h3>
@@ -177,7 +177,7 @@ export function Pricing2026_04() {
                                 <span className="block text-6xl font-black text-[#C68981] mb-6">
                                     {item.step}
                                 </span>
-                                <p className="text-[#2D3E44] font-bold text-[15px] leading-snug">
+                                <p className="text-[#2D3E44] font-bold text-lg md:text-xl leading-snug">
                                     {item.text}
                                 </p>
                             </div>

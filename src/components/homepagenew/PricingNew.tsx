@@ -129,7 +129,7 @@ export function PricingNew() {
                     className="mt-12 mb-4 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
                 >
                     {/* LASER CHANNEL */}
-                    <div className="flex-1 bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
+                    <div className="flex-1 bg-white rounded-[20px] md:rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-[#1e0d36] rotate-45 rounded-3xl"></div>
                         </div>
@@ -144,7 +144,7 @@ export function PricingNew() {
                     </div>
 
                     {/* COSMETIC CHANNEL */}
-                    <div className="flex-1 bg-linear-to-b from-[#b224ef] to-[#7500c0] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
+                    <div className="flex-1 bg-linear-to-b from-[#b224ef] to-[#7500c0] rounded-[20px] md:rounded-3xl p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-white/40 rotate-45 rounded-3xl"></div>
                         </div>
@@ -182,7 +182,7 @@ export function PricingNew() {
                                 <span className="block text-6xl font-black text-[#9F00FF] mb-6 drop-shadow-sm">
                                     {item.step}
                                 </span>
-                                <p className="text-[#333333] font-bold text-[15px] leading-snug">
+                                <p className="text-[#333333] font-bold text-lg md:text-xl leading-snug">
                                     {item.text}
                                 </p>
                             </div>
