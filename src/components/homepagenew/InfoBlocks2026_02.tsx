@@ -45,7 +45,7 @@ export function InfoBlocks2026_02() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
-                        className="flex-[1.2] w-full"
+                        className="flex-[1.2] w-full flex justify-center"
                     >
                         <img
                             src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"

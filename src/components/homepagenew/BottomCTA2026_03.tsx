@@ -88,7 +88,7 @@ export function BottomCTA2026_03() {
                                 Inizia la tua Prova Gratuita
                             </h2>
                             <p className="text-[#D9C3B0] text-lg">
-                                7 giorni di accesso completo. Nessuna carta di credito richiesta.
+                                7 giorni di accesso completo. <br className="md:hidden" /> Nessuna carta di credito richiesta.
                             </p>
                         </div>
 

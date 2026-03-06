@@ -88,7 +88,7 @@ export function Pricing2026_02() {
                                         <div className="flex justify-center w-full px-0 sm:px-0">
                                             <Link href="#trial-form" className="w-[110%] sm:w-full -ml-[5%] sm:ml-0">
                                                 <Button
-                                                    className={`w-full rounded-md h-auto py-5 sm:py-5 px-1 sm:px-4 text-[9px] sm:text-[13px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.3] transition-all bg-[#CFF63D] hover:bg-[#637BD0] text-[#333333] hover:text-white ${plan.buttonClasses}`}
+                                                    className={`w-full rounded-md h-auto py-5 sm:py-5 px-1 sm:px-4 text-[12px] sm:text-[16px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.3] transition-all bg-[#CFF63D] hover:bg-[#637BD0] text-[#333333] hover:text-white ${plan.buttonClasses}`}
                                                 >
                                                     {plan.buttonText}
                                                 </Button>
@@ -134,10 +134,10 @@ export function Pricing2026_02() {
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-[#637BD0] rotate-45 rounded-3xl"></div>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-black text-[#637BD0] tracking-wide mb-3 relative z-10 uppercase">
+                        <h3 className="text-2xl md:text-3xl font-black text-[#637BD0] tracking-wide mb-3 relative z-10 uppercase">
                             LASER CHANNEL
                         </h3>
-                        <p className="text-[#333333] text-sm md:text-[15px] font-medium leading-snug relative z-10 transition-all">
+                        <p className="text-[#333333] text-[15px] md:text-lg font-medium leading-snug relative z-10 transition-all">
                             *Lo ottieni con il piano <span className="text-[#E84F9A] font-bold">Premium</span>.<br />
                             Lo puoi utilizzare quando vuoi promuovere i tuoi<br />
                             pacchetti dedicati a laser e tecnologie
@@ -149,10 +149,10 @@ export function Pricing2026_02() {
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-white rotate-45 rounded-3xl"></div>
                         </div>
-                        <h3 className="text-xl md:text-2xl font-black text-white tracking-wide mb-3 drop-shadow-md relative z-10 uppercase">
+                        <h3 className="text-2xl md:text-3xl font-black text-white tracking-wide mb-3 drop-shadow-md relative z-10 uppercase">
                             COSMETIC CHANNEL
                         </h3>
-                        <p className="text-white text-sm md:text-[15px] font-medium leading-snug drop-shadow-sm relative z-10 transition-all">
+                        <p className="text-white text-[15px] md:text-lg font-medium leading-snug drop-shadow-sm relative z-10 transition-all">
                             **Incluso nel piano <span className="text-[#CFF63D] font-bold">Premium</span><br />
                             Lo puoi utilizzare in istituto quando vuoi<br />
                             promuovere servizi di cosmetica
@@ -166,9 +166,9 @@ export function Pricing2026_02() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-12 mt-24"
+                    className="space-y-12 mt-32 md:mt-24"
                 >
-                    <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide">
+                    <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide px-4">
                         Accendi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
                         3 passaggi
                     </h2>
