@@ -171,7 +171,7 @@ export function InfoBlocks2026() {
                                 </p>
                                 <div className="pt-2 hidden md:block">
                                     <div className="flex items-center gap-2 text-[#AB7169] font-bold tracking-widest uppercase text-sm">
-                                        <span> CON UN SEMPLICE CLIACK ;-)</span>
+                                        <span>CON UN SEMPLICE CLICK ;-)</span>
                                         <div className="h-px w-12 bg-[#AB7169]/30"></div>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@ export function InfoBlocks2026() {
 
                         {/* Decorative floating icon */}
                         <div className="absolute -top-6 -right-6 w-12 h-12 bg-white rounded-2xl shadow-xl flex items-center justify-center rotate-12 hidden md:flex">
-                            <ArrowRight className="text-[#AB7169] w-6 h-6 rotate-45" />
+                            <ArrowRight className="text-[#AB7169] w-6 h-6 rotate-[160deg]" />
                         </div>
                     </div>
 
