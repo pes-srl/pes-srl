@@ -163,7 +163,7 @@ export function Pricing2026_04() {
                     className="space-y-12 mt-24"
                 >
                     <h2 className="text-2xl md:text-4xl font-black text-[#2D3E44] text-center leading-snug tracking-wide">
-                        Accedi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
+                        Accendi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
                         3 passaggi
                     </h2>
 
@@ -203,7 +203,7 @@ export function Pricing2026_04() {
                     className="text-center mt-24 mb-6 space-y-6"
                 >
                     <h2 className="text-3xl md:text-5xl font-black mb-2 text-[#2D3E44] leading-tight tracking-tight">
-                        Con BeautiFy acquisisci un potente, elegante<br className="hidden md:block" />
+                        Con BeautiFy acquisisci un potente, elegante <br className="hidden md:block" />
                         strumento di vendita e promozione che...
                     </h2>
                     <p className="text-[#C68981] max-w-4xl mx-auto text-2xl md:text-4xl font-light italic tracking-wider">
