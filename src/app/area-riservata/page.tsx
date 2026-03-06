@@ -212,7 +212,7 @@ export default async function AreaClientePage() {
                                 </div>
                             </div>
 
-                            <h3 className="text-2xl md:text-3xl font-black text-white mb-8 mt-12 flex flex-col md:flex-row items-center justify-center gap-3 uppercase tracking-wider text-center">
+                            <h3 className="text-2xl md:text-3xl font-black text-white mb-8 mt-12 md:mt-24 lg:mt-32 flex flex-col md:flex-row items-center justify-center gap-3 uppercase tracking-wider text-center">
                                 <Radio className="w-6 h-6 text-zinc-400" />
                                 ALTRI CANALI DISPONIBILI
                             </h3>
@@ -223,7 +223,7 @@ export default async function AreaClientePage() {
 
                     {/* Upgrade Form for Free Trial Users */}
                     {profile?.plan_type === 'free_trial' && !isAdmin && (
-                        <div className="w-full max-w-4xl mx-auto mt-16 border-t border-white/10 pt-16">
+                        <div className="w-full max-w-4xl mx-auto mt-8 md:mt-16 border-t border-white/10 pt-8 md:pt-16">
                             <UpgradeForm userEmail={user.email} />
                         </div>
                     )}
