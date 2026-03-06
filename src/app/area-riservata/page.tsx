@@ -223,7 +223,7 @@ export default async function AreaClientePage() {
 
                     {/* Upgrade Form for Free Trial Users */}
                     {profile?.plan_type === 'free_trial' && !isAdmin && (
-                        <div className="w-full max-w-4xl mx-auto mt-8 md:mt-16 border-t border-white/10 pt-8 md:pt-16">
+                        <div className="w-full max-w-4xl mx-auto mt-0 md:mt-16 border-t border-white/10 pt-4 md:pt-16">
                             <UpgradeForm userEmail={user.email} />
                         </div>
                     )}
