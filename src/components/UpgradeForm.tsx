@@ -318,7 +318,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-6 px-10 rounded-xl text-lg shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all disabled:opacity-50"
+              className="bg-fuchsia-600 hover:bg-fuchsia-500 text-white font-bold py-6 px-10 rounded-xl text-lg shadow-[0_0_20px_rgba(192,38,211,0.4)] transition-all disabled:opacity-50"
             >
               {isSubmitting
                 ? "Invio richiesta in corso..."
