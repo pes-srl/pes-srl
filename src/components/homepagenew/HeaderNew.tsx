@@ -285,13 +285,22 @@ export function HeaderNew({
                     ) : null}
                 </div>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                    className="md:hidden text-zinc-300 hover:text-white ml-4"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                {/* Mobile Menu Toggle & Direct Access */}
+                <div className="md:hidden flex items-center gap-3">
+                    <Link
+                        href={user ? "/area-riservata" : "/login"}
+                        className="text-zinc-300 hover:text-white p-1"
+                        aria-label="Accesso rapido"
+                    >
+                        <User size={22} className={user && profile?.plan_type === 'premium' ? "text-amber-500" : ""} />
+                    </Link>
+                    <button
+                        className="text-zinc-300 hover:text-white"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Nav */}

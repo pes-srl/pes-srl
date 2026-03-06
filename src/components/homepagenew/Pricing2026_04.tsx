@@ -23,7 +23,7 @@ const plans = [
         buttonText: "PROVA GRATUITA 7 GIORNI",
         buttonClasses: "hover:brightness-110 text-white shadow-xl shadow-[#C68981]/20",
         buttonStyle: { background: '#C68981' },
-        footerText: "Possibilità di abbonamento semestrale a 25,90 mese\nOfferta valida fino a 250mq di Istituto\nPagamento unica soluzione",
+        footerText: "Possibilità di abbonamento semestrale a 25,90 mese\nOfferta valida fino a 250mq\nPagamento unica soluzione",
         highlight: false,
     }
 ];
@@ -163,7 +163,7 @@ export function Pricing2026_04() {
                     className="space-y-12 mt-24"
                 >
                     <h2 className="text-2xl md:text-4xl font-black text-[#2D3E44] text-center leading-snug tracking-wide">
-                        Accedi un'atmosfera innovativa nel tuo istituto in<br />
+                        Accedi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
                         3 passaggi
                     </h2>
 

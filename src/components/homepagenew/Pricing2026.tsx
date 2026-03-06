@@ -14,7 +14,7 @@ const plans = [
         price: "20,90",
         period: "/mese",
         features: [
-            "Licenza di diffusione musicale per l'istituto",
+            "Licenza di diffusione musicale",
             "Assistenza legale per diritti d'autore musicali",
             "Atmosfere musicali dedicate al mondo Beauty",
             "Eleganti suggerimenti vocali di settore per informare e promuovere le vendite",
@@ -23,7 +23,7 @@ const plans = [
         buttonText: "PROVA GRATUITA 7 GIORNI",
         buttonClasses: "hover:brightness-110 text-white shadow-xl shadow-[#5D6676]/20",
         buttonStyle: { background: 'linear-gradient(90deg, #AB7169 0%, #D8B2A3 100%)' },
-        footerText: "Possibilità di abbonamento semestrale a 25,90 mese\nOfferta valida fino a 250mq di Istituto\nPagamento unica soluzione",
+        footerText: "Possibilità di abbonamento semestrale a 25,90 mese\nOfferta valida fino a 250mq\nPagamento unica soluzione",
         highlight: false,
     }
 ];
@@ -130,15 +130,15 @@ export function Pricing2026() {
                     className="mt-6 mb-8 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
                 >
                     {/* LASER CHANNEL */}
-                    <div className="flex-1 bg-gradient-to-b from-[#8B7D81] to-[#727C8F] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
+                    <div className="flex-1 bg-gradient-to-b from-[#A66E64] to-[#8B5A52] rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.1] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-white rotate-45 rounded-3xl"></div>
                         </div>
                         <h3 className="text-xl md:text-2xl font-black text-white tracking-wide mb-3 relative z-10 uppercase drop-shadow-sm">
                             LASER CHANNEL
                         </h3>
-                        <p className="text-[#FAFAF8] text-sm md:text-[15px] font-medium leading-snug relative z-10 transition-all drop-shadow-sm">
-                            *Incluso nel piano <span className="text-white font-bold underline decoration-[#AB7169]">Premium</span>.<br />
+                        <p className="text-white text-sm md:text-[15px] font-medium leading-snug relative z-10 transition-all drop-shadow-sm">
+                            *Incluso nel piano <span className="text-white font-bold underline decoration-[#D8B2A3]">Premium</span>.<br />
                             Puoi utilizzare il canale dedicato al laser quando vuoi promuovere servizi e pacchetti.
                         </p>
                     </div>
@@ -167,7 +167,7 @@ export function Pricing2026() {
                     className="space-y-12 mt-24"
                 >
                     <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide">
-                        Accedi un'atmosfera innovativa nel tuo istituto in<br />
+                        Accedi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
                         3 passaggi
                     </h2>
 
