@@ -126,7 +126,7 @@ export function PricingNew() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    className="mt-6 mb-8 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
+                    className="mt-12 mb-4 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
                 >
                     {/* LASER CHANNEL */}
                     <div className="flex-1 bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/5">
@@ -165,7 +165,7 @@ export function PricingNew() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="space-y-12 mt-32 md:mt-24"
+                    className="space-y-12 mt-12 md:mt-24"
                 >
                     <h2 className="text-2xl md:text-4xl font-black text-white text-center leading-snug tracking-wide px-4">
                         Accendi un'atmosfera innovativa nel tuo istituto in <br className="hidden md:block" />
