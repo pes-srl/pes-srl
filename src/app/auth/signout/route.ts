@@ -26,7 +26,8 @@ export async function POST(req: NextRequest) {
                 .from('profiles')
                 .update({
                     is_online: false,
-                    last_seen: new Date().toISOString()
+                    last_seen: new Date().toISOString(),
+                    last_logout_at: new Date().toISOString()
                 })
                 .eq('id', user.id);
 

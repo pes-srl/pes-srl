@@ -34,7 +34,10 @@ export async function login(formData: FormData) {
 
             const { error: updateError } = await supabaseAdmin
                 .from('profiles')
-                .update({ is_online: true })
+                .update({
+                    is_online: true,
+                    last_login_at: new Date().toISOString()
+                })
                 .eq('id', user.id);
 
             if (updateError) {

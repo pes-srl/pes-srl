@@ -14,7 +14,7 @@ import {
 import { UserRowActions } from "./UserRowActions";
 import { formatDistanceToNow, differenceInMinutes, parseISO } from "date-fns";
 import { it } from "date-fns/locale";
-import { Search } from "lucide-react";
+import { Search, Clock } from "lucide-react";
 import { format } from "date-fns";
 
 export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }) {
@@ -54,6 +54,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                             <TableHead className="text-zinc-400 font-medium">Stato Abbonamento</TableHead>
                             <TableHead className="text-zinc-400 font-medium">Scadenza</TableHead>
                             <TableHead className="text-zinc-400 font-medium">Ultimo Accesso</TableHead>
+                            <TableHead className="text-zinc-400 font-medium">Timing</TableHead>
                             <TableHead className="text-right text-zinc-400 font-medium">Azioni</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -93,6 +94,34 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                 displayStatus = 'no active';
                             }
                             // -----------------------------------
+
+                            // --- CALCOLO TIMING (DURATA CONNESSIONE) ---
+                            let timingText = "-";
+                            if (isOnline) {
+                                if (user.last_login_at) {
+                                    const loginTime = parseISO(user.last_login_at);
+                                    const mins = differenceInMinutes(now, loginTime);
+                                    timingText = `${mins} min`;
+                                } else {
+                                    timingText = "In corso...";
+                                }
+                            } else {
+                                if (user.last_login_at && user.last_logout_at) {
+                                    const loginTime = parseISO(user.last_login_at);
+                                    const logoutTime = parseISO(user.last_logout_at);
+
+                                    // Make sure logout happened after login
+                                    if (logoutTime > loginTime) {
+                                        const mins = differenceInMinutes(logoutTime, loginTime);
+                                        timingText = `${mins} min`;
+                                    } else {
+                                        // This happens if they logged in but never cleanly logged out before a previous session
+                                        // or if data is missing
+                                        timingText = "-";
+                                    }
+                                }
+                            }
+                            // -------------------------------------------
 
                             return (
                                 <TableRow key={user.id} className="border-white/10 hover:bg-white/5 transition-colors">
@@ -147,6 +176,12 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                             )}
                                         </div>
                                     </TableCell>
+                                    <TableCell>
+                                        <div className="flex items-center gap-1.5 text-zinc-300 bg-white/5 px-2.5 py-1 rounded-md w-fit border border-white/10">
+                                            <Clock className="w-3.5 h-3.5 text-zinc-400" />
+                                            <span className="text-sm font-medium">{timingText}</span>
+                                        </div>
+                                    </TableCell>
                                     <TableCell className="text-right">
                                         <UserRowActions user={{
                                             id: user.id,
@@ -161,7 +196,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                         })}
                         {filteredProfiles.length === 0 && (
                             <TableRow>
-                                <TableCell colSpan={7} className="text-center py-8 text-zinc-500">
+                                <TableCell colSpan={8} className="text-center py-8 text-zinc-500">
                                     Nessun utente trovato corrispondente alla ricerca.
                                 </TableCell>
                             </TableRow>
