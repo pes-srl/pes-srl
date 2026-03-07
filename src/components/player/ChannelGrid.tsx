@@ -4,6 +4,7 @@ import { useAudioStore } from "@/store/useAudioStore";
 import { Play, Pause, Radio } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { unlockAudioContext } from "@/utils/audio-unlock";
 
 interface ChannelGridProps {
     initialChannels: any[];
@@ -15,11 +16,13 @@ export function ChannelGrid({ initialChannels, serverError, planType }: ChannelG
     const { currentChannel, isPlaying, togglePlay, setChannel } = useAudioStore();
 
     const handleChannelClick = (channel: any) => {
-        import("@/utils/audio-unlock").then(({ unlockAudioContext }) => {
-            unlockAudioContext(document.getElementById("global-audio-player") as HTMLAudioElement);
-        });
+        const isClickingCurrent = currentChannel?.id === channel.id;
 
-        if (currentChannel?.id === channel.id) {
+        if (!isClickingCurrent || !isPlaying) {
+            unlockAudioContext(document.getElementById("global-audio-player") as HTMLAudioElement);
+        }
+
+        if (isClickingCurrent) {
             togglePlay();
         } else {
             // Mapping the DB column to the expected store property logic

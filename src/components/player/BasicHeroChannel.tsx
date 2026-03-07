@@ -3,6 +3,7 @@
 import { useAudioStore } from "@/store/useAudioStore";
 import { Play, Pause, Sparkles, Radio } from "lucide-react";
 import { motion } from "framer-motion";
+import { unlockAudioContext } from "@/utils/audio-unlock";
 
 interface BasicHeroChannelProps {
     channel: any;
@@ -22,9 +23,9 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
     const isCurrentlyPlaying = isActive && isPlaying;
 
     const handlePlayClick = () => {
-        import("@/utils/audio-unlock").then(({ unlockAudioContext }) => {
+        if (!isActive || !isPlaying) {
             unlockAudioContext(document.getElementById("global-audio-player") as HTMLAudioElement);
-        });
+        }
 
         if (isActive) {
             togglePlay();
