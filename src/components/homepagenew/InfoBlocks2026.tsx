@@ -179,19 +179,18 @@ export function InfoBlocks2026() {
                     {/* Glassmorphism Demo Card */}
                     <div className="relative w-full max-w-4xl p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 to-white/10 shadow-3xl">
                         <div className="bg-white/10 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 border border-white/20">
-                            <div className="flex-1 text-center md:text-left space-y-4">
+                            <div className="flex-1 text-center space-y-4">
                                 <h3 className="text-[#5D6676] text-2xl md:text-3xl font-black leading-tight uppercase tracking-tight">
                                     Ascolta una demo<br />del Mood BeautiFy
                                 </h3>
                                 <p className="text-[#5D6676]/70 text-lg font-bold">
                                     La Tua Beauty Routine Sonora
                                 </p>
-                                <div className="pt-2">
+                                <div className="pt-2 flex justify-center">
                                     <div className="inline-flex items-center gap-2 bg-[#AB7169] border border-[#AB7169]/20 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-sm hover:bg-[#5D6676] transition-all duration-300">
                                         <div className="text-white font-bold tracking-widest uppercase text-xs md:text-sm">
                                             CON UN SEMPLICE CLICK ;-)
                                         </div>
-                                        <div className="h-px w-8 bg-white/30"></div>
                                     </div>
                                 </div>
                             </div>
