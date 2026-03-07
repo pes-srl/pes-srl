@@ -132,7 +132,7 @@ export function Pricing2026() {
                                                 <div className={`mt-1.5 bg-[#5D6676] shadow-sm rounded-full shrink-0 flex items-center justify-center w-[15px] h-[15px]`}>
                                                     <Check className="w-[10px] h-[10px] text-white stroke-[3.5]" />
                                                 </div>
-                                                <span className="text-[#5D6676] font-medium leading-[1.6] text-[14px] lg:text-[15px]">
+                                                <span className="text-[#5D6676] font-medium leading-[1.6] text-[16px] lg:text-[18px]">
                                                     {feat}
                                                 </span>
                                             </li>
