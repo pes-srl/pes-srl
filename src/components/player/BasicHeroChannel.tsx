@@ -22,11 +22,9 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
     const isCurrentlyPlaying = isActive && isPlaying;
 
     const handlePlayClick = () => {
-        // Unlock audio context for mobile iOS directly on user interaction
-        const audioEl = document.getElementById("global-audio-player") as HTMLAudioElement;
-        if (audioEl) {
-            audioEl.play().catch(() => { });
-        }
+        import("@/utils/audio-unlock").then(({ unlockAudioContext }) => {
+            unlockAudioContext(document.getElementById("global-audio-player") as HTMLAudioElement);
+        });
 
         if (isActive) {
             togglePlay();

@@ -7,6 +7,7 @@ import { AlertCircle, CheckCircle2 } from "lucide-react";
 
 export function UpgradeForm({ userEmail }: { userEmail?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [requestedPlan, setRequestedPlan] = useState<'basic' | 'premium'>('basic');
   const [metriQuadriOption, setMetriQuadriOption] = useState<'0-250' | 'oltre'>('0-250');
   const [durataAbbonamento, setDurataAbbonamento] = useState<'6 mesi' | '12 mesi'>('6 mesi');
   const [status, setStatus] = useState<{
@@ -92,7 +93,8 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     value="basic"
                     className="sr-only peer"
                     required
-                    defaultChecked
+                    checked={requestedPlan === 'basic'}
+                    onChange={() => setRequestedPlan('basic')}
                   />
                   <div className="py-2.5 px-4 rounded-lg font-bold text-sm text-zinc-400 peer-checked:bg-sky-400 peer-checked:text-zinc-950 transition-all peer-checked:shadow-md">
                     Basic
@@ -104,6 +106,8 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     name="requested_plan"
                     value="premium"
                     className="sr-only peer"
+                    checked={requestedPlan === 'premium'}
+                    onChange={() => setRequestedPlan('premium')}
                   />
                   <div className="py-2.5 px-4 rounded-lg font-bold text-sm text-zinc-400 peer-checked:bg-amber-500 peer-checked:text-zinc-950 transition-all peer-checked:shadow-md">
                     Premium
@@ -230,7 +234,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     6 mesi
                   </div>
                   <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '6 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
-                    € 25,90 / mese
+                    € {requestedPlan === 'basic' ? '25,90' : '43,90'} / mese
                     <br />
                     <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-zinc-400 mt-1 block">
                       Unica soluzione
@@ -251,7 +255,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     12 mesi
                   </div>
                   <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '12 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
-                    € 20,90 / mese
+                    € {requestedPlan === 'basic' ? '20,90' : '38,90'} / mese
                     <br />
                     <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-zinc-400 mt-1 block">
                       Unica soluzione

@@ -79,20 +79,33 @@ export function GlobalAudioPlayer() {
                 lowLatencyMode: true,
             });
 
-            hls.loadSource(sourceUrl);
-            hls.attachMedia(audio);
             hlsRef.current = hls;
+
+            hls.on(Hls.Events.MEDIA_ATTACHED, () => {
+                hls.loadSource(sourceUrl);
+                // The audio tag was blessed synchronously by unlockAudioContext()
+                // By calling play() immediately upon attachment (before manifest loads), we retain the blessed gesture.
+                const currentlyPlaying = useAudioStore.getState().isPlaying;
+                if (currentlyPlaying) {
+                    audio.play().catch((e) => {
+                        console.warn("Pre-manifest play rejected, fallback to parsed event", e);
+                    });
+                }
+            });
 
             hls.on(Hls.Events.MANIFEST_PARSED, () => {
                 setBufferingState("idle");
-                if (isPlaying) {
+                // Fetch latest isPlaying state directly from the store instead of relying on the closure which might be stale
+                const currentlyPlaying = useAudioStore.getState().isPlaying;
+
+                if (currentlyPlaying) {
                     const playPromise = audio.play();
                     if (playPromise !== undefined) {
                         playPromise.catch((e) => {
                             if (e.name !== 'AbortError') {
                                 console.error("HLS Play failed:", e);
                                 setBufferingState("error");
-                                if (isPlaying) togglePlay();
+                                if (useAudioStore.getState().isPlaying) useAudioStore.getState().togglePlay();
                             }
                         });
                     }
@@ -115,19 +128,24 @@ export function GlobalAudioPlayer() {
                     }
                 }
             });
+
+            // Start the process by attaching media
+            hls.attachMedia(audio);
+
         } else {
             // Native fallback (Safari, iOS) or mp3 stream
             audio.src = sourceUrl;
             audio.addEventListener("loadedmetadata", () => {
                 setBufferingState("idle");
-                if (isPlaying) {
+                const currentlyPlaying = useAudioStore.getState().isPlaying;
+                if (currentlyPlaying) {
                     const playPromise = audio.play();
                     if (playPromise !== undefined) {
                         playPromise.catch((e) => {
                             if (e.name !== 'AbortError') {
                                 console.error("Native Play failed:", e);
                                 setBufferingState("error");
-                                if (isPlaying) togglePlay();
+                                if (useAudioStore.getState().isPlaying) useAudioStore.getState().togglePlay();
                             }
                         });
                     }
@@ -141,7 +159,7 @@ export function GlobalAudioPlayer() {
                 hlsRef.current = null;
             }
         };
-    }, [currentChannel]);
+    }, [currentChannel, setBufferingState]);
 
     // 4. Native Event Listeners for Buffering updates
     useEffect(() => {

@@ -68,8 +68,9 @@ export function AudioPlayer() {
                     <div className="flex-1 flex justify-center items-center">
                         <button
                             onClick={() => {
-                                const audioEl = document.getElementById("global-audio-player") as HTMLAudioElement;
-                                if (audioEl) audioEl.play().catch(() => { });
+                                import("@/utils/audio-unlock").then(({ unlockAudioContext }) => {
+                                    unlockAudioContext(document.getElementById("global-audio-player") as HTMLAudioElement);
+                                });
                                 togglePlay();
                             }}
                             className={`h-14 w-14 rounded-full flex items-center justify-center transition-all duration-300 ${isPlaying && bufferingState !== 'buffering' && bufferingState !== 'loading'
