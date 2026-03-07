@@ -235,7 +235,7 @@ export function MediaLibraryModal({ onSelectImage, triggerButton }: MediaLibrary
                                                 tabIndex={0}
                                             >
                                                 <div className="aspect-square bg-black relative overflow-hidden flex items-center justify-center">
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    { }
                                                     <img
                                                         src={publicUrl}
                                                         alt={file.name}

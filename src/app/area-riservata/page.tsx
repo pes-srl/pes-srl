@@ -41,8 +41,10 @@ export default async function AreaClientePage() {
     }
 
     // Server-side fetching of channels to prevent client-side lock contention
-    let { data: channels, error: channelsError } = await supabase
+    const { data: rawChannels, error: channelsError } = await supabase
         .rpc('get_authorized_channels', { req_user_id: user.id });
+
+    let channels = rawChannels;
 
     if (channelsError) {
         console.error("Error fetching channels on server:", channelsError);

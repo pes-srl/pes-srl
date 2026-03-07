@@ -75,7 +75,7 @@ export function ChannelGrid({ initialChannels, serverError, planType }: ChannelG
                                 <>
                                     {/* Ridotto l'overlay centrale (da bg-black/40 a bg-black/10) */}
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 duration-500" />
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    { }
                                     <img
                                         src={channel.card_image_url}
                                         alt={channel.name}

@@ -214,7 +214,7 @@ export default function MediaLibraryPage() {
                                         className="group relative bg-zinc-950 border border-white/10 rounded-xl overflow-hidden hover:border-fuchsia-500 transition-all shadow-md"
                                     >
                                         <div className="aspect-square bg-black relative overflow-hidden flex items-center justify-center">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            { }
                                             <img
                                                 src={publicUrl}
                                                 alt={file.name}

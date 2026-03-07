@@ -328,7 +328,7 @@ export default function SingleChannelAdminPage() {
                                     </div>
                                     {channel.card_image_url && (
                                         <div className="mt-2 w-16 h-16 rounded-md bg-black border border-white/10 overflow-hidden relative group">
-                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            { }
                                             <img src={channel.card_image_url} alt="Cover Preview" className="w-full h-full object-cover" />
                                             <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer text-xs text-red-400 hover:text-red-300" onClick={() => handleInputChange("card_image_url", "")}>
                                                 X
