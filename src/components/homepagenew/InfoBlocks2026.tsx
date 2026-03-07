@@ -35,17 +35,19 @@ function AudioPlayerMinimal({ src }: { src: string }) {
             >
                 <source src={src} type="audio/mpeg" />
             </audio>
-            <button
-                onClick={togglePlay}
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-[#5D6676] flex items-center justify-center text-[#5D6676] hover:scale-110 active:scale-95 transition-all bg-[#5D6676]/5 backdrop-blur-sm cursor-pointer group shadow-[0_0_20px_rgba(255,255,255,0.3),_0_15px_45px_rgba(0,0,0,0.1),_inset_0_2px_10px_rgba(255,255,255,0.1)] hover:shadow-[0_0_50px_rgba(255,255,255,0.8),_0_20px_60px_rgba(93,102,118,0.2),_inset_0_2px_15px_rgba(255,255,255,0.3)]"
-                aria-label={isPlaying ? "Pause" : "Play"}
-            >
-                {isPlaying ? (
-                    <Pause size={48} strokeWidth={1.5} fill="none" className="transition-all" />
-                ) : (
-                    <Play size={48} strokeWidth={1.5} fill="none" className="ml-1 transition-all" />
-                )}
-            </button>
+            <div className="w-28 h-28 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:scale-110 active:scale-95 transition-all cursor-pointer group shadow-[0_0_30px_rgba(248,187,208,0.6),_0_15px_45px_rgba(248,187,208,0.3),_inset_0_2px_10px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(248,187,208,0.8),_0_20px_60px_rgba(248,187,208,0.4),_inset_0_2px_15px_rgba(255,255,255,0.3)] flex">
+                <button
+                    onClick={togglePlay}
+                    className="flex-1 rounded-full flex items-center justify-center text-[#5D6676] bg-white bg-opacity-90 backdrop-blur-sm w-full h-full"
+                    aria-label={isPlaying ? "Pause" : "Play"}
+                >
+                    {isPlaying ? (
+                        <Pause size={64} strokeWidth={1.5} fill="none" className="transition-all" />
+                    ) : (
+                        <Play size={64} strokeWidth={1.5} fill="none" className="ml-1 transition-all" />
+                    )}
+                </button>
+            </div>
         </div>
     );
 }
@@ -101,7 +103,7 @@ export function InfoBlocks2026() {
                                 onClick={(e) => handleScrollTo(e, "#trial-form")}
                             >
                                 <Button
-                                    className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(45,10,78,0.4)] transition-all border-none"
+                                    className="bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none"
                                 >
                                     PROVA GRATUITA 7 GIORNI
                                 </Button>
@@ -151,7 +153,7 @@ export function InfoBlocks2026() {
                                 onClick={(e) => handleScrollTo(e, "#trial-form")}
                             >
                                 <Button
-                                    className="bg-[#AB7169] hover:bg-[#5D6676] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(171,113,105,0.4)] transition-all border-none"
+                                    className="bg-gradient-to-r from-[#DDA0DD] to-[#F8BBD0] hover:from-[#D48DD4] hover:to-[#F48FB1] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none"
                                 >
                                     7 GIORNI DI TEST SENZA IMPEGNO
                                 </Button>
@@ -205,7 +207,7 @@ export function InfoBlocks2026() {
                                     La Tua Beauty Routine Sonora
                                 </p>
                                 <div className="pt-2 flex justify-center">
-                                    <div className="inline-flex items-center gap-2 bg-[#7B2CBF] border border-[#7B2CBF]/20 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-sm hover:bg-[#6A25A3] transition-all duration-300">
+                                    <div className="inline-flex items-center gap-2 bg-[#DDA0DD] border border-[#DDA0DD]/20 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-sm hover:bg-[#D48DD4] transition-all duration-300">
                                         <div className="text-white font-bold tracking-widest uppercase text-xs md:text-sm">
                                             CON UN SEMPLICE CLICK ;-)
                                         </div>

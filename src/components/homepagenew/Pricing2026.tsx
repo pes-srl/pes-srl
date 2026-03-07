@@ -21,7 +21,7 @@ const plans = [
             "Oltre al canale principale hai a disposizione altri 6 canali: Relax, Lounge, Jazz, Ambient Massage, Vocal e Deep",
         ],
         buttonText: "PROVA GRATUITA 7 GIORNI",
-        buttonClasses: "hover:brightness-110 text-white shadow-xl shadow-[#5D6676]/20",
+        buttonClasses: "hover:brightness-110 shadow-xl shadow-[#5D6676]/20",
         buttonStyle: { background: 'linear-gradient(90deg, #AB7169 0%, #D8B2A3 100%)' },
         footerText: "Possibilità di abbonamento semestrale a 25,90 mese\nOfferta valida fino a 250mq\nPagamento unica soluzione",
         highlight: false,
@@ -111,7 +111,7 @@ export function Pricing2026() {
                                                 className="w-full"
                                             >
                                                 <Button
-                                                    className={`w-full rounded-[2.5rem] h-auto py-5 sm:py-5 px-4 text-[14px] sm:text-[16px] font-black uppercase tracking-widest text-center whitespace-normal leading-[1.3] transition-all bg-[#AB7169] hover:bg-[#D8B2A3] ${plan.buttonClasses}`}
+                                                    className={`w-full rounded-[2.5rem] h-auto py-5 sm:py-5 px-4 text-[14px] sm:text-[16px] font-black uppercase tracking-widest text-center whitespace-normal leading-[1.3] transition-all bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white ${plan.buttonClasses}`}
                                                 >
                                                     {plan.buttonText}
                                                 </Button>
@@ -217,7 +217,7 @@ export function Pricing2026() {
                             onClick={(e) => handleScrollTo(e, "#trial-form")}
                         >
                             <Button
-                                className="bg-[#AB7169] hover:bg-[#D8B2A3] text-white font-black text-sm md:text-base px-8 py-6 rounded-[2.5rem] uppercase tracking-wide shadow-[0_8px_30px_rgba(171,113,105,0.4)] transition-all border-none"
+                                className="bg-gradient-to-r from-[#7B2CBF] to-[#B388E5] hover:from-[#6A25A3] hover:to-[#9F67DB] text-white font-black text-sm md:text-base px-8 py-6 rounded-[2.5rem] uppercase tracking-wide shadow-[0_8px_30px_rgba(123,44,191,0.4)] transition-all border-none"
                             >
                                 PROVA GRATUITA 7 GIORNI SENZA IMPEGNO
                             </Button>

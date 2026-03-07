@@ -175,9 +175,9 @@ export function BottomCTA2026() {
                                 <Button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="w-full h-16 mt-4 bg-[#AB7169] hover:bg-[#D8B2A3] text-white rounded-[2.5rem] font-bold text-sm md:text-base shadow-[0_8px_30px_rgba(171,113,105,0.4)] transition-all border-none tracking-wide"
+                                    className="w-full h-16 mt-4 bg-white/10 hover:bg-white/20 text-white font-bold text-sm md:text-lg transition-all border border-white/30 rounded-[2.5rem] tracking-wide"
                                 >
-                                    {isLoading ? "Creazione account in corso..." : "INIZIA SUBITO LA PROVA GRATUITA 🚀"}
+                                    {isLoading ? "Creazione account in corso..." : "INIZIA SUBITO LA PROVA GRATUITA"}
                                 </Button>
                             </div>
                         </form>
