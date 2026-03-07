@@ -300,13 +300,13 @@ export function HeaderNew({
                                 className="hidden md:inline-block"
                             >
                                 <Button
-                                    className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg shadow-[#2D0A4E]/20 rounded-[2.5rem]"
+                                    className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg shadow-[#2D0A4E]/20 rounded-[35px]"
                                 >
                                     Prova GRATUITA
                                 </Button>
                             </a>
                             <Link href="/login" className="hidden md:inline-block">
-                                <Button variant="outline" className="text-zinc-300 border-zinc-700 bg-transparent hover:bg-zinc-800 hover:text-white transition-colors rounded-[2.5rem]">
+                                <Button variant="outline" className="text-zinc-300 border-zinc-700 bg-transparent hover:bg-zinc-800 hover:text-white transition-colors rounded-[35px]">
                                     Accedi
                                 </Button>
                             </Link>
@@ -349,12 +349,12 @@ export function HeaderNew({
                         {!isLoading && user ? (
                             <>
                                 <Link href="/admin" onClick={() => setIsMobileMenuOpen(false)}>
-                                    <Button variant="outline" className="w-full border-white/20 text-white bg-transparent flex items-center justify-center gap-2 rounded-[2.5rem]">
+                                    <Button variant="outline" className="w-full border-white/20 text-white bg-transparent flex items-center justify-center gap-2 rounded-[35px]">
                                         <User size={18} />
                                         Area Personale
                                     </Button>
                                 </Link>
-                                <Button onClick={() => { handleSignOut(); setIsMobileMenuOpen(false); }} className="w-full bg-white/10 hover:bg-white/20 text-white border-0 flex items-center justify-center gap-2 cursor-pointer transition-colors rounded-[2.5rem]">
+                                <Button onClick={() => { handleSignOut(); setIsMobileMenuOpen(false); }} className="w-full bg-white/10 hover:bg-white/20 text-white border-0 flex items-center justify-center gap-2 cursor-pointer transition-colors rounded-[35px]">
                                     <LogOut size={18} />
                                     Esci
                                 </Button>
@@ -362,7 +362,7 @@ export function HeaderNew({
                         ) : (
                             <>
                                 <Link href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                                    <Button variant="outline" className="w-full border-white/20 text-white bg-transparent rounded-[2.5rem]">
+                                    <Button variant="outline" className="w-full border-white/20 text-white bg-transparent rounded-[35px]">
                                         Accedi
                                     </Button>
                                 </Link>
@@ -371,7 +371,7 @@ export function HeaderNew({
                                     onClick={(e) => handleScrollTo(e, "#trial-form")}
                                 >
                                     <Button
-                                        className="w-full bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg rounded-[2.5rem]"
+                                        className="w-full bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg rounded-[35px]"
                                     >
                                         Prova GRATUITA
                                     </Button>

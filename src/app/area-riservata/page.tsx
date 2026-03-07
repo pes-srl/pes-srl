@@ -151,7 +151,7 @@ export default async function AreaClientePage() {
                                 {/* Sfondo decorativo */}
                                 <div className="absolute inset-0 bg-linear-to-b from-fuchsia-900/10 via-indigo-900/5 to-transparent rounded-[3rem] -z-10 blur-xl pointer-events-none" />
 
-                                <div className="bg-[#0f0518] border border-white/5 rounded-[2.5rem] shadow-2xl p-8 md:p-14 relative overflow-hidden backdrop-blur-xl">
+                                <div className="bg-[#0f0518] border border-white/5 rounded-[35px] shadow-2xl p-8 md:p-14 relative overflow-hidden backdrop-blur-xl">
                                     {/* Overlay di luce */}
                                     <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
                                     <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />

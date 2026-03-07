@@ -72,7 +72,7 @@ export function Pricing2026() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ delay: i * 0.15, duration: 0.5 }}
-                            className={`flex flex-col lg:flex-row bg-[#FAFAF8] rounded-[2.5rem] overflow-hidden shadow-2xl transition-all w-full
+                            className={`flex flex-col lg:flex-row bg-[#FAFAF8] rounded-[35px] overflow-hidden shadow-2xl transition-all w-full
                                 ${plan.highlight ? 'ring-4 ring-[#AB7169] ring-offset-4 ring-offset-[#1E0C31] scale-100 lg:scale-105 z-10' : 'scale-100'}`}
                         >
                             {/* Color Header */}
@@ -115,7 +115,7 @@ export function Pricing2026() {
                                                 className="w-full lg:w-[124%] lg:-ml-[12%]"
                                             >
                                                 <Button
-                                                    className={`w-full rounded-[2.5rem] h-auto py-5 sm:py-5 px-4 text-[14px] sm:text-[16px] font-semibold uppercase tracking-widest text-center whitespace-normal leading-[1.3] transition-all bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white ${plan.buttonClasses} ${montserrat.className}`}
+                                                    className={`w-full rounded-[35px] h-auto py-5 sm:py-5 px-4 text-[14px] sm:text-[16px] font-semibold uppercase tracking-widest text-center whitespace-normal leading-[1.3] transition-all bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white ${plan.buttonClasses} ${montserrat.className}`}
                                                 >
                                                     {plan.buttonText}
                                                 </Button>
@@ -157,7 +157,7 @@ export function Pricing2026() {
                     className="mt-12 mb-4 w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-4 px-2"
                 >
                     {/* LASER CHANNEL */}
-                    <div className="flex-1 bg-gradient-to-b from-[#A66E64] to-[#8B5A52] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
+                    <div className="flex-1 bg-gradient-to-b from-[#A66E64] to-[#8B5A52] rounded-[35px] p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.1] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-white rotate-45 rounded-3xl"></div>
                         </div>
@@ -171,7 +171,7 @@ export function Pricing2026() {
                     </div>
 
                     {/* COSMETIC CHANNEL */}
-                    <div className="flex-1 bg-gradient-to-b from-[#5D6676] to-[#1E0C31] rounded-[2.5rem] p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
+                    <div className="flex-1 bg-gradient-to-b from-[#5D6676] to-[#1E0C31] rounded-[35px] p-8 flex flex-col justify-center items-center text-center shadow-xl relative overflow-hidden border border-white/10">
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
                             <div className="w-64 h-64 border-[8px] border-[#FAFAF8] rotate-45 rounded-3xl"></div>
                         </div>
@@ -204,7 +204,7 @@ export function Pricing2026() {
                             { step: "2", text: "Accedi dal tuo dispositivo preferito (PC, Mac, smartphone, tablet)" },
                             { step: "3", text: "Premi Play sul canale che preferisci e lascia che BeautiFy faccia il resto" }
                         ].map((item) => (
-                            <div key={item.step} className="bg-[#FAFAF8] rounded-[2.5rem] p-8 text-center shadow-xl space-y-4">
+                            <div key={item.step} className="bg-[#FAFAF8] rounded-[35px] p-8 text-center shadow-xl space-y-4">
                                 <span className="block text-6xl font-black text-[#7B2CBF] mb-6 drop-shadow-sm">
                                     {item.step}
                                 </span>
@@ -221,7 +221,7 @@ export function Pricing2026() {
                             onClick={(e) => handleScrollTo(e, "#trial-form")}
                         >
                             <Button
-                                className={`bg-gradient-to-r from-[#7B2CBF] to-[#B388E5] hover:from-[#6A25A3] hover:to-[#9F67DB] text-white font-semibold text-sm md:text-base px-8 py-6 rounded-[2.5rem] uppercase tracking-wide shadow-[0_8px_30px_rgba(123,44,191,0.4)] transition-all border-none ${montserrat.className}`}
+                                className={`bg-gradient-to-r from-[#7B2CBF] to-[#B388E5] hover:from-[#6A25A3] hover:to-[#9F67DB] text-white font-semibold text-sm md:text-base px-8 py-6 rounded-[35px] uppercase tracking-wide shadow-[0_8px_30px_rgba(123,44,191,0.4)] transition-all border-none ${montserrat.className}`}
                             >
                                 PROVA GRATUITA 7 GIORNI SENZA IMPEGNO
                             </Button>
@@ -260,7 +260,7 @@ export function Pricing2026() {
                         href="https://wa.link/5apci9"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg md:text-xl rounded-[2.5rem] px-10 py-4 shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all hover:scale-105 gap-3"
+                        className="inline-flex items-center justify-center bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg md:text-xl rounded-[35px] px-10 py-4 shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all hover:scale-105 gap-3"
                     >
                         Scrivici su WhatsApp
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>

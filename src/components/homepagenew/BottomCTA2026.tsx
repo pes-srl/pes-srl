@@ -95,7 +95,7 @@ export function BottomCTA2026() {
                             </p>
                         </div>
 
-                        <form onSubmit={handleSignup} className="p-8 md:p-10 rounded-[2.5rem] bg-white/5 border border-[#5D6676]/30 backdrop-blur-xl shadow-2xl">
+                        <form onSubmit={handleSignup} className="p-8 md:p-10 rounded-[35px] bg-white/5 border border-[#5D6676]/30 backdrop-blur-xl shadow-2xl">
                             {error && (
                                 <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-200 text-sm text-center">
                                     {error}
@@ -119,7 +119,7 @@ export function BottomCTA2026() {
                                             value={fullName}
                                             onChange={(e) => setFullName(e.target.value)}
                                             required
-                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[2.5rem] text-[15px]"
+                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[35px] text-[15px]"
                                         />
                                     </div>
 
@@ -131,7 +131,7 @@ export function BottomCTA2026() {
                                             placeholder="Es. Beauty Spa Milano"
                                             value={salonName}
                                             onChange={(e) => setSalonName(e.target.value)}
-                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[2.5rem] text-[15px]"
+                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[35px] text-[15px]"
                                         />
                                     </div>
 
@@ -144,7 +144,7 @@ export function BottomCTA2026() {
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             required
-                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[2.5rem] text-[15px]"
+                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[35px] text-[15px]"
                                         />
                                     </div>
 
@@ -157,7 +157,7 @@ export function BottomCTA2026() {
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             required
-                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[2.5rem] text-[15px]"
+                                            className="h-14 bg-black/40 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-[#AB7169]/50 rounded-[35px] text-[15px]"
                                         />
                                     </div>
                                 </div>
@@ -178,7 +178,7 @@ export function BottomCTA2026() {
                                 <Button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="w-full h-16 mt-4 bg-white/10 hover:bg-white/20 text-white text-sm md:text-lg transition-all border border-white/30 rounded-[2.5rem] tracking-wide"
+                                    className="w-full h-16 mt-4 bg-white/10 hover:bg-white/20 text-white text-sm md:text-lg transition-all border border-white/30 rounded-[35px] tracking-wide"
                                 >
                                     {isLoading ? "Creazione account in corso..." : "INIZIA SUBITO LA PROVA GRATUITA"}
                                 </Button>

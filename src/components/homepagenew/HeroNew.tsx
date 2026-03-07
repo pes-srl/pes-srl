@@ -64,7 +64,7 @@ export function HeroNew() {
                         onClick={(e) => handleScrollTo(e, "#vantaggi")}
                     >
                         <Button
-                            className={`bg-gradient-to-r from-[#DDA0DD] to-[#F8BBD0] hover:from-[#D48DD4] hover:to-[#F48FB1] text-white tracking-wider uppercase px-8 md:px-14 py-4 md:py-8 text-base md:text-2xl rounded-[2.5rem] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none font-semibold ${montserrat.className}`}
+                            className={`bg-gradient-to-r from-[#DDA0DD] to-[#F8BBD0] hover:from-[#D48DD4] hover:to-[#F48FB1] text-white tracking-wider uppercase px-8 md:px-14 py-4 md:py-8 text-base md:text-2xl rounded-[35px] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none font-semibold ${montserrat.className}`}
                         >
                             Scoprici
                         </Button>

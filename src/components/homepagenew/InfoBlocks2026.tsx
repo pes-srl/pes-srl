@@ -107,7 +107,7 @@ export function InfoBlocks2026() {
                                 onClick={(e) => handleScrollTo(e, "#trial-form")}
                             >
                                 <Button
-                                    className={`bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white font-semibold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none ${montserrat.className}`}
+                                    className={`bg-gradient-to-r from-[#F8BBD0] to-[#DDA0DD] hover:from-[#F48FB1] hover:to-[#D48DD4] text-white font-semibold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[35px] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none ${montserrat.className}`}
                                 >
                                     PROVA GRATUITA 7 GIORNI
                                 </Button>
@@ -125,7 +125,7 @@ export function InfoBlocks2026() {
                         <img
                             src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"
                             alt="BeautiFy Channel Beauty Room"
-                            className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[2.5rem] shadow-2xl lg:scale-105"
+                            className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[33px] shadow-2xl lg:scale-105"
                         />
                     </motion.div>
                 </div>
@@ -157,7 +157,7 @@ export function InfoBlocks2026() {
                                 onClick={(e) => handleScrollTo(e, "#trial-form")}
                             >
                                 <Button
-                                    className="bg-gradient-to-r from-[#DDA0DD] to-[#F8BBD0] hover:from-[#D48DD4] hover:to-[#F48FB1] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[2.5rem] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none"
+                                    className="bg-gradient-to-r from-[#DDA0DD] to-[#F8BBD0] hover:from-[#D48DD4] hover:to-[#F48FB1] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-3 md:py-4 h-auto text-sm md:text-lg rounded-[35px] shadow-[0_8px_30px_rgba(248,187,208,0.4)] transition-all border-none"
                                 >
                                     7 GIORNI DI TEST SENZA IMPEGNO
                                 </Button>
@@ -176,7 +176,7 @@ export function InfoBlocks2026() {
                             <img
                                 src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727853683-sr1147.png"
                                 alt="Assistente Tati"
-                                className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[2.5rem] shadow-2xl lg:scale-105"
+                                className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[33px] shadow-2xl lg:scale-105"
                             />
                         </div>
                     </motion.div>
@@ -201,8 +201,8 @@ export function InfoBlocks2026() {
                     </div>
 
                     {/* Glassmorphism Demo Card */}
-                    <div className="relative w-full max-w-4xl p-[1px] rounded-[2.5rem] bg-gradient-to-br from-white/40 to-white/10 shadow-3xl">
-                        <div className="bg-white/10 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 border border-white/20">
+                    <div className="relative w-full max-w-4xl p-[1px] rounded-[35px] bg-gradient-to-br from-white/40 to-white/10 shadow-3xl">
+                        <div className="bg-white/10 backdrop-blur-2xl rounded-[35px] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-10 border border-white/20">
                             <div className="flex-1 text-center space-y-4">
                                 <h3 className={`text-[#5D6676] text-2xl md:text-3xl font-semibold leading-tight uppercase tracking-tight ${montserrat.className}`}>
                                     Ascolta una demo<br />del Mood BeautiFy
