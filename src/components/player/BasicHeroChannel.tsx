@@ -18,8 +18,8 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
         ? "https://canali2.pesstream.eu/hls/beautify-channel-premium/live.m3u8"
         : "https://canali2.pesstream.eu/hls/beautify-channel/live.m3u8";
 
-    // Un canale è "attivo" se l'ID corrisponde O se l'URL in play è il nostro fallback esatto
-    const isActive = currentChannel?.id === channel?.id || currentChannel?.streamUrl === fallbackUrl;
+    // Un canale è "attivo" se esiste un canale attualmente in riproduzione e il suo ID o URL corrisponde a questo
+    const isActive = currentChannel ? (currentChannel.id === channel?.id || currentChannel.streamUrl === fallbackUrl) : false;
     const isCurrentlyPlaying = isActive && isPlaying;
 
     const handlePlayClick = () => {
