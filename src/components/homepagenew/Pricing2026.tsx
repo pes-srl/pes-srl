@@ -85,10 +85,10 @@ export function Pricing2026() {
 
                                     {/* CTA Button & Footer */}
                                     <div className="mt-8 lg:mt-auto space-y-6">
-                                        <div className="flex justify-center w-full px-0 sm:px-0">
-                                            <Link href="#trial-form" className="w-[110%] sm:w-full -ml-[5%] sm:ml-0">
+                                        <div className="flex justify-center w-full">
+                                            <Link href="#trial-form" className="w-full">
                                                 <Button
-                                                    className={`w-full rounded-[2.5rem] h-auto py-5 sm:py-5 px-1 sm:px-4 text-[12px] sm:text-[16px] font-black uppercase tracking-widest text-center whitespace-normal min-w-0 leading-[1.3] transition-all bg-[#AB7169] hover:bg-[#D8B2A3] ${plan.buttonClasses}`}
+                                                    className={`w-full rounded-[2.5rem] h-auto py-5 sm:py-5 px-4 text-[14px] sm:text-[16px] font-black uppercase tracking-widest text-center whitespace-normal leading-[1.3] transition-all bg-[#AB7169] hover:bg-[#D8B2A3] ${plan.buttonClasses}`}
                                                 >
                                                     {plan.buttonText}
                                                 </Button>

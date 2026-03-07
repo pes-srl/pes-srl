@@ -235,12 +235,12 @@ export function InfoBlocks2026() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             whileHover={{ y: -5, scale: 1.01 }}
-                            className="bg-[#FAFAF8] rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#D8B2A3]/20 flex flex-col gap-6 transition-all duration-300"
+                            className="bg-[#FAFAF8] rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#D8B2A3]/20 flex flex-col gap-6 transition-all duration-300 relative"
                         >
-                            <div className="w-14 h-14 rounded-full bg-[#AB7169] flex items-center justify-center text-white text-2xl font-black shrink-0 shadow-md">
+                            <div className="absolute top-6 right-6 md:top-8 md:right-8 w-14 h-14 rounded-full bg-[#AB7169] flex items-center justify-center text-white text-2xl font-black shrink-0 shadow-md">
                                 2
                             </div>
-                            <p className="text-[#5D6676] text-lg md:text-xl font-medium leading-relaxed">
+                            <p className="text-[#5D6676] text-lg md:text-xl font-medium leading-relaxed pt-10 md:pt-0">
                                 Questo stimola efficacemente l’interesse delle clienti e sollecita la loro richiesta di informazioni su <span className="text-[#AB7169] font-bold">prodotti e trattamenti</span> proprio mentre sono nel tuo salone.
                             </p>
                         </motion.div>
@@ -269,12 +269,12 @@ export function InfoBlocks2026() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.5, delay: 0.4 }}
                             whileHover={{ y: -5, scale: 1.01 }}
-                            className="bg-[#FAFAF8] rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#D8B2A3]/20 flex flex-col gap-6 transition-all duration-300"
+                            className="bg-[#FAFAF8] rounded-[2rem] p-8 md:p-10 shadow-xl border border-[#D8B2A3]/20 flex flex-col gap-6 transition-all duration-300 relative"
                         >
-                            <div className="w-14 h-14 rounded-full bg-[#5D6676] flex items-center justify-center text-white text-2xl font-black shrink-0 shadow-md">
+                            <div className="absolute top-6 right-6 md:top-8 md:right-8 w-14 h-14 rounded-full bg-[#5D6676] flex items-center justify-center text-white text-2xl font-black shrink-0 shadow-md">
                                 4
                             </div>
-                            <p className="text-[#5D6676] text-lg md:text-xl font-medium leading-relaxed">
+                            <p className="text-[#5D6676] text-lg md:text-xl font-medium leading-relaxed pt-10 md:pt-0">
                                 Inoltre, BeautiFy Channel ti mette a disposizione altri <span className="text-[#AB7169] font-bold">6 canali audio</span> oltre al principale, per cambiare mood durante la giornata, sempre con il supporto dell’assistente digitale BeautiFy.
                             </p>
                         </motion.div>
