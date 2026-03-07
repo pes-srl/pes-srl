@@ -186,7 +186,7 @@ export function InfoBlocks2026() {
                                 <p className="text-[#5D6676]/70 text-lg font-bold">
                                     La Tua Beauty Routine Sonora
                                 </p>
-                                <div className="pt-2 hidden md:block">
+                                <div className="pt-2">
                                     <div className="inline-flex items-center gap-2 bg-[#AB7169] border border-[#AB7169]/20 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-sm hover:bg-[#5D6676] transition-all duration-300">
                                         <div className="text-white font-bold tracking-widest uppercase text-xs md:text-sm">
                                             CON UN SEMPLICE CLICK ;-)
