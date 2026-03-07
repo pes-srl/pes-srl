@@ -181,7 +181,7 @@ export function HeaderNew({
 
     const navLinks = [
         { name: "Vantaggi", href: "#vantaggi" },
-        { name: "Servizio", href: "#" },
+        { name: "Servizio", href: "#servizio" },
         { name: "Prezzo", href: "#pricing" },
     ];
 

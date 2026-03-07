@@ -37,7 +37,7 @@ export function HeroNew() {
                         COME FAI SENZA BEAUTIFY?
                     </h1>
 
-                    <Link href="#pricing">
+                    <Link href="#vantaggi">
                         <Button
                             className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white font-bold tracking-wider uppercase px-8 md:px-12 py-4 md:py-7 text-base md:text-xl rounded-[2.5rem] shadow-[0_8px_30px_rgba(45,10,78,0.4)] transition-all border-none"
                         >

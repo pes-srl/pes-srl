@@ -110,7 +110,7 @@ export function InfoBlocks2026() {
                 </div>
 
                 {/* Block 2: Image Left, Text Right */}
-                <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-20">
+                <div id="servizio" className="flex flex-col md:flex-row-reverse items-center justify-between gap-12 md:gap-20 scroll-mt-24">
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -213,6 +213,7 @@ export function InfoBlocks2026() {
 
                         {/* Block 1 */}
                         <motion.div
+                            id="vantaggi"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
