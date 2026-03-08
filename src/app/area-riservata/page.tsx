@@ -177,7 +177,7 @@ export default async function AreaClientePage() {
                                                 Nulla di più semplice! Collega il tuo pc / smartphone / tablet all'impianto audio del tuo istituto. Premi play sul canale principale qui sopra, imposta il giusto volume in salone e dimenticatene, il resto lo fa BeautiFy.<br /><br />
                                                 I nostri canali audio propongono una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className="text-fuchsia-300">suggerimenti vocali</span>.
                                             </p>
-                                            <p className="text-zinc-400 text-base">
+                                            <p className="text-fuchsia-300 text-base">
                                                 Studiati per stimolare la curiosità delle tue clienti e l'acquisto dei tuoi servizi.
                                             </p>
                                         </div>
@@ -213,8 +213,8 @@ export default async function AreaClientePage() {
                                                 </li>
                                             </ul>
                                             <div className="pt-4 mt-2 border-t border-white/5">
-                                                <p className="font-semibold font-[family-name:var(--font-montserrat)] text-fuchsia-400 tracking-wide uppercase text-sm flex items-center gap-2">
-                                                    <Radio className="w-4 h-4" /> Buon ascolto
+                                                <p className="font-bold font-[family-name:var(--font-montserrat)] text-fuchsia-400 tracking-wider uppercase text-lg flex items-center gap-2">
+                                                    <Radio className="w-5 h-5" /> Buon ascolto
                                                 </p>
                                             </div>
                                         </div>

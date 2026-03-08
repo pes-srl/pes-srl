@@ -89,8 +89,8 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
 
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3">
-              Migliora il tuo Piano
+            <h2 className="text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3 uppercase tracking-wide">
+              MIGLIORA IL TUO PIANO
             </h2>
             <p className="text-zinc-300 font-normal font-[family-name:var(--font-montserrat)] mt-2 leading-relaxed">
               Conclusa la tua prova gratuita di 7 giorni, puoi scegliere qui sotto uno dei nostri 2 abbonamenti. Questi sono i dati che ci servono. Nessuna carta di credito, nessun addebito, dopo la richiesta del piano verrai contattata da un nostro responsabile per la finalizzazione dell'abbonamento scelto, grazie!<br /><br />
@@ -264,8 +264,8 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '6 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
                       € {requestedPlan === 'basic' ? '25,90' : '43,90'} / mese
                       <br />
-                      <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-zinc-400 mt-1 block">
-                        Unica soluzione
+                      <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-white mt-1 block">
+                        Unica Soluzione
                       </span>
                     </div>
                   </label>
@@ -285,8 +285,8 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                     <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '12 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
                       € {requestedPlan === 'basic' ? '20,90' : '38,90'} / mese
                       <br />
-                      <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-zinc-400 mt-1 block">
-                        Unica soluzione
+                      <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-white mt-1 block">
+                        Unica Soluzione
                       </span>
                     </div>
                   </label>
@@ -296,9 +296,9 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               {/* Box Totale da saldare */}
               <div className="md:col-span-2 mt-4 mb-2 flex justify-center text-center">
                 <div className="bg-black/30 border border-fuchsia-500/20 rounded-2xl p-6 w-full max-w-sm shadow-[0_0_15px_rgba(192,38,211,0.1)]">
-                  <p className="text-zinc-400 font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">Totale complessivo</p>
+                  <p className="text-white font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">Totale complessivo</p>
                   <p className={`font-bold mb-3 uppercase tracking-wide ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}>Piano {requestedPlan === 'basic' ? 'Basic' : 'Premium'}</p>
-                  <p className="text-4xl font-bold text-white font-[family-name:var(--font-montserrat)]"><span className={`text-3xl font-medium ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}>€</span> {totalPrice}</p>
+                  <p className={`text-4xl font-bold font-[family-name:var(--font-montserrat)] ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}><span className="text-3xl font-medium pr-1">€</span>{totalPrice}</p>
                   <p className="text-base text-white mt-3 font-semibold">*{getMonths()} mesi a € {getMonthlyPrice().toFixed(2).replace('.', ',')} / mese</p>
                 </div>
               </div>
