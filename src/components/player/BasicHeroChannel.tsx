@@ -85,10 +85,10 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         </span>
                     </h2>
 
-                    <p className="text-zinc-300 text-lg md:text-xl max-w-xl leading-relaxed mb-8">
+                    <p className="text-zinc-300 text-lg md:text-lg max-w-xl leading-relaxed mb-8">
                         {isPremium
                             ? "Il tuo canale esclusivo con suggerimenti personalizzati. L'atmosfera perfetta, cucita su misura per il tuo istituto e le tue promozioni."
-                            : "il servizio che trasforma radicalmente l'atmosfera del tuo istituto!"}
+                            : "Il servizio che trasforma radicalmente l'atmosfera del tuo istituto!"}
                     </p>
 
                 </div>
@@ -127,14 +127,12 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         <div className="absolute inset-16 rounded-full border border-white/5" />
 
                         {/* Center label */}
-                        <div className={`
-                            w-1/3 h-1/3 rounded-full flex items-center justify-center
-                            ${isActive
-                                ? (isPremium ? 'bg-linear-to-br from-amber-500 to-orange-600' : 'bg-linear-to-br from-fuchsia-500 to-indigo-600')
-                                : 'bg-zinc-800'
-                            }
-                        `}>
-                            <Radio className={`w-1/2 h-1/2 ${isActive ? 'text-white' : 'text-zinc-500'}`} />
+                        <div className="w-1/3 h-1/3 rounded-full flex items-center justify-center overflow-hidden bg-white z-10 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+                            <img
+                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772319918240-8c1dg.png"
+                                alt="BeautiFy Channel Vinyl Image"
+                                className={`w-full h-full object-cover scale-[1.05] ${!isActive ? 'opacity-50 grayscale' : 'opacity-100'} transition-all duration-500`}
+                            />
                         </div>
                     </div>
 
@@ -142,21 +140,21 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         onClick={handlePlayClick}
                         className={`
                             flex items-center justify-center gap-3 w-3/4
-                            px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl relative z-20 bg-white
+                            px-8 py-4 rounded-2xl font-semibold font-[family-name:var(--font-montserrat)] text-xl transition-all duration-300 shadow-xl relative z-20 bg-white text-zinc-800
                             ${isActive
-                                ? 'text-zinc-950 hover:bg-zinc-200 shadow-white/10'
-                                : 'text-zinc-950 hover:scale-105 hover:bg-zinc-100'
+                                ? 'hover:bg-zinc-200'
+                                : 'hover:scale-105 hover:bg-zinc-100'
                             }
                         `}
                     >
                         {isCurrentlyPlaying ? (
                             <>
-                                <Pause className="w-6 h-6 fill-white stroke-black stroke-[2px]" />
+                                <Pause className="w-6 h-6 fill-zinc-800 stroke-zinc-800 stroke-[2px]" />
                                 <span>Metti in Pausa</span>
                             </>
                         ) : (
                             <>
-                                <Play className="w-6 h-6 fill-white stroke-black stroke-[2px] ml-1" />
+                                <Play className="w-6 h-6 fill-zinc-800 stroke-zinc-800 stroke-[2px] ml-1" />
                                 <span>{isActive ? 'Play' : 'Ascolta Ora'}</span>
                             </>
                         )}

@@ -166,7 +166,8 @@ export default async function AreaClientePage() {
                                                 Come <br />Funziona
                                             </h2>
                                             <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
-                                                Il canale audio <strong className="text-white font-bold">BeautiFy Channel</strong> è il canale principale. Propone una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className="text-fuchsia-300">suggerimenti vocali</span>.
+                                                Nulla di più semplice! Collega il tuo pc / smartphone / tablet all'impianto audio del tuo istituto. Premi play sul canale principale qui sopra, imposta il giusto volume in salone e dimenticatene, il resto lo fa BeautiFy.<br /><br />
+                                                I nostri canali audio propongono una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className="text-fuchsia-300">suggerimenti vocali</span>.
                                             </p>
                                             <p className="text-zinc-400 text-base">
                                                 Studiati per stimolare la curiosità delle tue clienti e l'acquisto dei tuoi servizi.
@@ -187,20 +188,20 @@ export default async function AreaClientePage() {
                                                 Cambia il tuo Mood
                                             </h3>
                                             <p className="text-base md:text-lg text-zinc-300 leading-relaxed font-light">
-                                                Inoltre, hai a disposizione altri <strong className="text-indigo-400">6 canali</strong> per cambiare il tuo mood musicale in istituto durante la giornata.
+                                                Qui sotto, hai a disposizione altri <strong className="text-indigo-400">6 canali settoriali</strong>, per cambiare il tuo mood musicale in istituto durante la giornata.
                                             </p>
                                             <ul className="space-y-3 mt-4">
                                                 <li className="flex items-start gap-3">
                                                     <div className="w-6 h-6 rounded-full bg-fuchsia-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                                         <div className="w-2 h-2 rounded-full bg-fuchsia-400" />
                                                     </div>
-                                                    <span className="text-zinc-300 text-sm">Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">DEEP SOFT</strong> nel weekend, o <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">JAZZ</strong> a fine giornata.</span>
+                                                    <span className="text-zinc-300 text-sm">Anche questi canali contengono morbidi suggerimenti vocali tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">MASSAGE</strong>.</span>
                                                 </li>
                                                 <li className="flex items-start gap-3">
                                                     <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5">
                                                         <div className="w-2 h-2 rounded-full bg-indigo-400" />
                                                     </div>
-                                                    <span className="text-zinc-300 text-sm">Tutti i flussi includono i suggerimenti vocali, tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">MASSAGE</strong>.</span>
+                                                    <span className="text-zinc-300 text-sm">Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">DEEP SOFT</strong> nel weekend o del <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">JAZZ</strong> a fine giornata.</span>
                                                 </li>
                                             </ul>
                                             <div className="pt-4 mt-2 border-t border-white/5">

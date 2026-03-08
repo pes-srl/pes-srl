@@ -188,7 +188,7 @@ export function InfoBlocks2026() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto py-8 md:py-24 space-y-12"
+                    className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto -mt-8 md:-mt-12 py-8 md:py-24 space-y-12"
                 >
                     <div className="space-y-4">
                         <h2 className={`text-4xl md:text-6xl font-semibold text-[#5D6676] tracking-tighter uppercase ${montserrat.className}`}>
