@@ -281,7 +281,7 @@ export default async function AreaClientePage() {
 
                 </>
             ) : (
-                <Paywall salonName={profile?.salon_name || user.email || 'Utente'} />
+                <Paywall salonName={profile?.salon_name || user.email || 'Utente'} userEmail={user.email} />
             )}
         </div>
     );

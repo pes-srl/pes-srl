@@ -70,6 +70,7 @@ export function ChannelGrid({ initialChannels, serverError, planType }: ChannelG
                         className={`
               relative overflow-hidden rounded-2xl cursor-pointer group transition-all duration-300
               ${isActive ? 'ring-2 ring-fuchsia-500 shadow-[0_0_30px_-5px_var(--color-fuchsia-500)]' : 'border border-white/10 hover:border-white/30'}
+              ${idx === 7 && initialChannels.length === 8 ? 'lg:col-start-3' : ''}
             `}
                     >
                         {/* Background Image & Overlay */}
