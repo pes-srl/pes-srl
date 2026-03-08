@@ -64,10 +64,10 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
     return (
         <div
             id="upgrade-section"
-            className="bg-[#1e0d36] border border-fuchsia-500/30 rounded-3xl p-6 md:p-10 my-16 shadow-2xl relative overflow-hidden text-left"
+            className="bg-[#1f1604] border border-amber-500/30 rounded-3xl p-6 md:p-10 my-16 shadow-2xl relative overflow-hidden text-left"
         >
             {/* Background elements */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-fuchsia-600/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-600/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
             <div className="relative z-10 max-w-3xl mx-auto">
                 <div className="text-center mb-10">
@@ -109,14 +109,14 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 htmlFor="ragioneSociale"
                                 className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                             >
-                                Ragione Sociale<span className="text-fuchsia-500">*</span>
+                                Ragione Sociale<span className="text-amber-500">*</span>
                             </label>
                             <input
                                 id="ragioneSociale"
                                 name="ragioneSociale"
                                 type="text"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
 
@@ -133,7 +133,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 name="partitaIva"
                                 type="text"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
 
@@ -150,7 +150,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 name="indirizzoIstituto"
                                 type="text"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
 
@@ -167,7 +167,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 name="nomeIstituto"
                                 type="text"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
 
@@ -184,7 +184,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                         value="0-250"
                                         checked={metriQuadriOption === '0-250'}
                                         onChange={() => setMetriQuadriOption('0-250')}
-                                        className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                                        className="text-amber-600 focus:ring-amber-500 bg-white/10 border-white/20 w-4 h-4"
                                     />
                                     0-250
                                 </label>
@@ -195,7 +195,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                         value="oltre"
                                         checked={metriQuadriOption === 'oltre'}
                                         onChange={() => setMetriQuadriOption('oltre')}
-                                        className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                                        className="text-amber-600 focus:ring-amber-500 bg-white/10 border-white/20 w-4 h-4"
                                     />
                                     Oltre
                                 </label>
@@ -208,7 +208,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 Durata abbonamento*
                             </label>
                             <div className="flex flex-col sm:flex-row gap-4 mb-2">
-                                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '6 mesi' ? 'bg-fuchsia-600/20 border-fuchsia-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
+                                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '6 mesi' ? 'bg-amber-600/20 border-amber-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
                                     <div className="flex items-center gap-2 text-white font-bold text-lg">
                                         <input
                                             type="radio"
@@ -216,7 +216,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                             value="6 mesi"
                                             checked={durataAbbonamento === '6 mesi'}
                                             onChange={() => setDurataAbbonamento('6 mesi')}
-                                            className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                                            className="text-amber-600 focus:ring-amber-500 bg-white/10 border-white/20 w-4 h-4"
                                         />
                                         6 mesi
                                     </div>
@@ -229,7 +229,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                     </div>
                                 </label>
 
-                                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '12 mesi' ? 'bg-fuchsia-600/20 border-fuchsia-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
+                                <label className={`flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border cursor-pointer transition-colors ${durataAbbonamento === '12 mesi' ? 'bg-amber-600/20 border-amber-500/50 shadow-[0_0_15px_rgba(192,38,211,0.2)]' : 'bg-black/40 border-white/10 hover:bg-white/5'}`}>
                                     <div className="flex items-center gap-2 text-white font-bold text-lg">
                                         <input
                                             type="radio"
@@ -237,7 +237,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                             value="12 mesi"
                                             checked={durataAbbonamento === '12 mesi'}
                                             onChange={() => setDurataAbbonamento('12 mesi')}
-                                            className="text-fuchsia-600 focus:ring-fuchsia-500 bg-white/10 border-white/20 w-4 h-4"
+                                            className="text-amber-600 focus:ring-amber-500 bg-white/10 border-white/20 w-4 h-4"
                                         />
                                         12 mesi
                                     </div>
@@ -254,7 +254,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
 
                         {/* Box Totale da saldare */}
                         <div className="md:col-span-2 mt-4 mb-2 flex justify-center text-center">
-                            <div className="bg-black/30 border border-fuchsia-500/20 rounded-2xl p-6 w-full max-w-sm shadow-[0_0_15px_rgba(192,38,211,0.1)]">
+                            <div className="bg-black/30 border border-amber-500/20 rounded-2xl p-6 w-full max-w-sm shadow-[0_0_15px_rgba(192,38,211,0.1)]">
                                 <p className="text-white font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">Totale complessivo</p>
                                 <p className={`font-bold mb-3 uppercase tracking-wide text-amber-400`}>Piano Premium</p>
                                 <p className={`text-4xl font-bold font-[family-name:var(--font-montserrat)] text-amber-400`}><span className="text-3xl font-medium pr-1">€</span>{totalPrice}</p>
@@ -275,7 +275,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 name="responsabileIstituto"
                                 type="text"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
 
@@ -311,7 +311,7 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
                                 name="telefono"
                                 type="tel"
                                 required
-                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-fuchsia-500 transition-all"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-amber-500 transition-all"
                             />
                         </div>
                     </div>
@@ -331,14 +331,14 @@ export function UpgradeFormBasic({ userEmail }: { userEmail?: string }) {
 
                 {/* GRAZIE Section */}
                 <div className="mt-16 text-center relative flex flex-col items-center justify-center">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-fuchsia-600/20 blur-[50px] rounded-full pointer-events-none" />
-                    <h3 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-indigo-400 font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-2 relative z-10">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-amber-600/20 blur-[50px] rounded-full pointer-events-none" />
+                    <h3 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-2 relative z-10">
                         GRAZIE
                     </h3>
-                    <p className="text-fuchsia-200/50 text-sm md:text-base flex items-center justify-center gap-2 relative z-10 font-medium">
-                        <Heart className="w-4 h-4 text-fuchsia-400/70 fill-fuchsia-400/20" />
+                    <p className="text-amber-200/50 text-sm md:text-base flex items-center justify-center gap-2 relative z-10 font-medium">
+                        <Heart className="w-4 h-4 text-amber-400/70 fill-amber-400/20" />
                         Il giusto mood fa la differenza in istituto
-                        <Heart className="w-4 h-4 text-fuchsia-400/70 fill-fuchsia-400/20" />
+                        <Heart className="w-4 h-4 text-amber-400/70 fill-amber-400/20" />
                     </p>
                 </div>
             </div>

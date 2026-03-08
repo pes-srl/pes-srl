@@ -104,8 +104,8 @@ export default async function AreaClientePage() {
                                     />
                                 </h2>
                                 <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
-                                <p className="text-zinc-300 font-medium text-lg tracking-wide leading-relaxed">
-                                    Il tuo piano attivo è il <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 uppercase text-2xl px-1 tracking-wider">BASIC</span>.<br className="md:hidden" /> Goditi la tua <span className="font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300 tracking-widest text-xl md:text-2xl px-1 drop-shadow-sm">Beauty Routine Sonora</span>.
+                                <p className="text-zinc-300 font-medium text-xl tracking-wide leading-relaxed">
+                                    <strong className="text-sky-400 font-black">GRAZIE PER LA FIDUCIA</strong> in BeautiFy Channel <strong className="text-sky-400 font-black">ORA</strong>, hai a disposizione il <strong className="text-sky-400 font-black">NUOVO</strong> e unico<br className="md:hidden" /> strumento di <strong className="text-sky-400 font-black">MARKETING SENSORIALE</strong> dedicato al settore, con le sue potenzialità.
                                 </p>
                             </div>
                         ) : (
@@ -120,7 +120,7 @@ export default async function AreaClientePage() {
                                 </h2>
                                 <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
                                 <p className="text-zinc-300 font-medium text-lg tracking-wide leading-relaxed">
-                                    Hai attivo il piano <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 uppercase text-2xl px-1 tracking-wider">PREMIUM</span>. Tutti i suoni sartoriali sono a tua disposizione.
+                                    Hai attivo il piano <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 uppercase text-2xl px-1 tracking-wider">PREMIUM</span>. COMPLIMENTI! Hai a disposizione il <strong className="text-amber-400 font-black">TOP</strong> delle potenzialità di BeautiFy
                                 </p>
                             </div>
                         )}

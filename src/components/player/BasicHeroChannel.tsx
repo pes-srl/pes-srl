@@ -86,9 +86,11 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                     </h2>
 
                     <p className="text-zinc-300 text-lg md:text-lg max-w-xl leading-relaxed mb-8">
-                        {isPremium
-                            ? "Il tuo canale esclusivo con suggerimenti personalizzati. L'atmosfera perfetta, cucita su misura per il tuo istituto e le tue promozioni."
-                            : "Il servizio che trasforma radicalmente l'atmosfera del tuo istituto!"}
+                        {isPremium ? (
+                            <>Questo è il <strong className="text-amber-400 font-black">CANALE AUDIO PRINCIPALE</strong> che contiene tutte le <strong className="text-amber-400 font-black">TUE PROMO PERSONALIZZATE</strong> dei prossimi mesi e che trasforma radicalmente l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
+                        ) : (
+                            <>Questo è il <strong className="text-sky-400 font-black">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="text-sky-400 font-black">RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
+                        )}
                     </p>
 
                 </div>
