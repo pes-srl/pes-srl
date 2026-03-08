@@ -306,7 +306,8 @@ export function HeaderNew({
                                 </Button>
                             </a>
                             <Link href="/login" className="hidden md:inline-block">
-                                <Button variant="outline" className="text-zinc-300 border-zinc-700 bg-transparent hover:bg-zinc-800 hover:text-white transition-colors rounded-[35px]">
+                                <Button className="bg-[#7B2CBF] hover:bg-[#6A25A3] text-white transition-all font-bold border-0 shadow-lg shadow-[#2D0A4E]/20 rounded-[35px] flex items-center gap-2">
+                                    <User className="w-4 h-4 text-white" />
                                     Accedi
                                 </Button>
                             </Link>
