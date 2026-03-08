@@ -66,30 +66,61 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
 
   return (
     <>
-      <div className="text-center mb-16">
-        <div className="relative mb-12 flex flex-col items-center justify-center px-4">
-          <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-4xl mx-auto">
-            <span className="block text-sm md:text-base text-zinc-400 uppercase tracking-[0.3em] mb-4">
-              Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
-            </span>
-            <span className="block text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
-              puoi aggiungere ai canali audio
-            </span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 font-bold text-3xl md:text-5xl lg:text-6xl py-2 drop-shadow-sm">
-              eleganti suggerimenti vocali
-            </span>
-            <span className="block text-lg md:text-xl text-zinc-300 mt-4 font-light italic">
-              con le tue promozioni e i tuoi servizi personalizzati.
-            </span>
-          </h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 mb-16">
+        {/* Basic Plan Representation */}
+        <div className="text-center flex flex-col h-full justify-between">
+          <div className="relative mb-8 flex flex-col items-center justify-center px-4 shrink-0">
+            <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-2xl mx-auto">
+              <span className="block text-xs md:text-sm text-zinc-400 uppercase tracking-[0.3em] mb-4">
+                Con il <strong className="text-sky-400 font-black">Piano Basic</strong>
+              </span>
+              <span className="block text-xl md:text-2xl xl:text-3xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
+                trasforma il tuo salone in
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-purple-400 font-bold text-3xl md:text-4xl xl:text-5xl py-2 drop-shadow-sm">
+                un'oasi di benessere
+              </span>
+              <span className="block text-base md:text-lg text-zinc-300 mt-4 font-light italic">
+                con una colonna sonora avvolgente, continua e senza distrazioni.
+              </span>
+            </h3>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-500/20 w-full border border-white/10 group mt-auto aspect-[4/3] lg:aspect-auto">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
+            <img
+              src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772962243316-adon2i.png"
+              alt="Atmosfera Piano Basic"
+              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
         </div>
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 max-w-2xl mx-auto border border-white/10 group">
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
-          <img
-            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772934286210-zjhcxj.png"
-            alt="Servizi Personalizzati Premium"
-            className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-          />
+
+        {/* Premium Plan Representation */}
+        <div className="text-center flex flex-col h-full justify-between mt-10 lg:mt-0">
+          <div className="relative mb-8 flex flex-col items-center justify-center px-4 shrink-0">
+            <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-2xl mx-auto">
+              <span className="block text-xs md:text-sm text-zinc-400 uppercase tracking-[0.3em] mb-4">
+                Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
+              </span>
+              <span className="block text-xl md:text-2xl xl:text-3xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
+                puoi aggiungere ai canali audio
+              </span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 font-bold text-3xl md:text-4xl xl:text-5xl py-2 drop-shadow-sm">
+                eleganti suggerimenti vocali
+              </span>
+              <span className="block text-base md:text-lg text-zinc-300 mt-4 font-light italic">
+                con le tue promozioni e i tuoi servizi personalizzati.
+              </span>
+            </h3>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 w-full border border-white/10 group mt-auto aspect-[4/3] lg:aspect-auto">
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
+            <img
+              src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772934286210-zjhcxj.png"
+              alt="Servizi Personalizzati Premium"
+              className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
         </div>
       </div>
 
