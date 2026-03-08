@@ -209,11 +209,11 @@ export default async function AreaClientePage() {
                                                 Nulla di più semplice! Collega il tuo pc / smartphone / tablet all'impianto audio del tuo istituto. Premi play sul canale principale qui sopra, imposta il giusto volume in salone e <strong className="font-semibold text-white">dimenticatene</strong>, il resto lo fa BeautiFy.
                                             </p>
                                             <div className={`pl-6 border-l-2 py-1 space-y-4 ${profile?.plan_type === 'free_trial' ? 'border-teal-500/30' : 'border-indigo-500/30'}`}>
-                                                <p className="text-lg text-zinc-400 leading-relaxed font-light italic">
-                                                    I nostri canali audio propongono una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className={`font-medium not-italic ${profile?.plan_type === 'free_trial' ? 'text-emerald-300' : 'text-sky-300'}`}>suggerimenti vocali</span>.
+                                                <p className="text-lg md:text-xl text-zinc-200 leading-relaxed font-light">
+                                                    I nostri canali audio propongono una <strong className={`font-semibold ${profile?.plan_type === 'free_trial' ? 'text-emerald-200' : 'text-sky-200'}`}>raffinata selezione di diversi generi musicali</strong>, intervallata da <strong className={`font-semibold ${profile?.plan_type === 'free_trial' ? 'text-emerald-200' : 'text-sky-200'}`}>eleganti, delicati e generici</strong> <span className={`font-bold ${profile?.plan_type === 'free_trial' ? 'text-emerald-400' : 'text-sky-400'}`}>suggerimenti vocali</span>.
                                                 </p>
-                                                <p className={`text-[15px] font-medium tracking-wide ${profile?.plan_type === 'free_trial' ? 'text-emerald-300/90' : 'text-sky-300/90'}`}>
-                                                    Studiati per stimolare la curiosità delle tue clienti e l'acquisto dei tuoi servizi.
+                                                <p className={`text-lg font-medium tracking-wide mt-2 ${profile?.plan_type === 'free_trial' ? 'text-emerald-300/90' : 'text-sky-300/90'}`}>
+                                                    Studiati per <strong className="text-white font-bold">stimolare la curiosità</strong> delle tue clienti e l'<strong className="text-white font-bold">acquisto dei tuoi servizi</strong>.
                                                 </p>
                                             </div>
                                         </div>
@@ -286,17 +286,17 @@ export default async function AreaClientePage() {
                                         <div className={`absolute w-11/12 max-w-4xl h-[12px] blur-[8px] rounded-full ${profile?.plan_type === 'basic' ? 'bg-gradient-to-r from-transparent via-sky-500/60 to-transparent' : 'bg-gradient-to-r from-transparent via-emerald-500/60 to-transparent'}`} />
                                     </div>
 
-                                    <h2 className="text-xl md:text-3xl font-black uppercase text-white tracking-widest leading-tight mb-6">
+                                    <h2 className="text-xl md:text-3xl font-black uppercase text-white tracking-widest leading-tight mb-6 w-full max-w-5xl mx-auto">
                                         IL MESE PROSSIMO HAI PIANIFICATO UNA PROMOZIONE SU UN TUO SERVIZIO PER LE TUE CLIENTI?
                                     </h2>
-                                    <p className="text-zinc-200 text-xl max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
+                                    <p className="text-zinc-200 text-xl w-full max-w-4xl mx-auto leading-relaxed mb-12 font-medium">
                                         Facendo upgrade al <strong className="text-amber-400 font-black uppercase tracking-wider">Piano Premium</strong> puoi chiederci di realizzare delle <span className="text-white font-bold underline decoration-amber-500/50 underline-offset-4">promo audio personalizzate</span> con le tue promozioni.
                                     </p>
 
                                     {/* Premium Plan Layout */}
-                                    <div className="text-center flex flex-col items-center justify-center max-w-3xl mx-auto">
+                                    <div className="text-center flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
                                         <div className="relative mb-8 flex flex-col items-center justify-center px-4 shrink-0">
-                                            <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-2xl mx-auto">
+                                            <h3 className="font-[family-name:var(--font-montserrat)] text-center w-full max-w-4xl mx-auto">
                                                 <span className="block text-xs md:text-sm text-zinc-400 uppercase tracking-[0.3em] mb-4">
                                                     Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
                                                 </span>
