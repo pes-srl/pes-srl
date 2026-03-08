@@ -15,6 +15,20 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
     message: string;
   }>({ type: "idle", message: "" });
 
+  const getMonthlyPrice = () => {
+    if (requestedPlan === 'basic') {
+      return durataAbbonamento === '6 mesi' ? 25.90 : 20.90;
+    } else {
+      return durataAbbonamento === '6 mesi' ? 43.90 : 38.90;
+    }
+  };
+
+  const getMonths = () => {
+    return durataAbbonamento === '6 mesi' ? 6 : 12;
+  };
+
+  const totalPrice = (getMonthlyPrice() * getMonths()).toFixed(2).replace('.', ',');
+
   async function handleSubmit(formData: FormData) {
     setIsSubmitting(true);
     setStatus({ type: "idle", message: "" });
@@ -54,7 +68,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
     <>
       <div className="text-center mb-16">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-8 tracking-wide uppercase leading-tight">
-          CON IL PIANO PREMIUM PUOI AGGIUNGERE ALLA RADIO I TUOI SERVIZI PERSONALIZZATI
+          CON IL PIANO PREMIUM, PUOI AGGIUNGERE AI CANALI AUDIO ELEGANTI SUGGERIMENTI VOCALI CON LEI TUE PROMOZIONI E I TUOI SERVIZI PERSONALIZZATI
         </h3>
         <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 max-w-2xl mx-auto border border-white/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
@@ -96,7 +110,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               {/* Plan Selection */}
               {/* Plan Selection Area (Tabs Style) */}
               <div className="md:col-span-2 mb-2">
-                <label className="block text-sm font-bold text-zinc-300 mb-2">
+                <label className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-white mb-2">
                   Servizio richiesto<span className="text-fuchsia-500">*</span>
                 </label>
                 <div className="flex bg-black/40 p-1 rounded-xl border border-white/10 w-full mb-2">
@@ -134,7 +148,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="space-y-2">
                 <label
                   htmlFor="ragioneSociale"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Ragione Sociale<span className="text-fuchsia-500">*</span>
                 </label>
@@ -151,7 +165,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="space-y-2">
                 <label
                   htmlFor="partitaIva"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Partita IVA*
                 </label>
@@ -168,7 +182,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="space-y-2">
                 <label
                   htmlFor="indirizzoIstituto"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Indirizzo istituto*
                 </label>
@@ -185,7 +199,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="space-y-2">
                 <label
                   htmlFor="nomeIstituto"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Nome istituto*
                 </label>
@@ -200,7 +214,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
 
               {/* Metri quadri istituto */}
               <div className="md:col-span-1 space-y-2">
-                <label className="block text-sm font-bold text-zinc-300">
+                <label className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300">
                   Metri quadri istituto*
                 </label>
                 <div className="flex flex-col sm:flex-row gap-4 mb-2">
@@ -231,7 +245,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
 
               {/* Durata abbonamento */}
               <div className="md:col-span-1 space-y-2">
-                <label className="block text-sm font-bold text-zinc-300">
+                <label className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300">
                   Durata abbonamento*
                 </label>
                 <div className="flex flex-col sm:flex-row gap-4 mb-2">
@@ -278,11 +292,22 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
                   </label>
                 </div>
               </div>
+
+              {/* Box Totale da saldare */}
+              <div className="md:col-span-2 mt-4 mb-2 flex justify-center text-center">
+                <div className="bg-black/30 border border-fuchsia-500/20 rounded-2xl p-6 w-full max-w-sm shadow-[0_0_15px_rgba(192,38,211,0.1)]">
+                  <p className="text-zinc-400 font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">Totale complessivo</p>
+                  <p className={`font-bold mb-3 uppercase tracking-wide ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}>Piano {requestedPlan === 'basic' ? 'Basic' : 'Premium'}</p>
+                  <p className="text-4xl font-bold text-white font-[family-name:var(--font-montserrat)]"><span className={`text-3xl font-medium ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}>€</span> {totalPrice}</p>
+                  <p className="text-base text-white mt-3 font-semibold">*{getMonths()} mesi a € {getMonthlyPrice().toFixed(2).replace('.', ',')} / mese</p>
+                </div>
+              </div>
+
               {/* Responsabile istituto */}
               <div className="md:col-span-2 space-y-2">
                 <label
                   htmlFor="responsabileIstituto"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Responsabile istituto*
                 </label>
@@ -299,7 +324,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="md:col-span-2 space-y-2">
                 <label
                   htmlFor="emailContatto"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   La tua email*
                 </label>
@@ -318,7 +343,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               <div className="md:col-span-2 space-y-2">
                 <label
                   htmlFor="telefono"
-                  className="block text-sm font-bold text-zinc-300"
+                  className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-zinc-300"
                 >
                   Il Tuo telefono*
                 </label>
@@ -332,7 +357,9 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
               </div>
             </div>
 
-            <div className="pt-4 flex justify-end">
+
+
+            <div className="pt-4 flex justify-center w-full">
               <Button
                 type="submit"
                 disabled={isSubmitting}
