@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Paywall } from "./Paywall";
 import { UpgradeForm } from "@/components/UpgradeForm";
+import { UpgradeFormBasic } from "@/components/UpgradeFormBasic";
 
 export const dynamic = "force-dynamic";
 
@@ -272,10 +273,53 @@ export default async function AreaClientePage() {
 
                     <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} planType={profile?.plan_type} />
 
-                    {/* Upgrade Form for Free Trial Users */}
-                    {profile?.plan_type === 'free_trial' && !isAdmin && (
+                    {/* Upgrade Form for Free Trial and Basic Users */}
+                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic') && !isAdmin && (
                         <div className="w-full max-w-4xl mx-auto mt-0 md:mt-16 border-t border-white/10 pt-4 md:pt-16">
-                            <UpgradeForm userEmail={user.email} />
+                            {profile?.plan_type === 'basic' && (
+                                <div className="text-center mb-16 px-4">
+                                    <h2 className="text-xl md:text-3xl font-black uppercase text-white tracking-widest leading-tight mb-6">
+                                        IL MESE PROSSIMO HAI PIANIFICATO UNA PROMOZIONE SU UN TUO SERVIZIO PER LE TUE CLIENTI?
+                                    </h2>
+                                    <p className="text-zinc-300 text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+                                        Facendo upgrade al <strong className="text-amber-400 font-bold uppercase tracking-wider">Piano Premium</strong> puoi chiederci di realizzare delle promo audio personalizzate con le tue promozioni.
+                                    </p>
+
+                                    {/* Premium Plan Layout */}
+                                    <div className="text-center flex flex-col items-center justify-center max-w-3xl mx-auto">
+                                        <div className="relative mb-8 flex flex-col items-center justify-center px-4 shrink-0">
+                                            <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-2xl mx-auto">
+                                                <span className="block text-xs md:text-sm text-zinc-400 uppercase tracking-[0.3em] mb-4">
+                                                    Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
+                                                </span>
+                                                <span className="block text-xl md:text-2xl xl:text-3xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
+                                                    puoi aggiungere ai canali audio
+                                                </span>
+                                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 font-bold text-3xl md:text-4xl xl:text-5xl py-2 drop-shadow-sm">
+                                                    eleganti suggerimenti vocali
+                                                </span>
+                                                <span className="block text-base md:text-lg text-zinc-300 mt-4 font-light italic">
+                                                    con le tue promozioni e i tuoi servizi personalizzati.
+                                                </span>
+                                            </h3>
+                                        </div>
+                                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 w-full border border-white/10 group mt-auto aspect-[4/3] lg:aspect-video mb-16">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
+                                            <img
+                                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772934286210-zjhcxj.png"
+                                                alt="Servizi Personalizzati Premium"
+                                                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {profile?.plan_type === 'basic' ? (
+                                <UpgradeFormBasic userEmail={user.email} />
+                            ) : (
+                                <UpgradeForm userEmail={user.email} />
+                            )}
                         </div>
                     )}
 
