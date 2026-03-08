@@ -314,14 +314,27 @@ export default async function AreaClientePage() {
                                 </details>
                             </div>
 
-                            <h3 className="text-2xl md:text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-8 mt-12 md:mt-24 lg:mt-32 flex flex-col md:flex-row items-center justify-center gap-3 uppercase tracking-wider text-center">
-                                <Radio className="w-6 h-6 text-zinc-400" />
-                                ALTRI CANALI DISPONIBILI
-                            </h3>
                         </div>
                     )}
 
-                    <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} planType={profile?.plan_type} />
+                    <details className="group w-full max-w-7xl mx-auto mt-12 md:mt-24 lg:mt-32 mb-16">
+                        <summary className="cursor-pointer list-none flex justify-center items-center w-full outline-none select-none mb-10 text-center relative z-20">
+                            <div className="inline-flex items-center justify-center gap-3 md:gap-4 px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-md shadow-xl transition-all duration-300 hover:bg-white/[0.05] hover:border-white/10 relative overflow-hidden group/btn">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+                                <Radio className={`w-5 h-5 md:w-6 md:h-6 ${profile?.plan_type === 'free_trial' ? 'text-emerald-400' : 'text-sky-400'}`} />
+                                <span className="text-2xl md:text-4xl text-white font-black font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-sm">
+                                    ALTRI CANALI DISPONIBILI
+                                </span>
+                                <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-2 ${profile?.plan_type === 'free_trial' ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
+                                    <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
+                                </div>
+                            </div>
+                        </summary>
+
+                        <div className="animate-in fade-in slide-in-from-top-8 duration-500 pt-4">
+                            <ChannelGrid initialChannels={channels || []} serverError={channelsError?.message} planType={profile?.plan_type} />
+                        </div>
+                    </details>
 
                     {/* Upgrade Form for Free Trial and Basic Users */}
                     {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic') && !isAdmin && (
