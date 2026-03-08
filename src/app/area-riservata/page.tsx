@@ -98,7 +98,7 @@ export default async function AreaClientePage() {
                                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
                                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-500/10 blur-[40px] rounded-full pointer-events-none" />
 
-                                        <span className="relative z-10 text-xs md:text-sm text-zinc-400 font-medium tracking-widest uppercase mb-1">
+                                        <span className="relative z-10 text-xs md:text-sm text-white font-medium tracking-widest uppercase mb-1">
                                             Il tuo piano attuale
                                         </span>
                                         <span className="relative z-10 font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-emerald-400 to-teal-400 text-2xl md:text-3xl tracking-[0.1em] py-0.5 drop-shadow-sm font-[family-name:var(--font-montserrat)]">
@@ -164,12 +164,12 @@ export default async function AreaClientePage() {
                 </div>
             )}
 
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/10 pb-8">
-                <div className="flex flex-col items-center md:items-start w-full text-center md:text-left">
-                    <h1 className="text-4xl md:text-5xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3 tracking-tight flex items-center justify-center md:justify-start gap-3 w-full">
+            <div className="mt-32 md:mt-40 flex flex-col items-center justify-center gap-6 mb-12 border-b border-white/10 pb-8">
+                <div className="flex flex-col items-center justify-center w-full text-center">
+                    <h1 className="text-6xl md:text-7xl font-bold font-[family-name:var(--font-montserrat)] text-white mb-3 tracking-tight flex items-center justify-center gap-3 w-full">
                         Area Riservata
                     </h1>
-                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-4 mb-2">
+                    <div className="flex flex-wrap items-center justify-center gap-3 mt-4 mb-2">
                         <span className="text-lg font-medium text-white">
                             {profile?.salon_name || user.email}
                         </span>

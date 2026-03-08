@@ -227,7 +227,7 @@ export function HeaderNew({
                         <img
                             src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
                             alt="Beautify Channel Logo"
-                            className="h-[38px] w-auto md:h-[42px] group-hover:scale-105 transition-transform"
+                            className="h-[52px] w-auto md:h-[50px] group-hover:scale-105 transition-transform"
                         />
                     </Link>
                 </div>
