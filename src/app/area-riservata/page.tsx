@@ -76,13 +76,21 @@ export default async function AreaClientePage() {
             {/* DYNAMIC WELCOME BANNER BASED ON PLAN */}
             {!isAdmin && profile?.plan_type && !isExpired && (
                 <div className="mb-6 p-4 rounded-xl border border-white/5 bg-zinc-900/50 flex items-center justify-center text-center shadow-md">
-                    <p className="text-zinc-300 font-medium text-lg tracking-wide">
-                        Benvenuta nella versione <span className="font-bold text-white uppercase">{
-                            profile.plan_type === 'free_trial' ? 'FREE TRIAL' :
-                                profile.plan_type === 'basic' ? 'BASIC' :
+                    <p className="text-zinc-300 font-medium text-lg tracking-wide w-full leading-relaxed">
+                        Benvenuta nella versione{' '}
+                        {profile.plan_type === 'free_trial' ? (
+                            <>
+                                <br />
+                                <span className="font-bold text-emerald-400 uppercase text-2xl">FREE TRIAL</span>
+                            </>
+                        ) : (
+                            <span className="font-bold text-white uppercase">
+                                {profile.plan_type === 'basic' ? 'BASIC' :
                                     profile.plan_type === 'premium' ? 'PREMIUM' :
-                                        profile.plan_type
-                        }</span> del tuo account BeautiFy
+                                        profile.plan_type}
+                            </span>
+                        )}
+                        {' '}del tuo account BeautiFy
                     </p>
                 </div>
             )}
@@ -100,18 +108,18 @@ export default async function AreaClientePage() {
                             <p className="text-fuchsia-100 text-sm">Scade tra <strong className="text-white bg-black/20 px-2 py-0.5 rounded-md mx-1">{daysLeft} giorni</strong>. Sblocca tutto prima della scadenza.</p>
                         </div>
                     </div>
-                    <Link href="#upgrade-section" className="relative z-10 shrink-0 bg-white text-zinc-950 px-6 py-3 rounded-xl font-bold text-sm tracking-wide hover:bg-zinc-100 transition-colors shadow-xl">
-                        Vedi Piani Premium
+                    <Link href="#upgrade-section" className="relative z-10 shrink-0 bg-white text-zinc-950 px-6 py-3 rounded-xl font-bold text-sm tracking-wide hover:bg-zinc-100 transition-colors shadow-xl text-center">
+                        SCEGLI UN PIANO
                     </Link>
                 </div>
             )}
 
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/10 pb-8">
-                <div>
-                    <h1 className="text-4xl md:text-5xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3 tracking-tight flex items-center gap-3">
+                <div className="flex flex-col items-center md:items-start w-full text-center md:text-left">
+                    <h1 className="text-4xl md:text-5xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3 tracking-tight flex items-center justify-center md:justify-start gap-3 w-full">
                         Area Riservata
                     </h1>
-                    <div className="flex flex-wrap items-center gap-3 mt-4 mb-2">
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-4 mb-2">
                         <span className={`text-lg font-medium ${profile?.plan_type === 'premium' ? 'text-amber-500' : 'text-zinc-300'}`}>
                             {profile?.salon_name || user.email}
                         </span>

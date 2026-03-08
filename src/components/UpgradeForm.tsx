@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { submitUpgradeRequest } from "@/app/actions/upgrade-actions";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, CheckCircle2 } from "lucide-react";
+import { AlertCircle, CheckCircle2, Heart } from "lucide-react";
 
 export function UpgradeForm({ userEmail }: { userEmail?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -329,6 +329,19 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
             </Button>
           </div>
         </form>
+
+        {/* GRAZIE Section */}
+        <div className="mt-16 text-center relative flex flex-col items-center justify-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-fuchsia-600/20 blur-[50px] rounded-full pointer-events-none" />
+          <h3 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-indigo-400 font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-2 relative z-10">
+            GRAZIE
+          </h3>
+          <p className="text-fuchsia-200/50 text-sm md:text-base flex items-center justify-center gap-2 relative z-10 font-medium">
+            <Heart className="w-4 h-4 text-fuchsia-400/70 fill-fuchsia-400/20" />
+            Il giusto mood fa la differenza in istituto
+            <Heart className="w-4 h-4 text-fuchsia-400/70 fill-fuchsia-400/20" />
+          </p>
+        </div>
       </div>
     </div>
   );
