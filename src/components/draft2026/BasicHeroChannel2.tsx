@@ -88,8 +88,6 @@ export function BasicHeroChannel2({ channel, planType }: BasicHeroChannel2Props)
                     <p className="text-zinc-300 text-lg md:text-lg max-w-xl leading-relaxed mb-8">
                         {isPremium ? (
                             <>Questo è il <strong className="text-[#D8B2A3] font-black">CANALE AUDIO PRINCIPALE</strong> che contiene tutte le <strong className="text-[#D8B2A3] font-black">TUE PROMO PERSONALIZZATE</strong> dei prossimi mesi e che trasforma radicalmente l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
-                        ) : planType === 'free_trial' ? (
-                            <>Questo è il <strong className="text-[#D8B2A3] font-black">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="text-[#D8B2A3] font-black">RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
                         ) : (
                             <>Questo è il <strong className="text-[#D8B2A3] font-black">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="text-[#D8B2A3] font-black">RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
                         )}
