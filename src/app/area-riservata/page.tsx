@@ -92,16 +92,36 @@ export default async function AreaClientePage() {
                                     Al momento il tuo piano è il <span className="font-bold text-emerald-400 uppercase text-2xl px-1">FREE TRIAL</span> della durata di 7 giorni
                                 </p>
                             </div>
+                        ) : profile.plan_type === 'basic' ? (
+                            <div className="flex flex-col items-center justify-center space-y-4 py-4">
+                                <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
+                                    <span>BENVENUTA NEL TUO ACCOUNT</span>
+                                    <img
+                                        src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                        alt="BeautiFy Channel Logo"
+                                        className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0"
+                                    />
+                                </h2>
+                                <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+                                <p className="text-zinc-300 font-medium text-lg tracking-wide leading-relaxed">
+                                    Il tuo piano attivo è il <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 uppercase text-2xl px-1 tracking-wider">BASIC</span>.<br className="md:hidden" /> Goditi la tua <span className="font-bold italic text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-indigo-300 to-purple-300 tracking-widest text-xl md:text-2xl px-1 drop-shadow-sm">Beauty Routine Sonora</span>.
+                                </p>
+                            </div>
                         ) : (
-                            <p className="text-zinc-300 font-medium text-lg tracking-wide w-full leading-relaxed">
-                                Benvenuta nella versione{' '}
-                                <span className="font-bold text-white uppercase">
-                                    {profile.plan_type === 'basic' ? 'BASIC' :
-                                        profile.plan_type === 'premium' ? 'PREMIUM' :
-                                            profile.plan_type}
-                                </span>
-                                {' '}del tuo account BeautiFy
-                            </p>
+                            <div className="flex flex-col items-center justify-center space-y-4 py-4">
+                                <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
+                                    <span>BENVENUTA NEL TUO ACCOUNT</span>
+                                    <img
+                                        src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                        alt="BeautiFy Channel Logo"
+                                        className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0"
+                                    />
+                                </h2>
+                                <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+                                <p className="text-zinc-300 font-medium text-lg tracking-wide leading-relaxed">
+                                    Hai attivo il piano <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400 uppercase text-2xl px-1 tracking-wider">PREMIUM</span>. Tutti i suoni sartoriali sono a tua disposizione.
+                                </p>
+                            </div>
                         )}
                     </div>
                 </div>
@@ -171,27 +191,30 @@ export default async function AreaClientePage() {
                             {/* INFO BLOCK INNOVATIVO */}
                             <div id="welcome-pricing-banner" className="w-full mt-12 mb-16 relative">
                                 {/* Sfondo decorativo */}
-                                <div className="absolute inset-0 bg-linear-to-b from-fuchsia-900/10 via-indigo-900/5 to-transparent rounded-[3rem] -z-10 blur-xl pointer-events-none" />
+                                <div className={`absolute inset-0 bg-linear-to-b ${profile?.plan_type === 'free_trial' ? 'from-emerald-900/10 via-teal-900/5' : 'from-fuchsia-900/10 via-indigo-900/5'} to-transparent rounded-[3rem] -z-10 blur-xl pointer-events-none`} />
 
-                                <div className="bg-[#0f0518] border border-white/5 rounded-[35px] shadow-2xl p-8 md:p-14 relative overflow-hidden backdrop-blur-xl">
+                                <div className={`border border-white/5 rounded-[35px] shadow-2xl p-8 md:p-14 relative overflow-hidden backdrop-blur-xl ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#061e16] to-[#010906]' : 'bg-[#0f0518]'}`}>
                                     {/* Overlay di luce */}
-                                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-fuchsia-600/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-                                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+                                    <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-emerald-600/10' : 'bg-fuchsia-600/10'}`} />
+                                    <div className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-teal-600/10' : 'bg-indigo-600/10'}`} />
 
                                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                                        {/* Colonna Sinistra: Canale Principale */}
                                         <div className="lg:col-span-5 space-y-6">
-                                            <h2 className="text-3xl md:text-5xl font-semibold font-[family-name:var(--font-montserrat)] text-transparent bg-clip-text bg-linear-to-br from-white to-zinc-500 tracking-tight leading-tight">
-                                                Come <br />Funziona
+                                            <h2 className={`text-sm md:text-base font-black font-[family-name:var(--font-montserrat)] tracking-[0.3em] uppercase mb-2 ${profile?.plan_type === 'free_trial' ? 'text-emerald-400' : 'text-sky-400'}`}>
+                                                Come Funziona
                                             </h2>
-                                            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
-                                                Nulla di più semplice! Collega il tuo pc / smartphone / tablet all'impianto audio del tuo istituto. Premi play sul canale principale qui sopra, imposta il giusto volume in salone e dimenticatene, il resto lo fa BeautiFy.<br /><br />
-                                                I nostri canali audio propongono una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className="text-fuchsia-300">suggerimenti vocali</span>.
+                                            <p className="text-xl md:text-2xl text-zinc-200 font-light leading-relaxed">
+                                                Nulla di più semplice! Collega il tuo pc / smartphone / tablet all'impianto audio del tuo istituto. Premi play sul canale principale qui sopra, imposta il giusto volume in salone e <strong className="font-semibold text-white">dimenticatene</strong>, il resto lo fa BeautiFy.
                                             </p>
-                                            <p className="text-fuchsia-300 text-base">
-                                                Studiati per stimolare la curiosità delle tue clienti e l'acquisto dei tuoi servizi.
-                                            </p>
+                                            <div className={`pl-6 border-l-2 py-1 space-y-4 ${profile?.plan_type === 'free_trial' ? 'border-teal-500/30' : 'border-indigo-500/30'}`}>
+                                                <p className="text-lg text-zinc-400 leading-relaxed font-light italic">
+                                                    I nostri canali audio propongono una raffinata selezione di diversi generi musicali, intervallata da eleganti, delicati e generici <span className={`font-medium not-italic ${profile?.plan_type === 'free_trial' ? 'text-emerald-300' : 'text-sky-300'}`}>suggerimenti vocali</span>.
+                                                </p>
+                                                <p className={`text-[15px] font-medium tracking-wide ${profile?.plan_type === 'free_trial' ? 'text-emerald-300/90' : 'text-sky-300/90'}`}>
+                                                    Studiati per stimolare la curiosità delle tue clienti e l'acquisto dei tuoi servizi.
+                                                </p>
+                                            </div>
                                         </div>
 
                                         {/* Divisore centrale su Desktop */}
@@ -200,32 +223,37 @@ export default async function AreaClientePage() {
                                         </div>
 
                                         {/* Colonna Destra: Altri Canali */}
-                                        <div className="lg:col-span-5 space-y-6 bg-white/[0.02] p-8 rounded-3xl border border-white/5 relative group hover:bg-white/[0.04] transition-colors">
-                                            <div className="absolute -top-4 -right-4 bg-indigo-500 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg rotate-12 group-hover:rotate-6 transition-transform">
-                                                <span className="font-black text-2xl">+6</span>
+                                        <div className="lg:col-span-5 space-y-6 bg-white/[0.02] p-8 md:p-10 rounded-[2.5rem] border border-white/5 relative group hover:bg-white/[0.04] transition-all duration-500 hover:border-indigo-500/20 shadow-xl">
+                                            <div className="absolute -top-4 -right-4 bg-gradient-to-br from-indigo-500 to-purple-600 text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl shadow-indigo-500/30 rotate-12 group-hover:rotate-6 transition-transform">
+                                                <span className="font-black text-2xl font-[family-name:var(--font-montserrat)]">+6</span>
                                             </div>
-                                            <h3 className="text-2xl font-semibold font-[family-name:var(--font-montserrat)] text-white flex items-center gap-3">
+                                            <h3 className="text-2xl md:text-4xl font-semibold font-[family-name:var(--font-montserrat)] text-transparent bg-clip-text bg-gradient-to-br from-indigo-100 to-indigo-400 flex items-center gap-3 drop-shadow-sm leading-tight mb-2">
                                                 Cambia il tuo Mood
                                             </h3>
-                                            <p className="text-base md:text-lg text-zinc-300 leading-relaxed font-light">
-                                                Qui sotto, hai a disposizione altri <strong className="text-indigo-400">6 canali settoriali</strong>, per cambiare il tuo mood musicale in istituto durante la giornata.
+                                            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
+                                                Qui sotto, hai a disposizione altri <strong className="text-indigo-400 font-semibold">6 canali settoriali</strong>, per cambiare il tuo mood musicale in istituto durante la giornata.
                                             </p>
-                                            <ul className="space-y-3 mt-4">
-                                                <li className="flex items-start gap-3">
-                                                    <div className="w-6 h-6 rounded-full bg-fuchsia-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                                        <div className="w-2 h-2 rounded-full bg-fuchsia-400" />
+
+                                            <div className="bg-zinc-950/40 p-5 rounded-3xl border border-white/5 space-y-4">
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-fuchsia-500/20">
+                                                        <div className="w-2.5 h-2.5 rounded-full bg-fuchsia-400 shadow-[0_0_10px_rgba(232,121,249,0.8)]" />
                                                     </div>
-                                                    <span className="text-zinc-300 text-sm">Anche questi canali contengono morbidi suggerimenti vocali tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">MASSAGE</strong>.</span>
-                                                </li>
-                                                <li className="flex items-start gap-3">
-                                                    <div className="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                                                        <div className="w-2 h-2 rounded-full bg-indigo-400" />
+                                                    <p className="text-zinc-300 text-[15px] leading-relaxed">
+                                                        Anche questi canali contengono <span className="text-sky-300 italic font-light">morbidi suggerimenti vocali</span> tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">MASSAGE</strong>.
+                                                    </p>
+                                                </div>
+                                                <div className="flex items-start gap-4">
+                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500/20 to-sky-500/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-indigo-500/20">
+                                                        <div className="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-[0_0_10px_rgba(129,140,248,0.8)]" />
                                                     </div>
-                                                    <span className="text-zinc-300 text-sm">Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">DEEP SOFT</strong> nel weekend o del <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)]">JAZZ</strong> a fine giornata.</span>
-                                                </li>
-                                            </ul>
+                                                    <p className="text-zinc-300 text-[15px] leading-relaxed">
+                                                        Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-indigo-500/20 border border-indigo-500/30 text-indigo-100 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">DEEP SOFT</strong> nel weekend o del <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-amber-500/20 border border-amber-500/30 text-amber-100 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">JAZZ</strong> a fine giornata.
+                                                    </p>
+                                                </div>
+                                            </div>
                                             <div className="pt-4 mt-2 border-t border-white/5">
-                                                <p className="font-bold font-[family-name:var(--font-montserrat)] text-fuchsia-400 tracking-wider uppercase text-lg flex items-center gap-2">
+                                                <p className={`font-bold font-[family-name:var(--font-montserrat)] tracking-wider uppercase text-lg flex items-center gap-2 ${profile?.plan_type === 'free_trial' ? 'text-emerald-400' : 'text-sky-400'}`}>
                                                     <Radio className="w-5 h-5" /> Buon ascolto
                                                 </p>
                                             </div>

@@ -54,7 +54,7 @@ export function ChannelGrid({ initialChannels, serverError, planType }: ChannelG
     }
 
     return (
-        <div className={`grid grid-cols-2 gap-4 md:gap-6 ${planType === 'free_trial' ? 'md:grid-cols-3 max-w-4xl mx-auto' : 'lg:grid-cols-4 xl:grid-cols-5'}`}>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
             {initialChannels.map((channel: any, idx: number) => {
                 const isActive = currentChannel?.id === channel.id;
                 const isCurrentlyPlaying = isActive && isPlaying;

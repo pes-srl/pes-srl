@@ -88,7 +88,7 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
           <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-500/20 w-full border border-white/10 group mt-auto aspect-[4/3] lg:aspect-auto">
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
             <img
-              src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772962243316-adon2i.png"
+              src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772964343489-xv8xcj.png"
               alt="Atmosfera Piano Basic"
               className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
             />
