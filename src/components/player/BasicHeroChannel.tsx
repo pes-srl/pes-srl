@@ -59,7 +59,7 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                     <div className="flex items-center gap-3 mb-6">
                         <div className="flex items-center gap-1.5 bg-white/10 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20 backdrop-blur-md">
                             <Sparkles className={`w-3.5 h-3.5 ${isPremium ? 'text-amber-400' : 'text-fuchsia-400'}`} />
-                            <span>Esperienza Premium</span>
+                            <span>CANALE PRINCIPALE</span>
                         </div>
                         {isActive && (
                             <div className={`flex items-center gap-2 border px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest ${isPremium ? 'bg-amber-500/20 text-amber-400 border-amber-500/30' : 'bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-500/30'}`}>
