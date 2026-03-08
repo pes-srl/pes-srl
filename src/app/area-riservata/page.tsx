@@ -120,7 +120,7 @@ export default async function AreaClientePage() {
                         Area Riservata
                     </h1>
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mt-4 mb-2">
-                        <span className={`text-lg font-medium ${profile?.plan_type === 'premium' ? 'text-amber-500' : 'text-zinc-300'}`}>
+                        <span className="text-lg font-medium text-white">
                             {profile?.salon_name || user.email}
                         </span>
                         <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest border border-white/10 ${profile?.plan_type === 'premium' ? 'bg-amber-500/10 text-amber-500' :
