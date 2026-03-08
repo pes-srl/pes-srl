@@ -67,9 +67,22 @@ export function UpgradeForm({ userEmail }: { userEmail?: string }) {
   return (
     <>
       <div className="text-center mb-16">
-        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-8 tracking-wide uppercase leading-tight">
-          CON IL PIANO PREMIUM, PUOI AGGIUNGERE AI CANALI AUDIO ELEGANTI SUGGERIMENTI VOCALI CON LEI TUE PROMOZIONI E I TUOI SERVIZI PERSONALIZZATI
-        </h3>
+        <div className="relative mb-12 flex flex-col items-center justify-center px-4">
+          <h3 className="font-[family-name:var(--font-montserrat)] text-center max-w-4xl mx-auto">
+            <span className="block text-sm md:text-base text-zinc-400 uppercase tracking-[0.3em] mb-4">
+              Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
+            </span>
+            <span className="block text-2xl md:text-3xl lg:text-4xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
+              puoi aggiungere ai canali audio
+            </span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-orange-400 font-bold text-3xl md:text-5xl lg:text-6xl py-2 drop-shadow-sm">
+              eleganti suggerimenti vocali
+            </span>
+            <span className="block text-lg md:text-xl text-zinc-300 mt-4 font-light italic">
+              con le tue promozioni e i tuoi servizi personalizzati.
+            </span>
+          </h3>
+        </div>
         <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 max-w-2xl mx-auto border border-white/10 group">
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
           <img
