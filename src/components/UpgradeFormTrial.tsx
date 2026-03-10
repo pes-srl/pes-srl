@@ -7,7 +7,7 @@ import { AlertCircle, CheckCircle2, Heart } from "lucide-react";
 
 export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [requestedPlan, setRequestedPlan] = useState<'basic' | 'premium'>('basic');
+  const requestedPlan = 'basic';
   const [metriQuadriOption, setMetriQuadriOption] = useState<'0-250' | 'oltre'>('0-250');
   const [durataAbbonamento, setDurataAbbonamento] = useState<'6 mesi' | '12 mesi'>('6 mesi');
   const [status, setStatus] = useState<{
@@ -16,11 +16,7 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
   }>({ type: "idle", message: "" });
 
   const getMonthlyPrice = () => {
-    if (requestedPlan === 'basic') {
-      return durataAbbonamento === '6 mesi' ? 25.90 : 20.90;
-    } else {
-      return durataAbbonamento === '6 mesi' ? 43.90 : 38.90;
-    }
+    return durataAbbonamento === '6 mesi' ? 25.90 : 20.90;
   };
 
   const getMonths = () => {
@@ -80,14 +76,11 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
             </h2>
             <div className="text-zinc-200 text-lg font-light font-[family-name:var(--font-montserrat)] mt-4 leading-relaxed bg-black/20 p-6 rounded-2xl border border-emerald-500/20 shadow-inner max-w-2xl mx-auto">
               <p className="mb-3">
-                Conclusa la tua prova gratuita di 7 giorni, puoi scegliere qui sotto uno dei nostri <strong className="text-white font-semibold">2 abbonamenti</strong>. Questi sono i dati base che ci servono.
-              </p>
-              <p className="text-emerald-100 font-medium mb-3">
-                <span className="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 rounded font-bold uppercase tracking-widest text-sm mr-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">Gratis</span>
-                Nessuna carta di credito, nessun addebito.
+                Conclusa la tua prova gratuita di 7 giorni, puoi scegliere il nostro <strong className="text-white font-semibold">abbonamento Basic</strong>. Questi sono i dati base che ci servono.
               </p>
               <p className="text-zinc-300 text-base">
-                Dopo la richiesta del piano verrai contattata da un nostro responsabile per la finalizzazione dell'abbonamento scelto, grazie!<br /><br />
+                Se invece desideri l'abbonamento Premium con le Promo Sonore Personalizzate dei tuoi servizi, clicca qui: <strong className="text-amber-400 font-bold underline cursor-pointer hover:text-amber-300">PREMIUM</strong><br /><br />
+                Grazie<br />
                 <span className="italic opacity-80">BeautiFy Staff</span>
               </p>
             </div>
@@ -103,40 +96,12 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Plan Selection */}
-              {/* Plan Selection Area (Tabs Style) */}
-              <div className="md:col-span-2 mb-2">
-                <label className="block text-base font-semibold font-[family-name:var(--font-montserrat)] text-white mb-2">
-                  Servizio richiesto<span className="text-emerald-500">*</span>
-                </label>
-                <div className="flex bg-black/40 p-1 rounded-xl border border-white/10 w-full mb-2">
-                  <label className="flex-1 relative cursor-pointer text-center">
-                    <input
-                      type="radio"
-                      name="requested_plan"
-                      value="basic"
-                      className="sr-only peer"
-                      required
-                      checked={requestedPlan === 'basic'}
-                      onChange={() => setRequestedPlan('basic')}
-                    />
-                    <div className="py-2.5 px-4 rounded-lg font-bold text-sm text-zinc-400 peer-checked:bg-sky-400 peer-checked:text-zinc-950 transition-all peer-checked:shadow-md">
-                      Basic
-                    </div>
-                  </label>
-                  <label className="flex-1 relative cursor-pointer text-center">
-                    <input
-                      type="radio"
-                      name="requested_plan"
-                      value="premium"
-                      className="sr-only peer"
-                      checked={requestedPlan === 'premium'}
-                      onChange={() => setRequestedPlan('premium')}
-                    />
-                    <div className="py-2.5 px-4 rounded-lg font-bold text-sm text-zinc-400 peer-checked:bg-amber-500 peer-checked:text-zinc-950 transition-all peer-checked:shadow-md">
-                      Premium
-                    </div>
-                  </label>
+              {/* Plan Selection Area removed */}
+              <div className="md:col-span-2 mb-2 text-center py-4">
+                <div className="inline-block px-6 py-2.5 bg-sky-500/20 text-sky-400 border border-sky-500/50 rounded-lg font-bold font-[family-name:var(--font-montserrat)] tracking-wide shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                  Piano Selezionato: <span className="uppercase">Basic</span>
                 </div>
+                <input type="hidden" name="requested_plan" value="basic" />
               </div>
 
               {/* Ragione Sociale */}
@@ -257,7 +222,7 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
                       6 mesi
                     </div>
                     <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '6 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
-                      € {requestedPlan === 'basic' ? '25,90' : '43,90'} / mese
+                      € 25,90 / mese
                       <br />
                       <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-white mt-1 block">
                         Unica Soluzione
@@ -278,7 +243,7 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
                       12 mesi
                     </div>
                     <div className={`text-xs sm:text-sm pl-6 format-cost ${durataAbbonamento === '12 mesi' ? 'text-white font-medium' : 'text-zinc-300'}`}>
-                      € {requestedPlan === 'basic' ? '20,90' : '38,90'} / mese
+                      € 20,90 / mese
                       <br />
                       <span className="text-[10px] sm:text-[11px] font-normal leading-tight text-white mt-1 block">
                         Unica Soluzione
@@ -291,10 +256,11 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
               {/* Box Totale da saldare */}
               <div className="md:col-span-2 mt-4 mb-2 flex justify-center text-center">
                 <div className="bg-black/30 border border-emerald-500/20 rounded-2xl p-6 w-full max-w-sm shadow-[0_0_15px_rgba(16,185,129,0.1)]">
-                  <p className="text-white font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">Totale complessivo anno</p>
-                  <p className={`font-bold mb-3 uppercase tracking-wide ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}>Piano {requestedPlan === 'basic' ? 'Basic' : 'Premium'}</p>
-                  <p className={`text-4xl font-bold font-[family-name:var(--font-montserrat)] ${requestedPlan === 'basic' ? 'text-sky-400' : 'text-amber-400'}`}><span className="text-3xl font-medium pr-1">€</span>{totalPrice}</p>
+                  <p className="text-white font-semibold mb-1 uppercase tracking-wider text-sm font-[family-name:var(--font-montserrat)]">{durataAbbonamento === '6 mesi' ? 'Totale complessivo 6 mesi' : 'Totale complessivo 12 mesi'}</p>
+                  <p className="font-bold mb-3 uppercase tracking-wide text-sky-400">Piano Basic</p>
+                  <p className="text-4xl font-bold font-[family-name:var(--font-montserrat)] text-sky-400"><span className="text-3xl font-medium pr-1">€</span>{totalPrice}</p>
                   <p className="text-base text-white mt-3 font-semibold">*{getMonths()} mesi a € {getMonthlyPrice().toFixed(2).replace('.', ',')} / mese</p>
+                  <p className="text-sm text-emerald-200 mt-2 italic font-medium">I prezzi sono da considerarsi IVA esclusa</p>
                 </div>
               </div>
 
