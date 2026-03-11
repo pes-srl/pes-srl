@@ -3,6 +3,9 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { ActivityTracker } from "@/components/providers/ActivityTracker";
 import { FooterNew } from "@/components/homepagenew/FooterNew";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], weight: ["400"] });
 
 export default async function AreaClienteLayout({
     children,
@@ -29,7 +32,7 @@ export default async function AreaClienteLayout({
         : "bg-gradient-to-b from-[#2e035b] via-[#6b423d] to-[#b9adad]";
 
     return (
-        <div className={`min-h-screen ${bgClass} flex flex-col relative pt-16`}>
+        <div className={`min-h-screen ${bgClass} flex flex-col relative pt-16 ${inter.className}`}>
             <ActivityTracker />
             <main className="flex-1 mx-auto w-full max-w-7xl pt-8 px-6 pb-24">
                 {children}

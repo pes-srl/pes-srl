@@ -91,16 +91,6 @@ export function UpgradeFormTrial({ userEmail }: { userEmail?: string }) {
             <h2 className="text-3xl font-semibold font-[family-name:var(--font-montserrat)] text-white mb-3 uppercase tracking-wide">
               MIGLIORA IL TUO PIANO
             </h2>
-            <div className="text-zinc-200 text-lg font-light font-[family-name:var(--font-montserrat)] mt-4 leading-relaxed bg-black/20 p-6 rounded-2xl border border-fuchsia-500/20 shadow-inner max-w-2xl mx-auto">
-              <p className="mb-3">
-                Conclusa la tua prova gratuita di 7 giorni, puoi scegliere il nostro <strong className="text-white font-semibold">abbonamento Basic</strong>. Questi sono i dati base che ci servono.
-              </p>
-              <p className="text-zinc-300 text-base">
-                Se invece desideri l'abbonamento Premium con le Promo Sonore Personalizzate dei tuoi servizi, clicca qui: <strong onClick={() => setShowPremiumForm(true)} className="text-amber-400 font-bold underline cursor-pointer hover:text-amber-300">PREMIUM</strong><br /><br />
-                Grazie<br />
-                <span className="italic opacity-80">BeautiFy Staff</span>
-              </p>
-            </div>
           </div>
 
           <form action={handleSubmit} className="space-y-6">
