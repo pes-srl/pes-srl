@@ -18,7 +18,7 @@ export default async function AreaClienteLayout({
     }
 
     return (
-        <div className="min-h-screen bg-zinc-950 flex flex-col relative pt-16">
+        <div className="min-h-screen bg-gradient-to-b from-[#2e035b] via-[#6b423d] to-[#b9adad] flex flex-col relative pt-16">
             <ActivityTracker />
             <main className="flex-1 mx-auto w-full max-w-7xl pt-8 px-6 pb-24">
                 {children}
