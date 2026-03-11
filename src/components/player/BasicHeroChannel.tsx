@@ -85,13 +85,26 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         </span>
                     </h2>
 
-                    <p className={`text-lg md:text-lg max-w-xl leading-relaxed mb-8 ${planType === 'basic' ? 'text-white/90 font-medium' : 'text-zinc-300'}`}>
+                    <div className={`max-w-xl leading-relaxed mb-8 ${planType === 'basic' ? 'text-white/95 font-medium' : 'text-zinc-300'}`}>
                         {isPremium ? (
-                            <>Questo è il <strong className="text-white font-black">CANALE AUDIO PRINCIPALE</strong> che contiene tutte le <strong className="text-amber-400 font-black">TUE PROMO PERSONALIZZATE</strong> dei prossimi mesi e che trasforma radicalmente l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
+                            <p className="text-lg md:text-lg">
+                                Questo è il <strong className="text-white font-black">CANALE AUDIO PRINCIPALE</strong> che contiene tutte le <strong className="text-amber-400 font-black">TUE PROMO PERSONALIZZATE</strong> dei prossimi mesi e che trasforma radicalmente l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!
+                            </p>
+                        ) : planType === 'basic' ? (
+                            <>
+                                <p className="text-lg md:text-xl font-light leading-snug drop-shadow-sm">
+                                    Questo è il <strong className="font-black text-[#5B21B6]">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="font-black text-[#5B21B6]">RADICALMENTE</strong> l'atmosfera del tuo istituto!
+                                </p>
+                                <p className="text-base md:text-lg font-medium mt-3 text-white/90">
+                                    Sotto altri canali settoriali!
+                                </p>
+                            </>
                         ) : (
-                            <>Questo è il <strong className={`font-black ${planType === 'free_trial' ? 'text-[#FF4D79]' : planType === 'basic' ? 'text-[#5B21B6]' : 'text-white'}`}>CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className={`font-black ${planType === 'free_trial' ? 'text-[#FF4D79]' : planType === 'basic' ? 'text-[#5B21B6]' : 'text-white'}`}>RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
+                            <p className="text-lg md:text-lg">
+                                Questo è il <strong className="font-black text-[#FF4D79]">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="font-black text-[#FF4D79]">RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!
+                            </p>
                         )}
-                    </p>
+                    </div>
 
                 </div>
 
