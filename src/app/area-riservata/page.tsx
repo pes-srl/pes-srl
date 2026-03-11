@@ -221,17 +221,17 @@ export default async function AreaClientePage() {
                     {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic' || profile?.plan_type === 'premium') && (
                         <div className="mb-8">
                             <div className="text-center mb-8 flex flex-col items-center justify-center">
-                                <h3 className={`text-xl md:text-2xl font-black font-[family-name:var(--font-montserrat)] uppercase mb-4 tracking-[0.15em] md:tracking-[0.2em] ${profile?.plan_type === 'premium' ? 'text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-100 drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]' :
+                                <h3 className={`text-xl md:text-2xl font-black font-[family-name:var(--font-montserrat)] uppercase mb-4 tracking-[0.15em] md:tracking-[0.2em] ${profile?.plan_type === 'premium' ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#D8B2A3] to-[#C69C85] drop-shadow-[0_0_10px_rgba(198,156,133,0.5)]' :
                                     profile?.plan_type === 'basic' ? 'text-white drop-shadow-sm' :
                                         'text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-200 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]'
                                     }`}>
                                     QUESTO E' IL TUO CANALE AUDIO PRINCIPALE
                                 </h3>
-                                <div className={`p-3 rounded-full border animate-bounce ${profile?.plan_type === 'premium' ? 'bg-amber-500/20 border-amber-500/30 shadow-[0_0_15px_rgba(251,191,36,0.3)]' :
+                                <div className={`p-3 rounded-full border animate-bounce ${profile?.plan_type === 'premium' ? 'bg-[#C69C85]/20 border-[#C69C85]/30 shadow-[0_0_15px_rgba(198,156,133,0.3)]' :
                                     profile?.plan_type === 'basic' ? 'bg-white/10 border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.3)]' :
                                         'bg-white/10 border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.3)]'
                                     }`}>
-                                    <ArrowDown className={`w-6 h-6 md:w-8 md:h-8 ${profile?.plan_type === 'premium' ? 'text-amber-300' :
+                                    <ArrowDown className={`w-6 h-6 md:w-8 md:h-8 ${profile?.plan_type === 'premium' ? 'text-[#C69C85]' :
                                         profile?.plan_type === 'basic' ? 'text-white' :
                                             'text-white'
                                         }`} />
@@ -255,22 +255,22 @@ export default async function AreaClientePage() {
                                         <div className={`flex items-center justify-between w-full max-w-[360px] md:max-w-[640px] px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-gradient-to-r from-white/10 to-transparent border-white/10' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
                                             <div className="flex items-center gap-3 md:gap-4 flex-1 text-left">
-                                                <PlayCircle className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#dfa3fb]' : 'text-sky-400'}`} />
-                                                <span className="text-lg md:text-xl lg:text-2xl font-bold text-white font-[family-name:var(--font-montserrat)] tracking-widest md:tracking-[0.15em] uppercase drop-shadow-sm whitespace-nowrap pt-1">
+                                                <PlayCircle className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#dfa3fb]' : 'text-[#C69C85]'}`} />
+                                                <span className={`text-lg md:text-xl lg:text-2xl font-bold font-[family-name:var(--font-montserrat)] tracking-widest md:tracking-[0.15em] uppercase drop-shadow-sm whitespace-nowrap pt-1 ${profile?.plan_type === 'free_trial' ? 'text-white' : profile?.plan_type === 'basic' ? 'text-white' : 'text-[#C69C85]'}`}>
                                                     COME FUNZIONA
                                                 </span>
                                             </div>
-                                            <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-white/5 border-white/10 text-[#dfa3fb]' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
+                                            <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-white/5 border-white/10 text-[#dfa3fb]' : 'bg-[#C69C85]/10 border-[#C69C85]/20 text-[#C69C85]'}`}>
                                                 <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
                                             </div>
                                         </div>
                                     </summary>
 
                                     {/* Content Wrapper */}
-                                    <div className={`border border-white/5 rounded-[35px] shadow-2xl p-6 md:p-10 relative overflow-hidden backdrop-blur-xl ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-[#312344]' : 'bg-[#0f0518]'} animate-in fade-in slide-in-from-top-4 duration-500`}>
+                                    <div className={`border border-white/5 rounded-[35px] shadow-2xl p-6 md:p-10 relative overflow-hidden backdrop-blur-xl ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-[#312344]' : 'bg-[#2b2730]'} animate-in fade-in slide-in-from-top-4 duration-500`}>
                                         {/* Overlay di luce */}
-                                        <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-[#FAFAFA]/10' : 'bg-fuchsia-600/10'}`} />
-                                        <div className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-purple-400/10' : 'bg-indigo-600/10'}`} />
+                                        <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-[#FAFAFA]/10' : profile?.plan_type === 'basic' ? 'bg-fuchsia-600/10' : 'bg-[#D8B2A3]/10'}`} />
+                                        <div className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none ${profile?.plan_type === 'free_trial' ? 'bg-purple-400/10' : profile?.plan_type === 'basic' ? 'bg-indigo-600/10' : 'bg-[#5D6676]/10'}`} />
 
                                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -278,11 +278,11 @@ export default async function AreaClientePage() {
                                                 <p className="text-xl md:text-2xl text-zinc-200 font-light leading-relaxed">
                                                     Nulla di più semplice!<br /><span className="text-white font-medium">Collega il tuo pc / smartphone / tablet</span> all'impianto audio del tuo istituto o a delle <span className="text-white font-medium">casse Bluetooth</span>.<br /><br /><span className="text-white font-medium">Premi play sul canale principale</span> qui sopra, imposta il giusto volume in salone e <span className="text-white font-medium">dimenticatene</span>, il resto lo fa <span className="text-white font-medium">BeautiFy</span>.
                                                 </p>
-                                                <div className={`pl-6 border-l-2 py-1 space-y-4 ${profile?.plan_type === 'free_trial' ? 'border-purple-500/30' : profile?.plan_type === 'basic' ? 'border-[#00E5FF]/30' : 'border-indigo-500/30'}`}>
+                                                <div className={`pl-6 border-l-2 py-1 space-y-4 ${profile?.plan_type === 'free_trial' ? 'border-purple-500/30' : profile?.plan_type === 'basic' ? 'border-[#00E5FF]/30' : 'border-[#C69C85]/30'}`}>
                                                     <p className="text-lg md:text-xl text-zinc-200 leading-relaxed font-light">
-                                                        I nostri canali audio propongono una <span className="text-white font-medium">raffinata selezione</span> <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-200' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/80' : 'text-sky-200'}`}>di diversi generi musicali</span>, intervallata da <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-200' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/80' : 'text-sky-200'}`}>eleganti, delicati e generici</span> <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-sky-400'}`}>suggerimenti vocali</span>.
+                                                        I nostri canali audio propongono una <span className="text-white font-medium">raffinata selezione</span> <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-200' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/80' : 'text-[#D8B2A3]'}`}>di diversi generi musicali</span>, intervallata da <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-200' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/80' : 'text-[#D8B2A3]'}`}>eleganti, delicati e generici</span> <span className={`font-medium ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-[#C69C85]'}`}>suggerimenti vocali</span>.
                                                     </p>
-                                                    <p className={`text-lg tracking-wide mt-2 font-light ${profile?.plan_type === 'free_trial' ? 'text-purple-300/90' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/90' : 'text-sky-300/90'}`}>
+                                                    <p className={`text-lg tracking-wide mt-2 font-light ${profile?.plan_type === 'free_trial' ? 'text-purple-300/90' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]/90' : 'text-[#D8B2A3]/90'}`}>
                                                         Studiati per <span className="text-white font-medium">stimolare la curiosità</span> delle tue clienti e l'<span className="text-white font-medium">acquisto dei tuoi servizi</span>.
                                                     </p>
                                                 </div>
@@ -294,37 +294,37 @@ export default async function AreaClientePage() {
                                             </div>
 
                                             {/* Colonna Destra: Altri Canali */}
-                                            <div className="lg:col-span-5 space-y-6 bg-white/[0.02] p-8 md:p-10 rounded-[2.5rem] border border-white/5 relative group hover:bg-white/[0.04] transition-all duration-500 hover:border-indigo-500/20 shadow-xl">
-                                                <div className="absolute -top-4 -right-4 bg-gradient-to-br from-indigo-500 to-purple-600 text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl shadow-indigo-500/30 rotate-12 group-hover:rotate-6 transition-transform">
+                                            <div className="lg:col-span-5 space-y-6 bg-white/[0.02] p-8 md:p-10 rounded-[2.5rem] border border-white/5 relative group hover:bg-white/[0.04] transition-all duration-500 hover:border-[#5D6676]/20 shadow-xl">
+                                                <div className="absolute -top-4 -right-4 bg-gradient-to-br from-[#5D6676] to-[#5D6676] text-white w-14 h-14 flex items-center justify-center rounded-2xl shadow-xl shadow-[#5D6676]/30 rotate-12 group-hover:rotate-6 transition-transform">
                                                     <span className="font-black text-2xl font-[family-name:var(--font-montserrat)]">+6</span>
                                                 </div>
-                                                <h3 className="text-2xl md:text-4xl font-semibold font-[family-name:var(--font-montserrat)] text-transparent bg-clip-text bg-gradient-to-br from-indigo-100 to-indigo-400 flex items-center gap-3 drop-shadow-sm leading-tight mb-2">
+                                                <h3 className="text-2xl md:text-4xl font-semibold font-[family-name:var(--font-montserrat)] text-white flex items-center gap-3 drop-shadow-sm leading-tight mb-2">
                                                     Cambia il tuo Mood
                                                 </h3>
                                                 <p className="text-lg md:text-xl text-zinc-300 leading-relaxed font-light">
-                                                    Qui sotto, hai a disposizione altri <strong className="text-indigo-400 font-semibold">6 canali settoriali</strong>, per cambiare il tuo mood musicale in istituto durante la giornata.
+                                                    Qui sotto, hai a disposizione altri <strong className="text-[#8b8599] font-semibold">6 canali settoriali</strong>, per cambiare il tuo mood musicale in istituto durante la giornata.
                                                 </p>
 
                                                 <div className="bg-zinc-950/40 p-5 rounded-3xl border border-white/5 space-y-4">
                                                     <div className="flex items-start gap-4">
-                                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-fuchsia-500/20 to-purple-500/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-fuchsia-500/20">
-                                                            <div className="w-2.5 h-2.5 rounded-full bg-fuchsia-400 shadow-[0_0_10px_rgba(232,121,249,0.8)]" />
+                                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#AB7169]/20 to-[#5D6676]/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-[#AB7169]/20">
+                                                            <div className="w-2.5 h-2.5 rounded-full bg-[#AB7169] shadow-[0_0_10px_rgba(232,121,249,0.8)]" />
                                                         </div>
                                                         <p className="text-zinc-300 text-[15px] leading-relaxed">
-                                                            Anche questi canali contengono <span className="text-sky-300 italic font-light">morbidi suggerimenti vocali</span> tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">MASSAGE</strong>.
+                                                            Anche questi canali contengono <span className="text-[#D8B2A3] italic font-light">morbidi suggerimenti vocali</span> tranne <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">RELAX</strong> e <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-white/10 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">MASSAGE</strong>.
                                                         </p>
                                                     </div>
                                                     <div className="flex items-start gap-4">
-                                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500/20 to-sky-500/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-indigo-500/20">
-                                                            <div className="w-2.5 h-2.5 rounded-full bg-indigo-400 shadow-[0_0_10px_rgba(129,140,248,0.8)]" />
+                                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#5D6676]/20 to-[#D8B2A3]/20 flex items-center justify-center shrink-0 mt-1 shadow-inner border border-[#5D6676]/20">
+                                                            <div className="w-2.5 h-2.5 rounded-full bg-[#5D6676] shadow-[0_0_10px_rgba(129,140,248,0.8)]" />
                                                         </div>
                                                         <p className="text-zinc-300 text-[15px] leading-relaxed">
-                                                            Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-indigo-500/20 border border-indigo-500/30 text-indigo-100 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">DEEP SOFT</strong> nel weekend o del <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-amber-500/20 border border-amber-500/30 text-amber-100 px-2 py-0.5 rounded-md align-middle mx-1 text-xs">JAZZ</strong> a fine giornata.
+                                                            Rilassati con <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-[#5D6676]/20 border border-[#5D6676]/30 text-[#5D6676] px-2 py-0.5 rounded-md align-middle mx-1 text-xs">DEEP SOFT</strong> nel weekend o del <strong className="text-white font-semibold font-[family-name:var(--font-montserrat)] tracking-wide bg-[#D8B2A3]/20 border border-[#D8B2A3]/30 text-[#D8B2A3] px-2 py-0.5 rounded-md align-middle mx-1 text-xs">JAZZ</strong> a fine giornata.
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <div className="pt-4 mt-2 border-t border-white/5">
-                                                    <p className={`font-bold font-[family-name:var(--font-montserrat)] tracking-wider uppercase text-lg flex items-center gap-2 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-sky-400'}`}>
+                                                    <p className={`font-bold font-[family-name:var(--font-montserrat)] tracking-wider uppercase text-lg flex items-center gap-2 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-[#C69C85]'}`}>
                                                         <Radio className="w-5 h-5" /> Buon ascolto
                                                     </p>
                                                 </div>
