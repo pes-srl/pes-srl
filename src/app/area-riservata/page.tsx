@@ -76,7 +76,7 @@ export default async function AreaClientePage() {
         <div className="pt-12 pb-32">
 
             {/* DYNAMIC WELCOME BANNER BASED ON PLAN */}
-            {!isAdmin && profile?.plan_type && !isExpired && (
+            {!isAdmin && profile?.plan_type && profile?.plan_type !== 'basic' && !isExpired && (
                 <div className={`mb-6 p-4 rounded-xl border backdrop-blur-md flex items-center justify-center text-center shadow-lg relative overflow-hidden ${
                     profile.plan_type === 'free_trial' 
                         ? 'border-purple-500/30 bg-gradient-to-r from-fuchsia-900/20 to-purple-900/80 shadow-purple-900/20'
@@ -124,39 +124,15 @@ export default async function AreaClientePage() {
                                 </div>
                             </div>
                         ) : profile.plan_type === 'basic' ? (
-                            <div className="flex flex-col items-center justify-center space-y-4 py-4">
-                                <h1 className="text-5xl md:text-7xl uppercase tracking-[0.2em] font-[family-name:var(--font-montserrat)] font-black text-white drop-shadow-sm mb-2">
-                                    GRAZIE
-                                </h1>
-                                <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-white/90 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left mb-6">
-                                    <span>BENVENUTA NEL TUO ACCOUNT</span>
+                            <div className="flex flex-col items-center justify-center space-y-4 py-8 px-4">
+                                <h2 className="text-2xl md:text-4xl text-white/90 font-[family-name:var(--font-montserrat)] font-light leading-relaxed text-center flex flex-col md:flex-row items-center gap-3">
+                                    <span>Benvenuta nella tua Area Riservata, il tuo piano è <strong className="font-black text-[#5B21B6] uppercase drop-shadow-sm">BASIC</strong></span>
                                     <img
                                         src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
                                         alt="BeautiFy Channel Logo"
-                                        className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0 brightness-0 invert"
+                                        className="h-6 md:h-8 lg:h-10 w-auto mt-2 md:mt-0 brightness-0 invert opacity-80"
                                     />
                                 </h2>
-                                <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent mt-2 mb-8" />
-                                <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mt-4">
-
-                                    <div className="relative inline-flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl border border-[#5B21B6]/30 bg-[#5B21B6]/20 backdrop-blur-xl shadow-[0_0_40px_rgba(91,33,182,0.3)] overflow-hidden w-full max-w-lg mb-6">
-                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#5B21B6]/40 blur-[50px] rounded-full pointer-events-none" />
-
-                                        <span className="relative z-10 text-sm md:text-base text-white/90 font-medium tracking-widest uppercase mb-1">
-                                            Il tuo piano attuale
-                                        </span>
-                                        <span className="relative z-10 font-black text-white text-4xl md:text-5xl tracking-[0.1em] py-2 drop-shadow-sm font-[family-name:var(--font-montserrat)]">
-                                            PIANO BASIC
-                                        </span>
-                                        <span className="relative z-10 text-white/80 italic font-light text-base md:text-lg mt-1">
-                                            Accesso illimitato al marketing sensoriale
-                                        </span>
-                                    </div>
-                                    <p className="text-white/90 font-medium text-lg md:text-xl tracking-wide leading-relaxed mt-2 max-w-2xl mx-auto">
-                                        Hai a disposizione il <strong className="text-white font-black drop-shadow-sm">NUOVO E UNICO</strong> strumento dedicato al settore. Sfrutta a pieno le sue enormi potenzialità!
-                                    </p>
-                                </div>
                             </div>
                         ) : (
                             <div className="flex flex-col items-center justify-center space-y-4 py-4">
@@ -206,8 +182,13 @@ export default async function AreaClientePage() {
                         <div className="absolute inset-0 bg-gradient-to-br from-[#FF4D79]/5 to-transparent pointer-events-none" />
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#FF4D79]/10 blur-[60px] rounded-full pointer-events-none" />
 
-                        <h1 className="text-5xl md:text-7xl font-bold font-[family-name:var(--font-montserrat)] text-[#FF4D79] mb-3 md:mb-5 tracking-tight flex items-center justify-center gap-3 w-full relative z-10">
-                            Area Riservata
+                        <h1 className={`font-bold font-[family-name:var(--font-montserrat)] text-[#FF4D79] mb-3 md:mb-5 tracking-tight flex flex-col items-center justify-center gap-1 md:gap-2 w-full relative z-10 ${profile?.plan_type === 'basic' ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-5xl md:text-7xl'}`}>
+                            {profile?.plan_type === 'basic' ? (
+                                <>
+                                    <span>Area Riservata</span>
+                                    <span>Piano Basic</span>
+                                </>
+                            ) : 'Area Riservata'}
                         </h1>
                         <div className="flex flex-wrap items-center justify-center gap-3 mt-2 mb-2 relative z-10">
                             <span className="text-lg font-medium text-white">
@@ -272,15 +253,15 @@ export default async function AreaClientePage() {
 
                                 <details className="group w-full max-w-7xl mx-auto relative z-20">
                                     <summary className="cursor-pointer list-none flex justify-center items-center w-full outline-none select-none mb-4 text-center relative z-20">
-                                        <div className={`flex items-center justify-between w-full max-w-[360px] md:max-w-[640px] px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-gradient-to-br from-[#00E5FF]/[0.05] via-[#00E5FF]/[0.08] to-indigo-500/[0.05]' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
+                                        <div className={`flex items-center justify-between w-full max-w-[360px] md:max-w-[640px] px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-gradient-to-r from-white/10 to-transparent border-white/10' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
                                             <div className="flex items-center gap-3 md:gap-4 flex-1 text-left">
-                                                <PlayCircle className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-sky-400'}`} />
+                                                <PlayCircle className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#dfa3fb]' : 'text-sky-400'}`} />
                                                 <span className="text-2xl md:text-4xl text-white font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-sm whitespace-nowrap">
                                                     COME FUNZIONA
                                                 </span>
                                             </div>
-                                            <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-[#00E5FF]/10 border-[#00E5FF]/20 text-[#00E5FF]' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
+                                            <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-white/5 border-white/10 text-[#dfa3fb]' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
                                                 <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
                                             </div>
                                         </div>
@@ -360,15 +341,15 @@ export default async function AreaClientePage() {
 
                     <details className="group w-full max-w-7xl mx-auto mt-2 mb-16 relative z-10">
                         <summary className="cursor-pointer list-none flex justify-center items-center w-full outline-none select-none mb-10 text-center relative z-20">
-                            <div className={`flex items-center justify-between w-full max-w-[360px] md:max-w-[640px] px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-gradient-to-br from-[#00E5FF]/[0.05] via-[#00E5FF]/[0.08] to-indigo-500/[0.05]' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
+                            <div className={`flex items-center justify-between w-full max-w-[360px] md:max-w-[640px] px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : profile?.plan_type === 'basic' ? 'bg-gradient-to-r from-white/10 to-transparent border-white/10' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
                                 <div className="flex items-center gap-3 md:gap-4 flex-1 text-left">
-                                    <Radio className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#00E5FF]' : 'text-sky-400'}`} />
+                                    <Radio className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : profile?.plan_type === 'basic' ? 'text-[#dfa3fb]' : 'text-sky-400'}`} />
                                     <span className="text-2xl md:text-4xl text-white font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-sm whitespace-nowrap pt-1">
                                         ALTRI CANALI
                                     </span>
                                 </div>
-                                <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-[#00E5FF]/10 border-[#00E5FF]/20 text-[#00E5FF]' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
+                                <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : profile?.plan_type === 'basic' ? 'bg-white/5 border-white/10 text-[#dfa3fb]' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
                                     <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
                                 </div>
                             </div>
