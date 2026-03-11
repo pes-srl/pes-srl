@@ -77,11 +77,11 @@ export default async function AreaClientePage() {
 
             {/* DYNAMIC WELCOME BANNER BASED ON PLAN */}
             {!isAdmin && profile?.plan_type && !isExpired && (
-                <div className="mb-6 p-4 rounded-xl border border-white/5 bg-zinc-900/50 flex items-center justify-center text-center shadow-md">
+                <div className="mb-6 p-4 rounded-xl border border-purple-500/30 bg-gradient-to-r from-fuchsia-900/20 to-purple-900/80 backdrop-blur-md flex items-center justify-center text-center shadow-lg shadow-purple-900/20">
                     <div className="w-full">
                         {profile.plan_type === 'free_trial' ? (
                             <div className="flex flex-col items-center justify-center space-y-4 py-4">
-                                <h1 className="text-5xl md:text-7xl uppercase tracking-[0.2em] font-[family-name:var(--font-montserrat)] font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-200 drop-shadow-sm mb-2">
+                                <h1 className="text-5xl md:text-7xl uppercase tracking-[0.2em] font-[family-name:var(--font-montserrat)] font-black text-[#FF4D79] drop-shadow-sm mb-2">
                                     GRAZIE
                                 </h1>
                                 <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left mb-6">
@@ -95,20 +95,23 @@ export default async function AreaClientePage() {
                                 <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent mt-2 mb-8" />
                                 <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mt-4">
 
-                                    <div className="relative inline-flex flex-col items-center justify-center p-4 md:p-6 rounded-3xl border border-emerald-500/20 bg-emerald-950/20 shadow-[0_0_30px_rgba(16,185,129,0.1)] overflow-hidden w-full max-w-sm">
+                                    <div className="relative inline-flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl border border-emerald-500/20 bg-emerald-950/20 shadow-[0_0_40px_rgba(16,185,129,0.15)] overflow-hidden w-full max-w-lg mb-6">
                                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-emerald-500/10 blur-[40px] rounded-full pointer-events-none" />
+                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-emerald-500/10 blur-[50px] rounded-full pointer-events-none" />
 
-                                        <span className="relative z-10 text-xs md:text-sm text-white font-medium tracking-widest uppercase mb-1">
+                                        <span className="relative z-10 text-sm md:text-base text-white font-medium tracking-widest uppercase mb-1">
                                             Il tuo piano attuale
                                         </span>
-                                        <span className="relative z-10 font-black text-white text-2xl md:text-3xl tracking-[0.1em] py-0.5 drop-shadow-sm font-[family-name:var(--font-montserrat)]">
+                                        <span className="relative z-10 font-black text-[#FF4D79] text-4xl md:text-5xl tracking-[0.1em] py-2 drop-shadow-sm font-[family-name:var(--font-montserrat)]">
                                             FREE TRIAL
                                         </span>
-                                        <span className="relative z-10 text-white italic font-light text-xs md:text-sm mt-1">
-                                            {daysLeft} {daysLeft === 1 ? 'giorno' : 'giorni'}
+                                        <span className="relative z-10 text-white italic font-light text-base md:text-lg mt-1">
+                                            {daysLeft} {daysLeft === 1 ? 'giorno' : 'giorni'} alla fine della prova gratuita
                                         </span>
                                     </div>
+                                    <Link href="#upgrade-section" className="relative z-10 bg-white text-zinc-900 px-8 py-4 rounded-xl font-bold text-base md:text-lg tracking-widest hover:bg-zinc-100 transition-transform duration-300 hover:scale-105 shadow-xl text-center">
+                                        SCEGLI UN PIANO
+                                    </Link>
                                 </div>
                             </div>
                         ) : profile.plan_type === 'basic' ? (
@@ -147,27 +150,30 @@ export default async function AreaClientePage() {
             )}
 
             {/* TRIAL OVERVIEW BANNER */}
+            {/* TRIAL OVERVIEW AND PROMO BANNER */}
             {profile?.plan_type === 'free_trial' && daysLeft > 0 && !isAdmin && (
-                <div className="bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white px-6 py-5 rounded-xl mb-8 flex flex-col md:flex-row justify-between items-center shadow-lg shadow-fuchsia-900/20 gap-4 border border-fuchsia-400/30 relative overflow-hidden max-w-3xl mx-auto w-full">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-[30px] rounded-full mix-blend-screen -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-                    <div className="flex items-center gap-4 relative z-10 w-full md:w-auto">
-                        <div className="p-2 bg-white/20 rounded-full backdrop-blur-md shrink-0">
-                            <Sparkles className="w-5 h-5" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="font-bold text-base md:text-lg leading-tight mb-1">La tua prova gratuita è attiva</h3>
-                            <p className="text-fuchsia-100 text-base md:text-lg">Scade tra <strong className="text-emerald-400 bg-black/20 px-1.5 py-0.5 rounded-md mx-1 text-lg md:text-xl font-black">{daysLeft} {daysLeft === 1 ? 'giorno' : 'giorni'}</strong>.</p>
+                <div className="bg-white/5 backdrop-blur-xl rounded-3xl mb-12 border border-white/10 shadow-2xl shadow-purple-900/40 overflow-hidden max-w-5xl mx-auto w-full group/trial">
+                    {/* Status Header */}
+                    <div className="bg-gradient-to-r from-[#8624FF] to-[#FF4D79] text-white px-6 md:px-10 py-5 flex flex-col md:flex-row justify-between items-center shadow-lg gap-4 relative">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 blur-[50px] rounded-full mix-blend-screen -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+                        <div className="flex items-center gap-4 relative z-10 w-full md:w-auto">
+                            <div className="p-2.5 bg-white/20 rounded-full backdrop-blur-md shrink-0 shadow-inner">
+                                <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                            </div>
+                            <div className="flex-1 text-left">
+                                <h3 className="font-extrabold text-lg md:text-xl font-[family-name:var(--font-montserrat)] leading-tight mb-0.5 tracking-wide">La tua prova gratuita è attiva</h3>
+                                <p className="text-white/90 text-sm md:text-base font-medium">Scade tra <strong className="text-emerald-400 bg-black/30 px-2 py-0.5 rounded-md mx-1 text-base md:text-lg font-black shadow-inner">{daysLeft} {daysLeft === 1 ? 'giorno' : 'giorni'}</strong>.</p>
+                            </div>
                         </div>
                     </div>
-                    <Link href="#upgrade-section" className="relative z-10 shrink-0 w-full md:w-auto bg-white text-zinc-950 px-5 py-2.5 rounded-lg font-bold text-sm tracking-wide hover:bg-zinc-100 transition-colors shadow-md text-center mt-3 md:mt-0">
-                        SCEGLI UN PIANO
-                    </Link>
+
+
                 </div>
             )}
 
             <div className="mt-32 md:mt-40 flex flex-col items-center justify-center gap-6 mb-12 border-b border-white/10 pb-8">
                 <div className="flex flex-col items-center justify-center w-full text-center">
-                    <h1 className="text-6xl md:text-7xl font-bold font-[family-name:var(--font-montserrat)] text-white mb-3 tracking-tight flex items-center justify-center gap-3 w-full">
+                    <h1 className="text-6xl md:text-7xl font-bold font-[family-name:var(--font-montserrat)] text-[#FF4D79] mb-3 tracking-tight flex items-center justify-center gap-3 w-full">
                         Area Riservata
                     </h1>
                     <div className="flex flex-wrap items-center justify-center gap-3 mt-4 mb-2">
@@ -235,7 +241,7 @@ export default async function AreaClientePage() {
                                         <div className={`inline-flex items-center justify-start gap-3 md:gap-4 px-6 md:px-10 py-4 rounded-[2rem] border border-white/5 backdrop-blur-md shadow-xl transition-all duration-300 hover:border-white/10 relative overflow-hidden group/btn ${profile?.plan_type === 'free_trial' ? 'bg-gradient-to-br from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5' : 'bg-white/[0.02] hover:bg-white/[0.05]'}`}>
                                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
                                             <PlayCircle className={`w-8 h-8 md:w-10 md:h-10 shrink-0 ${profile?.plan_type === 'free_trial' ? 'text-purple-300' : 'text-sky-400'}`} />
-                                            <span className="text-2xl md:text-4xl text-white font-black font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-sm">
+                                            <span className="text-2xl md:text-4xl text-[#FF4D79] font-black font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.3em] uppercase drop-shadow-sm">
                                                 COME FUNZIONA
                                             </span>
                                             <div className={`p-1.5 md:p-2 rounded-full border transition-transform duration-300 group-open:rotate-180 flex-shrink-0 ml-2 ${profile?.plan_type === 'free_trial' ? 'bg-purple-500/10 border-purple-500/20 text-purple-300' : 'bg-sky-500/10 border-sky-500/20 text-sky-400'}`}>
@@ -338,52 +344,7 @@ export default async function AreaClientePage() {
                     {/* Upgrade Form for Free Trial and Basic Users */}
                     {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic') && !isAdmin && (
                         <div className="w-full max-w-4xl mx-auto mt-0 md:mt-16">
-                            {(profile?.plan_type === 'basic' || profile?.plan_type === 'free_trial') && (
-                                <div className="text-center mb-16 px-4">
-                                    {/* Elegant Divider */}
-                                    <div className="flex items-center justify-center w-full mb-16 relative">
-                                        {/* Core line */}
-                                        <div className="w-11/12 max-w-4xl h-[3px] rounded-full z-10 bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-                                        {/* Glow effect */}
-                                        <div className="absolute w-11/12 max-w-4xl h-[12px] blur-[8px] rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                                    </div>
 
-                                    <h2 className="text-xl md:text-3xl font-black uppercase text-white tracking-widest leading-tight mb-6 w-full max-w-5xl mx-auto">
-                                        IL MESE PROSSIMO HAI PIANIFICATO UNA PROMOZIONE SU UN TUO SERVIZIO PER LE TUE CLIENTI?
-                                    </h2>
-                                    <p className="text-zinc-200 text-xl w-full max-w-4xl mx-auto leading-relaxed mb-12 font-medium">
-                                        Facendo upgrade al <strong className="text-amber-400 font-black uppercase tracking-wider">Piano Premium</strong> puoi chiederci di realizzare delle <span className="text-white font-bold underline decoration-amber-500/50 underline-offset-4">promo audio personalizzate</span> con le tue promozioni.
-                                    </p>
-
-                                    {/* Premium Plan Layout */}
-                                    <div className="text-center flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
-                                        <div className="relative mb-8 flex flex-col items-center justify-center px-4 shrink-0">
-                                            <h3 className="font-[family-name:var(--font-montserrat)] text-center w-full max-w-4xl mx-auto">
-                                                <span className="block text-xs md:text-sm text-zinc-400 uppercase tracking-[0.3em] mb-4">
-                                                    Con il <strong className="text-amber-400 font-black">Piano Premium</strong>
-                                                </span>
-                                                <span className="block text-xl md:text-2xl xl:text-3xl text-white font-semibold leading-tight tracking-tight opacity-90 mb-1">
-                                                    puoi aggiungere ai canali audio
-                                                </span>
-                                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 font-bold text-3xl md:text-4xl xl:text-5xl py-2 drop-shadow-sm">
-                                                    eleganti suggerimenti vocali
-                                                </span>
-                                                <span className="block text-base md:text-lg text-zinc-300 mt-4 font-light italic">
-                                                    con le tue promozioni e i tuoi servizi personalizzati.
-                                                </span>
-                                            </h3>
-                                        </div>
-                                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-amber-500/20 w-full border border-white/10 group mt-auto aspect-[4/3] lg:aspect-video mb-16">
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40 z-10 pointer-events-none"></div>
-                                            <img
-                                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772934286210-zjhcxj.png"
-                                                alt="Servizi Personalizzati Premium"
-                                                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
 
                             {profile?.plan_type === 'basic' ? (
                                 <UpgradeFormBasic userEmail={user.email} />

@@ -45,7 +45,7 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
     return (
         <div className={`relative w-full rounded-3xl overflow-hidden shadow-2xl mb-12 group ${isPremium ? 'shadow-amber-900/20' : planType === 'free_trial' ? 'shadow-purple-900/40 border border-[#FAFAFA]/20' : 'shadow-sky-900/20'}`}>
             {/* Animated Gradient Background */}
-            <div className={`absolute inset-0 bg-linear-to-br z-0 ${isPremium ? 'from-amber-900 via-zinc-900 to-black' : planType === 'free_trial' ? 'from-[#FAFAFA]/20 via-purple-300/10 to-[#DDA0DD]/5 backdrop-blur-xl' : 'from-sky-900 via-indigo-950 to-black'}`} />
+            <div className={`absolute inset-0 bg-linear-to-br z-0 ${isPremium ? 'from-amber-900 via-zinc-900 to-black' : planType === 'free_trial' ? 'from-black/40 via-purple-900/30 to-black/20 backdrop-blur-md' : 'from-sky-900 via-indigo-950 to-black'}`} />
 
             {/* Glowing Orbs */}
             <div className={`absolute top-0 right-0 w-[500px] h-[500px] blur-[100px] rounded-full mix-blend-screen -translate-y-1/2 translate-x-1/3 pointer-events-none ${isPremium ? 'bg-amber-600/20' : planType === 'free_trial' ? 'bg-[#FAFAFA]/20' : 'bg-sky-600/20'}`} />
@@ -80,7 +80,7 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
 
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold font-[family-name:var(--font-montserrat)] text-transparent bg-clip-text bg-linear-to-r from-white to-white/70 tracking-tight mb-4">
                         Beautify Channel
-                        <span className={`block ${isPremium ? 'text-amber-400' : planType === 'free_trial' ? 'text-purple-300' : 'text-sky-400'}`}>
+                        <span className={`block ${isPremium ? 'text-amber-400' : planType === 'free_trial' ? 'text-[#FF4D79]' : 'text-sky-400'}`}>
                             {isPremium ? 'Premium' : planType === 'free_trial' ? 'Prova Gratuita' : 'Basic'}
                         </span>
                     </h2>
@@ -89,7 +89,7 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         {isPremium ? (
                             <>Questo è il <strong className="text-white font-black">CANALE AUDIO PRINCIPALE</strong> che contiene tutte le <strong className="text-amber-400 font-black">TUE PROMO PERSONALIZZATE</strong> dei prossimi mesi e che trasforma radicalmente l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
                         ) : (
-                            <>Questo è il <strong className="text-white font-black">CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className="text-white font-black">RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
+                            <>Questo è il <strong className={`font-black ${planType === 'free_trial' ? 'text-[#FF4D79]' : 'text-white'}`}>CANALE AUDIO PRINCIPALE</strong> che trasforma <strong className={`font-black ${planType === 'free_trial' ? 'text-[#FF4D79]' : 'text-white'}`}>RADICALMENTE</strong> l'atmosfera del tuo istituto!<br />Sotto altri canali settoriali!</>
                         )}
                     </p>
 

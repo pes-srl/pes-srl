@@ -453,13 +453,13 @@ export function UpgradeFormBasic({ userEmail, onBack }: { userEmail?: string, on
                 {/* GRAZIE Section */}
                 <div className="mt-16 text-center relative flex flex-col items-center justify-center">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-purple-600/20 blur-[50px] rounded-full pointer-events-none" />
-                    <h3 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-2 relative z-10">
+                    <h3 className="text-4xl md:text-5xl font-black text-white font-[family-name:var(--font-montserrat)] tracking-[0.2em] md:tracking-[0.4em] uppercase mb-2 relative z-10">
                         GRAZIE
                     </h3>
-                    <p className="text-purple-200/50 text-sm md:text-base flex items-center justify-center gap-2 relative z-10 font-medium">
-                        <Heart className="w-4 h-4 text-purple-400/70 fill-purple-400/20" />
+                    <p className="text-white text-sm md:text-base flex items-center justify-center gap-2 relative z-10 font-medium">
+                        <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
                         Il giusto mood fa la differenza in istituto
-                        <Heart className="w-4 h-4 text-purple-400/70 fill-purple-400/20" />
+                        <Heart className="w-4 h-4 text-rose-400 fill-rose-400" />
                     </p>
                 </div>
             </div>
