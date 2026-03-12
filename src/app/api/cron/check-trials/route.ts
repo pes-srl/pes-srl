@@ -7,10 +7,12 @@ import { Resend } from 'resend';
 export const dynamic = 'force-dynamic';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY! // Needs service layer to bypass RLS
-);
+// Create Supabase client with fallback strings to prevent Next.js build crash on Vercel
+// if the environment variables are not yet configured in the dashboard.
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder';
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function GET(request: Request) {
     // SECURITY: Optional. Verify a cron secret token if you configure one in Vercel
