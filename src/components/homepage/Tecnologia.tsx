@@ -24,7 +24,7 @@ export function Tecnologia() {
           {/* Text Content */}
           <div className="flex-1 space-y-8 order-1 lg:order-2">
             <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 uppercase tracking-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-semibold leading-relaxed text-blue-900 uppercase tracking-tight mb-6">
                 La Nostra Tecnologia
               </h2>
               <div className="w-20 h-1 bg-blue-500 rounded-full"></div>

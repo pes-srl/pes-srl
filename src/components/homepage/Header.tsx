@@ -19,7 +19,6 @@ export function Header() {
 
   const navLinks = [
     { label: "HOME", href: "#home" },
-    { label: "VISION", href: "#vision" },
     { label: "CHI SIAMO", href: "#chi-siamo" },
     { label: "SERVIZI", href: "#servizi" },
     { label: "CONTATTACI", href: "#contattaci" },
@@ -75,7 +74,7 @@ export function Header() {
           <Link
             href="/login"
             className="px-6 py-2.5 rounded-full text-white font-medium hover:opacity-90 transition-all shadow-sm"
-            style={{ background: 'linear-gradient(148deg,#45b2ff 0%,#0047d6 100%)' }}
+            style={{ background: 'linear-gradient(135deg, #ff8a4c 0%, #ff5e62 100%)' }}
           >
             LOGIN
           </Link>
@@ -108,7 +107,8 @@ export function Header() {
             ))}
             <Link
               href="/login"
-              className="mt-8 px-8 py-3 rounded-full bg-blue-600 text-white font-bold text-xl"
+              className="mt-8 px-8 py-3 rounded-full text-white font-bold text-xl transition-all shadow-lg hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #ff8a4c 0%, #ff5e62 100%)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               LOGIN

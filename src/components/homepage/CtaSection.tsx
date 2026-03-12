@@ -13,7 +13,7 @@ export function CtaSection() {
         <div className="max-w-3xl mx-auto space-y-8">
           <MessageCircle className="w-16 h-16 text-white/80 mx-auto" />
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-semibold leading-relaxed text-white tracking-tight">
             CONTATTACI PER UN PREVENTIVO GRATUITO
           </h2>
 
@@ -24,7 +24,7 @@ export function CtaSection() {
           <div className="pt-8">
             <a
               href="mailto:info@pes-srl.it"
-              className="inline-block px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-zinc-100 hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
+              className="inline-block px-10 py-5 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-zinc-100 hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
             >
               SCRIVICI ORA
             </a>

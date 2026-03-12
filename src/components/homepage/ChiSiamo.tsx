@@ -10,7 +10,7 @@ export function ChiSiamo() {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Text Content */}
           <div className="flex-1 space-y-8">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-900 uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold leading-relaxed text-blue-900 uppercase tracking-tight">
               Chi Siamo
             </h2>
             <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
@@ -27,7 +27,7 @@ export function ChiSiamo() {
             <div className="pt-4">
               <a
                 href="mailto:info@pes-srl.it"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-bold rounded-full hover:opacity-90 transition-all duration-300 group shadow-lg"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 group shadow-lg"
                 style={{ background: 'linear-gradient(148deg,#45b2ff 0%,#0047d6 100%)' }}
               >
                 <span>DEMO PODCAST</span>
