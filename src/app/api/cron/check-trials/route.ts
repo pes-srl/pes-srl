@@ -6,7 +6,7 @@ import { Resend } from 'resend';
 // But for now we focus on the logic.
 export const dynamic = 'force-dynamic';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY! // Needs service layer to bypass RLS
@@ -40,7 +40,7 @@ export async function GET(request: Request) {
 
             // Send Expiration Email
             for (const user of expiredUsers) {
-                if (user.email) {
+                if (user.email && resend) {
                     await resend.emails.send({
                         from: 'Beautify Channel <noreply@beautifychannel.com>',
                         to: user.email,
@@ -76,7 +76,7 @@ export async function GET(request: Request) {
 
             // Send Expiration Email for Subscriptions
             for (const user of expiredSubs) {
-                if (user.email) {
+                if (user.email && resend) {
                     await resend.emails.send({
                         from: 'Beautify Channel <noreply@beautifychannel.com>',
                         to: user.email,
@@ -106,7 +106,7 @@ export async function GET(request: Request) {
 
         if (warningUsers && warningUsers.length > 0) {
             for (const user of warningUsers) {
-                if (user.email) {
+                if (user.email && resend) {
                     await resend.emails.send({
                         from: 'Beautify Channel <noreply@beautifychannel.com>',
                         to: user.email,

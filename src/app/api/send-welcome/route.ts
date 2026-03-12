@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with the API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend with the API key from environment variables only if it exists
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: Request) {
     try {
@@ -11,6 +11,11 @@ export async function POST(request: Request) {
 
         if (!email) {
             return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+        }
+
+        if (!resend) {
+            console.warn('RESEND_API_KEY is not defined. Skipping welcome email for:', email);
+            return NextResponse.json({ success: true, message: 'Email skipped (setup missing)' });
         }
 
         // Send the Welcome Email
