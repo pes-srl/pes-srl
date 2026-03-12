@@ -1,27 +1,39 @@
-import { Outfit } from "next/font/google";
-import { HeroNew } from "@/components/homepagenew/HeroNew";
-import { InfoBlocks2026 } from "@/components/homepagenew/InfoBlocks2026";
-import { Pricing2026 } from "@/components/homepagenew/Pricing2026";
-import { BottomCTA2026 } from "@/components/homepagenew/BottomCTA2026";
+import { Metadata } from "next";
 
-const outfit = Outfit({ subsets: ["latin"] });
+import { Header } from "../components/homepage/Header";
+import { Hero } from "../components/homepage/Hero";
+import { Vision } from "../components/homepage/Vision";
+import { ChiSiamo } from "../components/homepage/ChiSiamo";
+import { Servizi } from "../components/homepage/Servizi";
+import { Tecnologia } from "../components/homepage/Tecnologia";
+import { Partners } from "../components/homepage/Partners";
+import { CtaSection } from "../components/homepage/CtaSection";
+import { Footer } from "../components/homepage/Footer";
 
-export default function HomePageNew() {
-    return (
-        <main className={`min-h-screen bg-zinc-950 selection:bg-[#D8B2A3]/30 ${outfit.className}`}>
-            {/* Dynamic Background */}
-            <div className="fixed inset-0 z-0 flex justify-center bg-zinc-950 pointer-events-none">
-                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#AB7169]/10 blur-[120px] rounded-full mix-blend-screen" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] bg-[#5D6676]/10 blur-[120px] rounded-full mix-blend-screen" />
-            </div>
+export const metadata: Metadata = {
+  title: "People Experience Solution - PES SRL",
+  description: "Trasforma le tue casse audio in un potente strumento di comunicazione e vendita.",
+};
 
-            {/* Foreground Content */}
-            <div className="relative z-10 w-full overflow-hidden">
-                <HeroNew />
-                <InfoBlocks2026 />
-                <Pricing2026 />
-                <BottomCTA2026 />
-            </div>
-        </main>
-    );
+export default function Homepage2() {
+  return (
+    <main className="min-h-screen bg-white text-zinc-900 overflow-x-hidden pt-0 md:pt-0">
+      <div
+        className="fixed inset-0 w-full h-full -z-20 bg-cover bg-center opacity-[0.03]"
+        style={{ backgroundImage: "url('/assets-pes-srl/hvac-02.png')" }}
+      />
+
+      <Header />
+
+      <Hero />
+      <Vision />
+      <ChiSiamo />
+      <Servizi />
+      <Tecnologia />
+      <Partners />
+      <CtaSection />
+
+      <Footer />
+    </main>
+  );
 }

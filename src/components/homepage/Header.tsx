@@ -1,0 +1,121 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { label: "HOME", href: "#home" },
+    { label: "VISION", href: "#vision" },
+    { label: "CHI SIAMO", href: "#chi-siamo" },
+    { label: "SERVIZI", href: "#servizi" },
+    { label: "CONTATTACI", href: "#contattaci" },
+  ];
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace(/.*#/, "");
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      elem.scrollIntoView({ behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
+  return (
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+          : "bg-zinc-950 py-5"
+        }`}
+    >
+      <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
+        <Link href="/homepage2" className="flex items-center gap-2 z-50">
+          <Image
+            src="/assets-pes-srl/favicon.png"
+            alt="PES SRL Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
+          />
+          <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-zinc-900' : 'text-zinc-100'} transition-colors`}>
+            PES SRL
+          </span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => handleScrollTo(e, link.href)}
+              className={`text-sm font-semibold tracking-wide hover:text-blue-500 transition-colors ${isScrolled ? "text-zinc-700" : "text-zinc-100"
+                }`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <Link
+            href="/login"
+            className="px-6 py-2.5 rounded-full text-white font-medium hover:opacity-90 transition-all shadow-sm"
+            style={{ background: 'linear-gradient(148deg,#45b2ff 0%,#0047d6 100%)' }}
+          >
+            LOGIN
+          </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden p-2 z-50"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <X className={isScrolled ? "text-zinc-900" : "text-white"} />
+          ) : (
+            <Menu className={isScrolled ? "text-zinc-900" : "text-white"} />
+          )}
+        </button>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center space-y-8 z-40">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleScrollTo(e, link.href)}
+                className="text-2xl font-bold text-zinc-900"
+              >
+                {link.label}
+              </a>
+            ))}
+            <Link
+              href="/login"
+              className="mt-8 px-8 py-3 rounded-full bg-blue-600 text-white font-bold text-xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              LOGIN
+            </Link>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+}

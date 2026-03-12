@@ -23,8 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { HeaderNew } from "@/components/homepagenew/HeaderNew";
-import { FooterNew } from "@/components/homepagenew/FooterNew";
+import { ClientLayoutWrapper } from "./ClientLayoutWrapper";
 import { AuthHashCatcher } from "@/components/AuthHashCatcher";
 import { Toaster } from "@/components/ui/sonner";
 import { PresencePing } from "@/components/PresencePing";
@@ -56,11 +55,9 @@ export default async function RootLayout({
       >
         <AuthHashCatcher />
         {user && <PresencePing />}
-        <HeaderNew initialUser={user} initialProfile={profile} />
-        <div className="flex-1">
+        <ClientLayoutWrapper user={user} profile={profile}>
           {children}
-        </div>
-        <FooterNew />
+        </ClientLayoutWrapper>
         <Toaster position="bottom-right" richColors theme="dark" />
       </body>
     </html>
