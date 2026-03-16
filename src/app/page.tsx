@@ -18,10 +18,7 @@ export const metadata: Metadata = {
 export default function Homepage2() {
   return (
     <main className="min-h-screen bg-white text-zinc-900 overflow-x-hidden pt-0 md:pt-0">
-      <div
-        className="fixed inset-0 w-full h-full -z-20 bg-cover bg-center opacity-[0.03]"
-        style={{ backgroundImage: "url('/assets-pes-srl/hvac-02.png')" }}
-      />
+      {/* Removed background image overlay to ensure pure white background */}
 
       <Header />
 

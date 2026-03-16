@@ -38,7 +38,7 @@ export function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
           ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-          : "bg-zinc-950 py-5"
+          : "bg-white/90 backdrop-blur-sm py-5 shadow-sm border-b border-zinc-100"
         }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
@@ -50,7 +50,7 @@ export function Header() {
             height={40}
             className="w-10 h-10 object-contain"
           />
-          <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-zinc-900' : 'text-zinc-100'} transition-colors`}>
+          <span className={`font-bold text-xl tracking-tight text-zinc-900 transition-colors`}>
             PES SRL
           </span>
         </Link>
@@ -62,8 +62,7 @@ export function Header() {
               key={link.label}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className={`text-sm font-semibold tracking-wide hover:text-blue-500 transition-colors ${isScrolled ? "text-zinc-700" : "text-zinc-100"
-                }`}
+              className={`text-sm font-semibold tracking-wide hover:text-blue-600 transition-colors text-zinc-700`}
             >
               {link.label}
             </a>
@@ -86,9 +85,9 @@ export function Header() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-zinc-900" : "text-white"} />
+            <X className="text-zinc-900" />
           ) : (
-            <Menu className={isScrolled ? "text-zinc-900" : "text-white"} />
+            <Menu className="text-zinc-900" />
           )}
         </button>
 
