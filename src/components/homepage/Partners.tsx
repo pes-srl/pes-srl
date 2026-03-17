@@ -37,7 +37,7 @@ export function Partners() {
   ];
 
   return (
-    <section id="partners" className="py-24 bg-white relative overflow-hidden border-t border-zinc-100">
+    <section id="partners" className="py-16 md:py-24 bg-white relative overflow-hidden border-t border-zinc-100">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">

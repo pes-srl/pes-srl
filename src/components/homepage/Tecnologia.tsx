@@ -5,19 +5,19 @@ import { CheckCircle2 } from "lucide-react";
 
 export function Tecnologia() {
   return (
-    <section id="tecnologia" className="py-24 bg-zinc-50/80 relative overflow-hidden">
+    <section id="tecnologia" className="py-16 md:py-24 bg-zinc-50/80 relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
 
           {/* Text Content */}
-          <div className="flex-1 space-y-8 order-2 lg:order-1">
+          <div className="flex-1 space-y-8 w-full">
             <div>
               <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">
                 La Nostra Tecnologia
               </h2>
             </div>
 
-            <div className="space-y-8 text-zinc-500 leading-relaxed text-xl md:text-2xl font-light">
+            <div className="space-y-6 md:space-y-8 text-zinc-500 leading-relaxed text-xl md:text-2xl font-light">
               <p>
                 <strong className="font-medium text-zinc-800">Tecnologia di ultima generazione</strong> per la produzione, l'erogazione e la gestione di tutti i servizi.
               </p>
@@ -34,13 +34,13 @@ export function Tecnologia() {
           </div>
 
           {/* Image Content */}
-          <div className="flex-1 w-full order-1 lg:order-2">
-            <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-white border border-zinc-100 p-8 flex items-center justify-center">
+          <div className="flex-1 w-full mt-4 lg:mt-0">
+            <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-white border border-zinc-100 flex items-center justify-center">
               <Image
                 src="/assets-pes-srl/it-light-flow.png.png"
                 alt="La Nostra Tecnologia It Light Flow"
                 fill
-                className="object-contain p-8 hover:scale-105 transition-transform duration-700"
+                className="object-contain p-4 hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>

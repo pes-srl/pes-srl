@@ -115,7 +115,7 @@ export function Servizi() {
   ];
 
   return (
-    <section id="servizi" className="py-24 bg-white relative overflow-hidden">
+    <section id="servizi" className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
           {/* Text Content */}

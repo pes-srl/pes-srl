@@ -4,7 +4,7 @@ import { Speaker, RadioReceiver } from "lucide-react";
 
 export function Vision() {
   return (
-    <section id="vision" className="relative z-20 py-24 bg-zinc-50 border-t border-zinc-100 overflow-hidden">
+    <section id="vision" className="relative z-20 py-16 md:py-24 bg-zinc-50 border-t border-zinc-100 overflow-hidden">
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
 
