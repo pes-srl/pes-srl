@@ -12,7 +12,7 @@ export function Tecnologia() {
           {/* Text Content */}
           <div className="flex-1 space-y-8 order-2 lg:order-1">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">
+              <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">
                 La Nostra Tecnologia
               </h2>
             </div>
@@ -37,8 +37,8 @@ export function Tecnologia() {
           <div className="flex-1 w-full order-1 lg:order-2">
             <div className="relative aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-white border border-zinc-100 p-8 flex items-center justify-center">
               <Image
-                src="/assets-pes-srl/it-no-sfodo_3-1.webp"
-                alt="La Nostra Tecnologia"
+                src="/assets-pes-srl/it-light-flow.png.png"
+                alt="La Nostra Tecnologia It Light Flow"
                 fill
                 className="object-contain p-8 hover:scale-105 transition-transform duration-700"
               />

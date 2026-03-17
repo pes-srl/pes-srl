@@ -120,7 +120,7 @@ export function Servizi() {
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
           {/* Text Content */}
           <div className="flex-1 space-y-8 w-full">
-            <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
+            <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
               I Nostri Servizi
             </h2>
             

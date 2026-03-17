@@ -7,6 +7,7 @@ export function Partners() {
     name: string;
     src: string;
     widthClass?: string;
+    href?: string;
   };
 
   type LogoEntry = LogoItem | { isGroup: true; items: LogoItem[] };
@@ -32,6 +33,7 @@ export function Partners() {
     { name: "Tigota", src: "/assets-pes-srl/loghi/tigota.png" },
     { name: "Dimensione", src: "/assets-pes-srl/loghi/dimensione.png" },
     { name: "Rocale", src: "/assets-pes-srl/loghi/rocale.jpg" },
+    { name: "Beautify Channel", src: "/assets-pes-srl/beautify-channel-nuovo.png", href: "https://www.beautify-channel.com", widthClass: "w-48 md:w-64 h-24 md:h-32" },
   ];
 
   return (
@@ -65,10 +67,10 @@ export function Partners() {
               );
             }
 
-            return (
+            const imageContent = (
               <div 
                 key={idx} 
-                className="relative w-32 h-16 md:w-40 md:h-20 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer hover:scale-105"
+                className={`relative ${logo.widthClass || 'w-32 h-16 md:w-40 md:h-20'} grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer hover:scale-105`}
               >
                 <Image
                   src={logo.src}
@@ -78,6 +80,16 @@ export function Partners() {
                 />
               </div>
             );
+
+            if (logo.href) {
+                return (
+                    <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer">
+                        {imageContent}
+                    </a>
+                );
+            }
+
+            return imageContent;
           })}
         </div>
       </div>

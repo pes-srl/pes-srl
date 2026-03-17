@@ -10,7 +10,7 @@ export function ChiSiamo() {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Text Content */}
           <div className="flex-1 space-y-8">
-            <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
+            <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
               Chi Siamo
             </h2>
             
@@ -21,16 +21,6 @@ export function ChiSiamo() {
               <p>
                 Il nostro sistema di idee ci porta a selezionare ogni particolare di un progetto in collaborazione con il cliente, <strong className="font-medium text-zinc-800">mantenendo costi decisamente accessibili</strong>.
               </p>
-            </div>
-
-            <div className="pt-4">
-              <a
-                href="mailto:info@pes-srl.it"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 text-white font-medium rounded-full hover:bg-zinc-800 transition-colors duration-300 group shadow-sm"
-              >
-                <span>DEMO PODCAST</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
             </div>
           </div>
 

@@ -28,7 +28,7 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-zinc-300 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-zinc-400"></span>
             </span>
-            Il Suono Evoluto
+            Audio Marketing Pro
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.10]">
