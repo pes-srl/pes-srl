@@ -24,28 +24,27 @@ export function Tecnologia() {
           {/* Text Content */}
           <div className="flex-1 space-y-8 order-1 lg:order-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-semibold leading-relaxed text-blue-900 uppercase tracking-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-zinc-900 tracking-tight mb-6">
                 La Nostra Tecnologia
               </h2>
-              <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
             </div>
 
             <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
               <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-zinc-900 shrink-0 mt-1" />
                 <p>
                   <strong>Tecnologia di ultima generazione</strong> per la produzione, l'erogazione e la gestione di tutti i servizi.
                 </p>
               </div>
 
               <div className="flex gap-4 items-start">
-                <CheckCircle2 className="w-6 h-6 text-blue-500 shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-zinc-900 shrink-0 mt-1" />
                 <p>
                   <strong>Server audio e video dedicati</strong> con applicazioni innovative, in grado di rendere il cliente interattivo con il servizio.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-blue-50 shadow-sm mt-8">
+              <div className="bg-white p-8 rounded-3xl border border-zinc-100 shadow-sm mt-8">
                 <p className="text-zinc-700 font-medium">
                   <strong>PES</strong> si distingue per un <strong>sistema di streaming audio</strong>, progettato per raggiungere capillarmente ogni negozio della rete con contenuti personalizzati e diversificati.
                   <br /><br />

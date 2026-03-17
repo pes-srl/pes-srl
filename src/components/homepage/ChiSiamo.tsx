@@ -10,10 +10,9 @@ export function ChiSiamo() {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Text Content */}
           <div className="flex-1 space-y-8">
-            <h2 className="text-3xl md:text-4xl font-semibold leading-relaxed text-blue-900 uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-zinc-900 tracking-tight">
               Chi Siamo
             </h2>
-            <div className="w-20 h-1 bg-blue-500 rounded-full"></div>
             
             <div className="space-y-6 text-lg text-zinc-600 leading-relaxed">
               <p>
@@ -27,8 +26,7 @@ export function ChiSiamo() {
             <div className="pt-4">
               <a
                 href="mailto:info@pes-srl.it"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 group shadow-lg"
-                style={{ background: 'linear-gradient(148deg,#45b2ff 0%,#0047d6 100%)' }}
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-zinc-900 text-white font-medium rounded-full hover:bg-zinc-800 transition-colors duration-300 group shadow-sm"
               >
                 <span>DEMO PODCAST</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -43,9 +41,9 @@ export function ChiSiamo() {
                 src="/assets-pes-srl/01-IMMAGINE-DI-SFONDO-INIZIALEpeople-together-enjoying-music-P7YJTEX.jpg"
                 alt="Chi Siamo - People enjoying music"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover transition-transform duration-1000 ease-in-out hover:scale-105"
               />
-              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-3xl pointer-events-none"></div>
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl pointer-events-none"></div>
             </div>
           </div>
         </div>
