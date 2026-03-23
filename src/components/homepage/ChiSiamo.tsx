@@ -9,22 +9,24 @@ export function ChiSiamo() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Text Content */}
-          <div className="flex-1 space-y-8">
-            <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
-              Chi Siamo
-            </h2>
-            
-            <div className="space-y-8 text-zinc-500 leading-relaxed text-xl md:text-2xl font-light">
-              <p>
-                Una equipe creativa e curiosa che vive di <strong className="font-medium text-zinc-800">un'esplorazione costante delle potenzialità del mezzo</strong> e dell'ideazione di nuove applicazioni per ottimizzare la user experience.
-              </p>
-              <p>
-                Il nostro sistema di idee ci porta a selezionare ogni particolare di un progetto in collaborazione con il cliente, <strong className="font-medium text-zinc-800">mantenendo costi decisamente accessibili</strong>.
-              </p>
+          <div className="flex-1 w-full lg:pr-8 flex flex-col items-center lg:items-start">
+            <div className="w-full max-w-2xl lg:ml-0 lg:mr-auto">
+              <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-8">
+                Chi Siamo
+              </h2>
+              
+              <div className="space-y-8 text-center md:text-left text-zinc-500 leading-relaxed text-xl md:text-2xl font-light">
+                <p>
+                  Una equipe creativa e curiosa che vive di <strong className="font-medium text-zinc-800">un'esplorazione costante delle potenzialità del mezzo</strong> e dell'ideazione di nuove applicazioni per ottimizzare la user experience.
+                </p>
+                <p>
+                  Il nostro sistema di idee ci porta a selezionare ogni particolare di un progetto in collaborazione con il cliente, <strong className="font-medium text-zinc-800">mantenendo costi decisamente accessibili</strong>.
+                </p>
             </div>
           </div>
+        </div>
 
-          {/* Image Content */}
+        {/* Image Content */}
           <div className="flex-1 w-full">
             <div className="relative aspect-square md:aspect-4/3 rounded-3xl overflow-hidden shadow-2xl">
               <Image

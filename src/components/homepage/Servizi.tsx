@@ -192,16 +192,16 @@ export function Servizi() {
             <div className="mt-8 max-w-xl mx-auto lg:mx-0 flex justify-center">
               <div 
                 onClick={() => setActiveService(4)}
-                className="relative overflow-hidden rounded-full group cursor-pointer bg-[#2B5292] border border-[#1e3a68] hover:bg-[#1e3a68] transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-xl flex items-center px-6 md:px-8 py-3 md:py-4 w-fit"
+                className="relative overflow-hidden rounded-full group cursor-pointer bg-[#2B5292] border border-[#1e3a68] hover:bg-[#1e3a68] transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-xl flex items-center px-8 md:px-10 py-4 md:py-5 w-fit"
               >
                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative z-10 flex items-center justify-center mr-3 md:mr-4 text-white group-hover:scale-110 transition-transform duration-500 shrink-0">
-                  <PlayCircle className="w-5 h-5 md:w-6 md:h-6 fill-white/10" />
+                <div className="relative z-10 flex items-center justify-center mr-4 md:mr-5 text-white group-hover:scale-110 transition-transform duration-500 shrink-0">
+                  <PlayCircle className="w-6 h-6 md:w-7 md:h-7 fill-white/10" />
                 </div>
-                <h3 className="relative z-10 text-sm md:text-base font-bold leading-tight text-white tracking-wide pr-2">
+                <h3 className="relative z-10 text-base md:text-lg font-bold leading-tight text-white tracking-wide pr-2">
                   ASCOLTA LE NOSTRE DEMO AUDIO
                 </h3>
-                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-white/50 ml-2 group-hover:translate-x-1 group-hover:text-white/80 transition-all duration-300" />
+                <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 text-white/50 ml-3 group-hover:translate-x-1 group-hover:text-white/80 transition-all duration-300" />
               </div>
             </div>
           </div>

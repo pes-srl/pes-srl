@@ -40,7 +40,7 @@ export function Vision() {
                   <h3 className="text-3xl font-bold text-white tracking-tight mb-4 leading-tight">
                     Contenuti Mirati
                   </h3>
-                  <p className="text-zinc-400 leading-relaxed text-lg font-light">
+                  <p className="text-zinc-400 leading-relaxed text-lg md:text-xl font-light">
                     Oltre la musica. Trasmetti promozioni, comunicazioni personalizzate e palinsesti distinti per valorizzare l'identità di ogni singolo punto vendita.
                   </p>
                 </div>

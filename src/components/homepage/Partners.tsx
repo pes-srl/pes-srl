@@ -40,10 +40,10 @@ export function Partners() {
     <section id="partners" className="py-16 md:py-24 bg-white relative overflow-hidden border-t border-zinc-100">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">
+          <h2 className="text-4xl md:text-6xl font-bold text-zinc-900 tracking-tighter leading-[1.1] mb-6">
             Abbiamo Lavorato Con...
           </h2>
-          <p className="text-xl md:text-2xl text-zinc-500 font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-2xl md:text-3xl text-zinc-500 font-light max-w-4xl mx-auto leading-relaxed">
             Tra le aziende che hanno già scelto la nostra esperienza, le nostre soluzioni e la nostra tecnologia.
           </p>
         </div>
