@@ -1,13 +1,25 @@
 import { createClient } from "@/utils/supabase/server";
+import { createClient as createAdminClient } from "@supabase/supabase-js";
 import { UsersTableClient } from "./UsersTableClient";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export default async function UsersManagementPage() {
     const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return redirect("/login");
+
+    const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single();
+    if (profile?.role !== 'Admin') return redirect("/");
+
+    const supabaseAdmin = createAdminClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
 
     // Fetch all profiles from the database, newest first
-    const { data: users, error } = await supabase
+    const { data: users, error } = await supabaseAdmin
         .from('profiles')
         .select('*')
         .order('salon_name', { ascending: true });

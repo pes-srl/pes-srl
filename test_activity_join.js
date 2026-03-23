@@ -4,7 +4,16 @@ const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_7wQW5Ei
 const supabase = createClient(url, key);
 
 async function test() {
-  const { data, error } = await supabase.rpc('get_authorized_channels', { req_user_id: '123e4567-e89b-12d3-a456-426614174000' });
-  console.log("RPC Error:", error);
+  const { data, error } = await supabase.from('activity_logs').select(`
+            id,
+            action_type,
+            metadata,
+            created_at,
+            profiles(
+                salon_name,
+                email
+            )
+        `).limit(1);
+  console.log("Activity Logs Join Error:", error);
 }
 test();

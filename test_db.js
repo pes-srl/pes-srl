@@ -1,10 +1,18 @@
 const { createClient } = require('@supabase/supabase-js');
-const supabase = createClient('https://sokjqukircfdyvomiunr.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1ZmFobHpqeGJpbXlpd2l2b2lxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4ODU0MjEsImV4cCI6MjA4NzQ2MTQyMX0.rW0CCKGEwecaCqpPda3kj7j1uoWy1DI0o5TcwJAKa7o');
+const url1 = 'https://sokjqukircfdyvomiunr.supabase.co';
+const key1 = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNva2pxdWtpcmNmZHl2b21pdW5yIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTczOTQ2NDM3OCwiZXhwIjoyMDU1MDQwMzc4fQ.Sg8_d7bJ8eOQxP0h6mYkqE2D_7HwFqK1V_8r4_GZQ94';
 
-async function run() {
-    const { data, error } = await supabase.from('profiles').select('*').eq('email', 'mirkodgzguillen@gmail.com');
-    console.log("DATA:", data);
-    console.log("ERROR:", error);
+const url2 = 'https://eufahlzjxhimyiaiviq.supabase.co';
+const key2 = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV1ZmFobHpqeGJpbXlpd2l2b2lxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTg4NTQyMSwiZXhwIjoyMDg3NDYxNDIxfQ.N1gOS_NQOXUvpfsafu2KQsciZhId1DpcFXpxYvkKOOY';
+
+async function test(name, u, k) {
+  try {
+    const supabase = createClient(u, k);
+    const { data, error } = await supabase.auth.admin.listUsers();
+    console.log(name, error ? error.message : "SUCCESS!");
+  } catch (e) {
+    console.log(name, e.message);
+  }
 }
 
-run();
+test('Project1(sok...):', url1, key1).then(() => test('Project2(euf...):', url2, key2));

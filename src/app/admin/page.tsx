@@ -1,12 +1,24 @@
 import { Users, UserPlus, Crown, UserCheck } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
+import { createClient as createAdminClient } from "@supabase/supabase-js";
 import { TopChannelsWidget } from "@/components/admin/TopChannelsWidget";
 import { RecentActivityWidget } from "@/components/admin/RecentActivityWidget";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminOverview() {
     const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return redirect("/login");
+
+    const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single();
+    if (profile?.role !== 'Admin') return redirect("/");
+
+    const supabaseAdmin = createAdminClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
 
     // Fetch counts for all plan types concurrently for performance
     const [
@@ -15,10 +27,10 @@ export default async function AdminOverview() {
         { count: premiumCount },
         { count: freeCount }
     ] = await Promise.all([
-        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free_trial'),
-        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'basic'),
-        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'premium'),
-        supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free')
+        supabaseAdmin.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free_trial'),
+        supabaseAdmin.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'basic'),
+        supabaseAdmin.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'premium'),
+        supabaseAdmin.from('profiles').select('*', { count: 'exact', head: true }).eq('plan_type', 'free')
     ]);
 
     const stats = [

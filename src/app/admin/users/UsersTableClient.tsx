@@ -204,7 +204,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                                 </span>
                                             </div>
                                             {!isOnline && user.last_seen && (
-                                                <span className="text-xs text-zinc-500 ml-4 truncate max-w-[150px]" title={new Date(user.last_seen).toLocaleString('it-IT')}>
+                                                <span suppressHydrationWarning className="text-xs text-zinc-500 ml-4 truncate max-w-[150px]" title={new Date(user.last_seen).toLocaleString('it-IT')}>
                                                     {lastSeenText}
                                                 </span>
                                             )}
@@ -213,7 +213,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                     <TableCell>
                                         <div className="flex items-center gap-1.5 text-zinc-300 bg-white/5 px-2.5 py-1 rounded-md w-fit border border-white/10">
                                             <Clock className="w-3.5 h-3.5 text-zinc-400" />
-                                            <span className="text-sm font-medium">{timingText}</span>
+                                            <span suppressHydrationWarning className="text-sm font-medium">{timingText}</span>
                                         </div>
                                     </TableCell>
                                     <TableCell className="text-right">

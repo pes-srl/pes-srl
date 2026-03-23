@@ -178,7 +178,7 @@ export function Servizi() {
               </button>
               
               <div className="flex items-center gap-5 mb-8">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#E8F0FE] flex items-center justify-center text-[#2B5292] shrink-0">
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#2B5292] flex items-center justify-center text-white shrink-0 shadow-md">
                   {services[activeService].icon && (() => {
                     const Icon = services[activeService].icon;
                     return <Icon className="w-7 h-7 md:w-8 md:h-8" />;
