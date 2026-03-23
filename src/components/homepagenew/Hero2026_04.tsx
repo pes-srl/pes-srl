@@ -9,7 +9,7 @@ export function Hero2026_04() {
         <section
             className="relative w-full min-h-[60vh] md:min-h-[85vh] flex items-end pb-12 md:pb-24 flex-col justify-end overflow-hidden px-6 md:px-12"
             style={{
-                backgroundImage: `url('https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477085817-oajaaf.png')`,
+                backgroundImage: `url('/assets-pes-srl/hero-image-new.jpg')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'

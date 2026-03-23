@@ -35,16 +35,16 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const updates = [
-    { name: 'Acoustic Vocal', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711956443-0c141.png' },
-    { name: 'Ambient Massage', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711965648-uehbia.png' },
-    { name: 'Deep Soft', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711970634-ga34j.png' },
-    { name: 'Jazz', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711975176-33prtg.png' },
-    { name: 'Lounge', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711980565-7rgu6b.png' },
-    { name: 'Relax', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711985349-ctr4vh.png' },
-    { name: 'Laser Channel', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772711945423-dp8yv8.png' },
-    { name: 'Cosmetic Channel', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772712461054-8boimi.png' },
-    { name: 'BeautiFy Basic', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772477175620-js0cpo.png' },
-    { name: 'BeautiFy Premium', url: 'https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772712680519-s9nxw5.png' }
+    { name: 'Acoustic Vocal', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711956443-0c141.png' },
+    { name: 'Ambient Massage', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711965648-uehbia.png' },
+    { name: 'Deep Soft', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711970634-ga34j.png' },
+    { name: 'Jazz', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711975176-33prtg.png' },
+    { name: 'Lounge', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711980565-7rgu6b.png' },
+    { name: 'Relax', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711985349-ctr4vh.png' },
+    { name: 'Laser Channel', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772711945423-dp8yv8.png' },
+    { name: 'Cosmetic Channel', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772712461054-8boimi.png' },
+    { name: 'BeautiFy Basic', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772477175620-js0cpo.png' },
+    { name: 'BeautiFy Premium', url: 'https://sokjqukircfdyvomiunr.supabase.co/storage/v1/object/public/bucket-assets/1772712680519-s9nxw5.png' }
 ];
 
 async function run() {

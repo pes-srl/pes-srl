@@ -50,7 +50,7 @@ export function InfoBlocksNew() {
                             className="flex-[1.2] w-full flex justify-center"
                         >
                             <img
-                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"
+                                src="/assets-pes-srl/servizi-macbook.jpg"
                                 alt="BeautiFy Channel Beauty Room"
                                 className="w-full h-auto md:h-[450px] object-cover rounded-xl shadow-2xl"
                             />
@@ -89,7 +89,7 @@ export function InfoBlocksNew() {
                         >
                             <div className="relative">
                                 <img
-                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727853683-sr1147.png"
+                                    src="/assets-pes-srl/hero_store_audio_notext.png"
                                     alt="Assistente Tati"
                                     className="w-full h-auto md:h-[450px] object-cover rounded-xl shadow-2xl"
                                 />

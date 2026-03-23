@@ -123,7 +123,7 @@ export function InfoBlocks2026() {
                         className="flex-1 w-full flex justify-center"
                     >
                         <img
-                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772733090547-nfq28.png"
+                            src="/assets-pes-srl/servizi-macbook.jpg"
                             alt="BeautiFy Channel Beauty Room"
                             className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[33px] shadow-2xl lg:scale-105"
                         />
@@ -174,7 +174,7 @@ export function InfoBlocks2026() {
                     >
                         <div className="relative w-full">
                             <img
-                                src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772727853683-sr1147.png"
+                                src="/assets-pes-srl/hero_store_audio_notext.png"
                                 alt="Assistente Tati"
                                 className="w-full h-auto md:h-[500px] lg:h-[550px] aspect-[16/10] md:aspect-auto object-cover rounded-[33px] shadow-2xl lg:scale-105"
                             />

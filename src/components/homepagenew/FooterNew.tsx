@@ -20,7 +20,7 @@ export function FooterNew() {
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
                         <img
-                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                            src="/assets-pes-srl/pes-logo-new.png"
                             alt="Beautify Channel Logo"
                             className="h-12 w-auto mb-6 transition-all duration-300"
                         />

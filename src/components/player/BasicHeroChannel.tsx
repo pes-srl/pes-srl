@@ -144,7 +144,7 @@ export function BasicHeroChannel({ channel, planType }: BasicHeroChannelProps) {
                         {/* Center label */}
                         <div className={`w-1/3 h-1/3 rounded-full flex items-center justify-center overflow-hidden z-10 shadow-[0_0_15px_rgba(0,0,0,0.5)] ${isPremium ? 'bg-transparent' : 'bg-white'}`}>
                             <img
-                                src={isPremium ? "/premium-vinyl-graphic.png" : "https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772319918240-8c1dg.png"}
+                                src={isPremium ? "/premium-vinyl-graphic.png" : "/assets-pes-srl/hero_store_audio_creative.png"}
                                 alt="BeautiFy Channel Vinyl Image"
                                 className={`w-full h-full object-cover scale-[1.05] ${!isActive ? 'opacity-50 grayscale' : 'opacity-100'} transition-all duration-500`}
                             />

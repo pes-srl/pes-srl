@@ -236,11 +236,19 @@ export function HeaderNew({
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center gap-2 group">
-                        <img
-                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
-                            alt="Beautify Channel Logo"
-                            className="h-[52px] w-auto md:h-[50px] group-hover:scale-105 transition-transform"
-                        />
+                        {pathname === "/login" ? (
+                            <img
+                                src="/assets-pes-srl/pes-logo-new.png"
+                                alt="PES SRL Logo"
+                                className="h-[42px] w-auto md:h-[40px] group-hover:scale-105 transition-transform object-contain"
+                            />
+                        ) : (
+                            <img
+                                src="/assets-pes-srl/pes-logo-new.png"
+                                alt="Beautify Channel Logo"
+                                className="h-[52px] w-auto md:h-[50px] group-hover:scale-105 transition-transform"
+                            />
+                        )}
                     </Link>
                 </div>
 

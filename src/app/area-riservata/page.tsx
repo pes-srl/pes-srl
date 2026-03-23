@@ -120,7 +120,7 @@ export default async function AreaClientePage() {
                                 <h2 className="text-2xl md:text-4xl text-white/90 font-[family-name:var(--font-montserrat)] font-light leading-relaxed text-center flex flex-col md:flex-row items-center gap-3">
                                     <span>Benvenuta nella tua Area Riservata, il tuo piano è <strong className="font-black text-[#5B21B6] uppercase drop-shadow-sm">BASIC</strong></span>
                                     <img
-                                        src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                        src="/assets-pes-srl/pes-logo-new.png"
                                         alt="BeautiFy Channel Logo"
                                         className="h-6 md:h-8 lg:h-10 w-auto mt-2 md:mt-0 brightness-0 invert opacity-80"
                                     />
@@ -131,7 +131,7 @@ export default async function AreaClientePage() {
                                 <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
                                     <span>BENVENUTA NEL TUO ACCOUNT</span>
                                     <img
-                                        src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                        src="/assets-pes-srl/pes-logo-new.png"
                                         alt="BeautiFy Channel Logo"
                                         className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0"
                                     />

@@ -91,7 +91,7 @@ export default async function AreaClientePage2() {
                                     <h2 className="text-xl md:text-2xl uppercase tracking-[0.1em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 text-center md:text-left">
                                         <span>BENVENUTA NEL TUO ACCOUNT</span>
                                         <img
-                                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                            src="/assets-pes-srl/pes-logo-new.png"
                                             alt="BeautiFy Channel Logo"
                                             className="h-6 md:h-8 w-auto mt-2 md:mt-0"
                                         />
@@ -131,7 +131,7 @@ export default async function AreaClientePage2() {
                                     <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
                                         <span>BENVENUTA NEL TUO ACCOUNT</span>
                                         <img
-                                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                            src="/assets-pes-srl/pes-logo-new.png"
                                             alt="BeautiFy Channel Logo"
                                             className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0"
                                         />
@@ -146,7 +146,7 @@ export default async function AreaClientePage2() {
                                     <h2 className="text-2xl md:text-4xl uppercase tracking-[0.15em] text-zinc-100 font-[family-name:var(--font-montserrat)] font-light flex flex-col md:flex-row items-center gap-2 md:gap-3 text-center md:text-left">
                                         <span>BENVENUTA NEL TUO ACCOUNT</span>
                                         <img
-                                            src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/Logo-BeautiFyChannel.svg"
+                                            src="/assets-pes-srl/pes-logo-new.png"
                                             alt="BeautiFy Channel Logo"
                                             className="h-8 md:h-10 lg:h-12 w-auto mt-2 md:mt-0"
                                         />
@@ -372,7 +372,7 @@ export default async function AreaClientePage2() {
                                             </div>
                                             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-[#D8B2A3]/20 w-full mt-auto aspect-[4/3] lg:aspect-video mb-16">
                                                 <img
-                                                    src="https://eufahlzjxbimyiwivoiq.supabase.co/storage/v1/object/public/bucket-assets/1772934286210-zjhcxj.png"
+                                                    src="/assets-pes-srl/hero_store_audio_user.png"
                                                     alt="Servizi Personalizzati Premium"
                                                     className="w-full h-full object-cover scale-[1.15]"
                                                 />
