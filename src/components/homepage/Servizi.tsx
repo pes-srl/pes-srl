@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Headphones, Radio, Mic2, Clapperboard, X } from "lucide-react";
+import { Headphones, Radio, Mic2, Clapperboard, X, PlayCircle, ArrowRight } from "lucide-react";
 
 export function Servizi() {
   const [activeService, setActiveService] = useState<number | null>(null);
@@ -112,6 +112,51 @@ export function Servizi() {
         </div>
       )
     },
+    {
+      title: "ASCOLTA LE NOSTRE DEMO AUDIO",
+      icon: PlayCircle,
+      content: (
+        <div className="space-y-8 text-lg text-zinc-600 leading-relaxed font-light">
+          <p className="mb-4">
+            Ascolta alcune delle nostre produzioni audio realizzate per brand di successo:
+          </p>
+          
+          <div className="space-y-6">
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 shadow-sm">
+              <h4 className="font-bold text-zinc-900 mb-3 tracking-wide">CORTILIA</h4>
+              <audio controls className="w-full" preload="none">
+                <source src="/assets-pes-srl/demo-cortilia.mp3" type="audio/mpeg" />
+                Il tuo browser non supporta l'elemento audio.
+              </audio>
+            </div>
+            
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 shadow-sm">
+              <h4 className="font-bold text-zinc-900 mb-3 tracking-wide">BEAUTY EXPRESS</h4>
+              <audio controls className="w-full" preload="none">
+                <source src="/assets-pes-srl/demo-beauty-express.mp3" type="audio/mpeg" />
+                Il tuo browser non supporta l'elemento audio.
+              </audio>
+            </div>
+            
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 shadow-sm">
+              <h4 className="font-bold text-zinc-900 mb-3 tracking-wide">DERMOPHISIOLOGIQUE</h4>
+              <audio controls className="w-full" preload="none">
+                <source src="/assets-pes-srl/demo-dermophisiologique.mp3" type="audio/mpeg" />
+                Il tuo browser non supporta l'elemento audio.
+              </audio>
+            </div>
+            
+            <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 shadow-sm">
+              <h4 className="font-bold text-zinc-900 mb-3 tracking-wide">IL MUGNAIO</h4>
+              <audio controls className="w-full" preload="none">
+                <source src="/assets-pes-srl/demo-il-mugnaio.mp3" type="audio/mpeg" />
+                Il tuo browser non supporta l'elemento audio.
+              </audio>
+            </div>
+          </div>
+        </div>
+      )
+    },
   ];
 
   return (
@@ -120,27 +165,44 @@ export function Servizi() {
         <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
           {/* Text Content */}
           <div className="flex-1 space-y-8 w-full">
-            <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
+            <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1] max-w-xl mx-auto lg:mx-0">
               I Nostri Servizi
             </h2>
             
-            <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8">
-              {services.map((service, idx) => (
+            <div className="grid grid-cols-2 gap-4 md:gap-5 mt-8 max-w-xl mx-auto lg:mx-0">
+              {services.slice(0, 4).map((service, idx) => (
                 <div
                   key={idx}
                   onClick={() => setActiveService(idx)}
-                  className="relative overflow-hidden rounded-3xl aspect-square group cursor-pointer bg-zinc-50 border border-zinc-100 hover:bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-zinc-200"
+                  className="relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[3/2] group cursor-pointer bg-zinc-50 border border-zinc-100 hover:bg-white transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:border-zinc-200"
                 >
-                  <div className="absolute inset-0 p-4 md:p-6 flex flex-col items-center justify-center text-center z-10 transition-transform duration-500 group-hover:scale-105">
-                    <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[#E8F0FE] flex items-center justify-center mb-4 md:mb-6 text-[#2B5292] group-hover:scale-110 transition-transform duration-500">
-                      <service.icon className="w-6 h-6 md:w-8 md:h-8" />
+                  <div className="absolute inset-0 p-4 md:p-5 flex flex-col items-center justify-center text-center z-10 transition-transform duration-500 group-hover:scale-105">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#2B5292] flex items-center justify-center mb-3 md:mb-4 text-white group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                      <service.icon className="w-6 h-6 md:w-7 md:h-7" />
                     </div>
-                    <h3 className="text-sm md:text-lg font-semibold leading-tight text-zinc-900 tracking-tight">
+                    <h3 className="text-sm md:text-base font-semibold leading-tight text-zinc-900 tracking-tight px-1">
                       {service.title}
                     </h3>
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Horizontal Demo Button */}
+            <div className="mt-8 max-w-xl mx-auto lg:mx-0 flex justify-center">
+              <div 
+                onClick={() => setActiveService(4)}
+                className="relative overflow-hidden rounded-full group cursor-pointer bg-[#2B5292] border border-[#1e3a68] hover:bg-[#1e3a68] transition-all duration-500 hover:-translate-y-1 shadow-md hover:shadow-xl flex items-center px-6 md:px-8 py-3 md:py-4 w-fit"
+              >
+                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative z-10 flex items-center justify-center mr-3 md:mr-4 text-white group-hover:scale-110 transition-transform duration-500 shrink-0">
+                  <PlayCircle className="w-5 h-5 md:w-6 md:h-6 fill-white/10" />
+                </div>
+                <h3 className="relative z-10 text-sm md:text-base font-bold leading-tight text-white tracking-wide pr-2">
+                  ASCOLTA LE NOSTRE DEMO AUDIO
+                </h3>
+                <ArrowRight className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-white/50 ml-2 group-hover:translate-x-1 group-hover:text-white/80 transition-all duration-300" />
+              </div>
             </div>
           </div>
 

@@ -24,9 +24,9 @@ export function CtaSection() {
             <div className="absolute inset-0 bg-[#2B5292]/0 group-hover:bg-[#2B5292]/10 transition-colors duration-700 ease-out"></div>
 
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-16 h-16 bg-zinc-800/80 rounded-full flex items-center justify-center mb-6 border border-zinc-700 shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                <Rss className="w-7 h-7 text-[#E8F0FE]" />
-                <Sparkles className="w-4 h-4 text-zinc-400 absolute -top-1 -right-1 animate-bounce" />
+              <div className="w-16 h-16 bg-[#2B5292] rounded-full flex items-center justify-center mb-6 border border-[#1e3a68] shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg">
+                <Rss className="w-7 h-7 text-white" />
+                <Sparkles className="w-4 h-4 text-white/80 absolute -top-1 -right-1 animate-bounce" />
               </div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-white tracking-tight mb-6">

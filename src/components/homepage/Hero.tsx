@@ -32,13 +32,13 @@ export function Hero() {
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.10]">
-            Le casse audio nel tuo store o i tuoi diffusori Bluetooth <br className="hidden md:block" />
-            <span className="text-zinc-400">
+            Le casse audio nel tuo store o i tuoi diffusori Bluetooth in negozio <br className="hidden md:block" />
+            <span className="block text-3xl md:text-4xl text-zinc-500 font-light mt-4">
               non devono limitarsi
             </span>
           </h1>
           
-          <p className="text-2xl md:text-3xl text-zinc-500 font-light leading-relaxed max-w-3xl mx-auto mt-6">
+          <p className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-zinc-400 tracking-tight leading-[1.10] max-w-4xl mx-auto mt-6">
             a trasmettere solo musica di sottofondo.
           </p>
         </div>
@@ -62,8 +62,17 @@ export function Hero() {
           </h2>
           
           <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-zinc-500 tracking-tight leading-relaxed max-w-3xl mx-auto mt-6">
-            e marketing.
+            e mar<span className="text-3xl md:text-4xl lg:text-5xl font-medium">ke</span>ting.
           </p>
+
+          <div className="pt-8 flex justify-center">
+            <a 
+              href="mailto:info@pes-srl.it?subject=Richiesta%20informazioni"
+              className="inline-flex items-center justify-center px-8 py-4 text-base md:text-lg font-bold text-white bg-[#2B5292] rounded-full hover:bg-[#1e3a68] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            >
+              CHIEDICI COME
+            </a>
+          </div>
         </div>
 
       </div>

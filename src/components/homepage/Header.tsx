@@ -43,13 +43,13 @@ export function Header() {
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between">
         <Link href="/homepage2" className="flex items-center gap-3 z-50 group">
-          <div className="w-10 h-10 rounded-xl bg-[#E8F0FE] flex items-center justify-center transition-transform group-hover:scale-105">
+          <div className="w-10 h-10 rounded-xl bg-[#2B5292] flex items-center justify-center transition-transform group-hover:scale-105 shadow-md">
             <Image
               src="/assets-pes-srl/favicon.png"
               alt="PES SRL Logo"
               width={24}
               height={24}
-              className="w-6 h-6 object-contain opacity-80 mix-blend-multiply"
+              className="w-6 h-6 object-contain brightness-0 invert"
             />
           </div>
         </Link>
@@ -71,7 +71,7 @@ export function Header() {
         <div className="hidden md:block">
           <Link
             href="/login"
-            className="px-6 py-2.5 rounded-full bg-[#E8F0FE] text-[#2B5292] font-semibold hover:bg-[#D2E3FC] transition-all shadow-sm border border-[#D2E3FC]"
+            className="px-6 py-2.5 rounded-full bg-[#2B5292] text-white font-semibold hover:bg-[#1e3a68] transition-all shadow-sm border border-[#2B5292]"
           >
             LOGIN
           </Link>
@@ -104,7 +104,7 @@ export function Header() {
             ))}
             <Link
               href="/login"
-              className="mt-8 px-8 py-3 rounded-full bg-[#E8F0FE] text-[#2B5292] font-bold text-xl transition-all shadow-md hover:bg-[#D2E3FC] border border-[#D2E3FC]"
+              className="mt-8 px-8 py-3 rounded-full bg-[#2B5292] text-white font-bold text-xl transition-all shadow-md hover:bg-[#1e3a68] border border-[#2B5292]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               LOGIN
