@@ -104,7 +104,7 @@ export function Servizi() {
             </p>
           </div>
           <p>
-            Realizziamo format di audio interviste <strong className="font-medium text-zinc-900">chiavi in mano</strong>: dalla stesura editoriale delle domande, passando per la registrazione con attrezzature broadcast professionali, fino all'attenta post-produzione. 
+            Realizziamo format di audio interviste <strong className="font-medium text-zinc-900">chiavi in mano</strong>: dalla stesura editoriale delle domande, passando per la registrazione con attrezzature broadcast professionali, fino all'attenta post-produzione.
           </p>
           <p>
             Il risultato finale è un contenuto perfetto da integrare nel tuo sito web aziendale, condividere sui social media o allegare alle newsletter, ideale per <strong className="font-medium text-zinc-900">umanizzare il tuo brand</strong> e rafforzare la fiducia del tuo target.
@@ -123,7 +123,7 @@ export function Servizi() {
             <h2 className="text-center text-3xl md:text-5xl font-bold text-zinc-900 tracking-tighter leading-[1.1]">
               I Nostri Servizi
             </h2>
-            
+
             <div className="grid grid-cols-2 gap-4 md:gap-6 mt-8">
               {services.map((service, idx) => (
                 <div
@@ -162,21 +162,21 @@ export function Servizi() {
       {/* Elegant Modal Overlay */}
       {activeService !== null && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
-          <div 
+          <div
             className="absolute inset-0 bg-zinc-900/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-300"
             onClick={() => setActiveService(null)}
           ></div>
-          
+
           <div className="relative bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300">
             <div className="p-8 md:p-12">
-              <button 
+              <button
                 onClick={() => setActiveService(null)}
                 className="absolute top-6 right-6 w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
-              
+
               <div className="flex items-center gap-5 mb-8">
                 <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#E8F0FE] flex items-center justify-center text-[#2B5292] shrink-0">
                   {services[activeService].icon && (() => {
@@ -188,7 +188,7 @@ export function Servizi() {
                   {services[activeService].title}
                 </h3>
               </div>
-              
+
               <div className="max-h-[60vh] overflow-y-auto pr-4 -mr-4">
                 {services[activeService].content ? (
                   services[activeService].content
@@ -198,7 +198,7 @@ export function Servizi() {
               </div>
 
               <div className="mt-10 pt-8 border-t border-zinc-100 flex justify-end">
-                <button 
+                <button
                   onClick={() => setActiveService(null)}
                   className="px-8 py-4 bg-zinc-900 text-white font-medium rounded-full hover:bg-zinc-800 transition-colors duration-300"
                 >
@@ -210,5 +210,63 @@ export function Servizi() {
         </div>
       )}
     </section>
+  );
+}
+        </div >
+      </div >
+
+  {/* Elegant Modal Overlay */ }
+{
+  activeService !== null && (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+      <div
+        className="absolute inset-0 bg-zinc-900/60 backdrop-blur-sm transition-opacity animate-in fade-in duration-300"
+        onClick={() => setActiveService(null)}
+      ></div>
+
+      <div className="relative bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-300">
+        <div className="p-8 md:p-12">
+          <button
+            onClick={() => setActiveService(null)}
+            className="absolute top-6 right-6 w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <div className="flex items-center gap-5 mb-8">
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-[#2B5292] flex items-center justify-center text-white shrink-0 shadow-md">
+              {services[activeService].icon && (() => {
+                const Icon = services[activeService].icon;
+                return <Icon className="w-7 h-7 md:w-8 md:h-8" />;
+              })()}
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 tracking-tighter leading-tight">
+              {services[activeService].title}
+            </h3>
+          </div>
+
+          <div className="max-h-[60vh] overflow-y-auto pr-4 -mr-4">
+            {services[activeService].content ? (
+              services[activeService].content
+            ) : (
+              <p className="text-zinc-500 font-light text-lg">Dettagli in arrivo per questo servizio.</p>
+            )}
+          </div>
+
+          <div className="mt-10 pt-8 border-t border-zinc-100 flex justify-end">
+            <button
+              onClick={() => setActiveService(null)}
+              className="px-8 py-4 bg-zinc-900 text-white font-medium rounded-full hover:bg-zinc-800 transition-colors duration-300"
+            >
+              Chiudi
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+    </section >
   );
 }

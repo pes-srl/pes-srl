@@ -10,7 +10,7 @@ export function Hero() {
     >
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full flex flex-col items-center">
-        
+
         <div className="max-w-4xl mx-auto text-center space-y-6 mb-16">
           <div className="flex justify-center mb-8">
             <div className="relative w-48 h-48 md:w-64 md:h-64 drop-shadow-xl hover:scale-105 transition-transform duration-500">
@@ -30,14 +30,14 @@ export function Hero() {
             </span>
             Audio Marketing Pro
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-zinc-900 tracking-tight leading-[1.10]">
             Le casse audio nel tuo store o i tuoi diffusori Bluetooth <br className="hidden md:block" />
             <span className="text-zinc-400">
               non devono limitarsi
             </span>
           </h1>
-          
+
           <p className="text-2xl md:text-3xl text-zinc-500 font-light leading-relaxed max-w-3xl mx-auto mt-6">
             a trasmettere solo musica di sottofondo.
           </p>
@@ -60,7 +60,7 @@ export function Hero() {
               strumento di vendita, comunicazione
             </span>
           </h2>
-          
+
           <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-zinc-500 tracking-tight leading-relaxed max-w-3xl mx-auto mt-6">
             e marketing.
           </p>

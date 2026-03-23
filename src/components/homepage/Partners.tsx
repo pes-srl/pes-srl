@@ -19,8 +19,8 @@ export function Partners() {
     { name: "Emy Store", src: "/assets-pes-srl/loghi/emy_store.png" },
     { name: "DoDo", src: "/assets-pes-srl/loghi/dodo.jpg" },
     { name: "Hogan", src: "/assets-pes-srl/loghi/hogan.png" },
-    { 
-      isGroup: true, 
+    {
+      isGroup: true,
       items: [
         { name: "Juice", src: "/assets-pes-srl/loghi/juice_new.png", widthClass: "w-28 md:w-36" },
         { name: "Apple Premium Reseller", src: "/assets-pes-srl/loghi/apple_new.png", widthClass: "w-16 md:w-20" }
@@ -68,8 +68,8 @@ export function Partners() {
             }
 
             const imageContent = (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className={`relative ${logo.widthClass || 'w-32 h-16 md:w-40 md:h-20'} grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer hover:scale-105`}
               >
                 <Image
@@ -82,11 +82,11 @@ export function Partners() {
             );
 
             if (logo.href) {
-                return (
-                    <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer">
-                        {imageContent}
-                    </a>
-                );
+              return (
+                <a key={idx} href={logo.href} target="_blank" rel="noopener noreferrer">
+                  {imageContent}
+                </a>
+              );
             }
 
             return imageContent;

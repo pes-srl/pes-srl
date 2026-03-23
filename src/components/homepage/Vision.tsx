@@ -17,7 +17,7 @@ export function Vision() {
                 <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none transform translate-x-4 -translate-y-4">
                   <RadioReceiver className="w-64 h-64 text-zinc-900" />
                 </div>
-                
+
                 <div className="relative z-10">
                   <div className="w-14 h-14 bg-zinc-50 rounded-full flex items-center justify-center mb-10 border border-zinc-100 group-hover:bg-[#E8F0FE] transition-colors duration-500">
                     <RadioReceiver className="w-6 h-6 text-zinc-900 group-hover:text-[#2B5292] transition-colors duration-500" />
