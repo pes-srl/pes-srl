@@ -27,6 +27,19 @@ export default async function UsersManagementPage() {
     // Fallback to empty array in case of error
     const profiles = users || [];
 
+    if (error) {
+        return (
+            <div className="p-8 text-red-500 bg-red-100 rounded-xl max-w-6xl mx-auto mt-10">
+                <h3 className="font-bold text-2xl mb-4">Errore di connessione Vercel - Supabase:</h3>
+                <pre className="whitespace-pre-wrap">{JSON.stringify(error, null, 2)}</pre>
+                <div className="mt-4">
+                    <strong>URL presente?</strong> {process.env.NEXT_PUBLIC_SUPABASE_URL ? 'Sì' : 'No'}<br/>
+                    <strong>SRK presente?</strong> {process.env.SUPABASE_SERVICE_ROLE_KEY ? 'Sì' : 'No'}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="max-w-6xl mx-auto">
             <div className="flex justify-between items-center mb-8">
