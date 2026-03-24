@@ -51,7 +51,7 @@ export default async function UsersManagementPage() {
         <div className="max-w-6xl mx-auto">
             <div className="flex justify-between items-center mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold mb-2">Istituti & Utenti</h1>
+                    <h1 className="text-3xl font-bold mb-2">Client</h1>
                     <p className="text-zinc-400">Gestisci i piani, gli abbonamenti e i ruoli dei tuoi clienti.</p>
                 </div>
             </div>

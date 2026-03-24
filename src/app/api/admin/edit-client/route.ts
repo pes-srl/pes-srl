@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         if (adminProfile?.role !== 'Admin') return NextResponse.json({ error: "Accesso negato: solo gli Admin possono modificare clienti" }, { status: 403 });
 
         const body = await request.json();
-        const { userId, email, password, salon_name, assigned_channel_id, plan_type } = body;
+        const { userId, email, password, salon_name, assigned_channel_ids, plan_type } = body;
 
         if (!userId || !email) {
             return NextResponse.json({ error: "Campi obbligatori mancanti (userId, email)" }, { status: 400 });
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         // 2. Update Profile info
         const updateProfilePayload: any = {
             salon_name: salon_name || 'Utente Modificato',
-            assigned_channel_id: assigned_channel_id === "" ? null : assigned_channel_id
+            assigned_channel_ids: assigned_channel_ids?.length > 0 ? assigned_channel_ids : null
         };
         
         if (plan_type) {

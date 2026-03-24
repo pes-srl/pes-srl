@@ -20,10 +20,10 @@ export async function POST(request: Request) {
         if (profile?.role !== 'Admin') return NextResponse.json({ error: "Accesso negato: solo gli Admin possono creare nuovi clienti" }, { status: 403 });
 
         const body = await request.json();
-        const { email, password, salon_name, assigned_channel_id } = body;
+        const { email, password, salon_name, assigned_channel_ids } = body;
 
-        if (!email || !password || !assigned_channel_id) {
-            return NextResponse.json({ error: "Campi obbligatori mancanti (email, password, canale)" }, { status: 400 });
+        if (!email || !password || !assigned_channel_ids || assigned_channel_ids.length === 0) {
+            return NextResponse.json({ error: "Campi obbligatori mancanti (email, password, canali)" }, { status: 400 });
         }
 
         const supabaseAdmin = createAdminClient(supabaseUrl, supabaseServiceKey);
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
             .update({
                 plan_type: 'client',
                 salon_name: salon_name || 'Nuovo Client',
-                assigned_channel_id: assigned_channel_id,
+                assigned_channel_ids: assigned_channel_ids,
                 role: 'User'
             })
             .eq('id', newUserId);
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
                     id: newUserId,
                     plan_type: 'client',
                     salon_name: salon_name || 'Nuovo Client',
-                    assigned_channel_id: assigned_channel_id,
+                    assigned_channel_ids: assigned_channel_ids,
                     role: 'User'
                 });
              if (upsertError) {

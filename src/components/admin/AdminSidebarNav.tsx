@@ -14,7 +14,7 @@ export function AdminSidebarNav() {
             icon: LayoutDashboard
         },
         {
-            name: "Istituti & Utenti",
+            name: "Client",
             href: "/admin/users",
             icon: Users
         },

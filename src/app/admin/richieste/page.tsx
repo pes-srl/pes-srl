@@ -79,7 +79,7 @@ export default async function AdminRichiestePage() {
                                         <p className="text-zinc-200 font-medium">{req.billing_details?.partita_iva || '-'}</p>
                                     </div>
                                     <div>
-                                        <p className="text-xs font-bold uppercase text-zinc-500 mb-1">Nome Istituto</p>
+                                        <p className="text-xs font-bold uppercase text-zinc-500 mb-1">Client</p>
                                         <p className="text-zinc-200 font-medium">{req.billing_details?.nome_istituto || '-'}</p>
                                     </div>
                                     <div>

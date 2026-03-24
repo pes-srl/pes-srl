@@ -34,13 +34,13 @@ export function UsersTableClient({ initialProfiles, activeChannels = [] }: { ini
         email: "",
         password: "",
         salon_name: "",
-        assigned_channel_id: "",
+        assigned_channel_ids: [] as string[],
         plan_type: ""
     });
 
     const openCreateModal = () => {
         setIsEditing(false);
-        setFormData({ userId: "", email: "", password: "", salon_name: "", assigned_channel_id: "", plan_type: "client" });
+        setFormData({ userId: "", email: "", password: "", salon_name: "", assigned_channel_ids: [], plan_type: "client" });
         setErrorMsg("");
         setSuccessMsg("");
         setIsModalOpen(true);
@@ -53,7 +53,7 @@ export function UsersTableClient({ initialProfiles, activeChannels = [] }: { ini
             email: user.email || "",
             password: "", // We left it empty, to only update if typed
             salon_name: user.salon_name || "",
-            assigned_channel_id: user.assigned_channel_id || "",
+            assigned_channel_ids: user.assigned_channel_ids || (user.assigned_channel_id ? [user.assigned_channel_id] : []),
             plan_type: user.plan_type || "free"
         });
         setErrorMsg("");
@@ -176,7 +176,7 @@ export function UsersTableClient({ initialProfiles, activeChannels = [] }: { ini
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-zinc-300 mb-1">Nome Istituto / Attività</label>
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">Client</label>
                                 <Input 
                                     required 
                                     type="text" 
@@ -205,20 +205,31 @@ export function UsersTableClient({ initialProfiles, activeChannels = [] }: { ini
                             )}
 
                             <div>
-                                <label className="block text-sm font-medium text-zinc-300 mb-1">
-                                    Canale Audio Esclusivo (Opzionale se non è Client)
+                                <label className="block text-sm font-medium text-zinc-300 mb-2">
+                                    Canali Audio Esclusivi (Opzionale se non è Client)
                                 </label>
-                                <select 
-                                    required={!isEditing || formData.plan_type === 'client'}
-                                    value={formData.assigned_channel_id || ""}
-                                    onChange={e => setFormData({...formData, assigned_channel_id: e.target.value})}
-                                    className="w-full bg-black/50 border border-white/10 text-white rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-fuchsia-500"
-                                >
-                                    <option value="" disabled>Nessun Canale (Standard)</option>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto p-2 border border-white/10 rounded-md bg-black/50">
                                     {activeChannels.map(ch => (
-                                        <option key={ch.id} value={ch.id}>{ch.name}</option>
+                                        <label key={ch.id} className="flex items-center gap-2 cursor-pointer group">
+                                            <input 
+                                                type="checkbox"
+                                                checked={formData.assigned_channel_ids.includes(ch.id)}
+                                                onChange={(e) => {
+                                                    if (e.target.checked) {
+                                                        setFormData({...formData, assigned_channel_ids: [...formData.assigned_channel_ids, ch.id]});
+                                                    } else {
+                                                        setFormData({...formData, assigned_channel_ids: formData.assigned_channel_ids.filter(id => id !== ch.id)});
+                                                    }
+                                                }}
+                                                className="rounded border-zinc-600 bg-zinc-800 text-fuchsia-500 focus:ring-fuchsia-500/50"
+                                            />
+                                            <span className="text-sm text-zinc-300 group-hover:text-white">{ch.name}</span>
+                                        </label>
                                     ))}
-                                </select>
+                                    {activeChannels.length === 0 && (
+                                        <span className="text-zinc-500 text-sm">Nessun canale attivo disponibile.</span>
+                                    )}
+                                </div>
                             </div>
 
                             {errorMsg && <p className="text-red-400 text-sm font-medium pt-2">{errorMsg}</p>}
@@ -242,7 +253,7 @@ export function UsersTableClient({ initialProfiles, activeChannels = [] }: { ini
                 <Table>
                     <TableHeader className="bg-zinc-950/50">
                         <TableRow className="border-white/10 hover:bg-transparent">
-                            <TableHead className="text-zinc-400 font-medium">Nome Istituto</TableHead>
+                            <TableHead className="text-zinc-400 font-medium">Client</TableHead>
                             <TableHead className="text-zinc-400 font-medium">Email</TableHead>
                             <TableHead className="hidden text-zinc-400 font-medium">Role</TableHead>
                             <TableHead className="text-zinc-400 font-medium">Abbonamento</TableHead>

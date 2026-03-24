@@ -1,4 +1,6 @@
 import { BasicHeroChannel } from "@/components/player/BasicHeroChannel";
+import { ChannelGrid } from "@/components/player/ChannelGrid";
+import { createClient as createAdminClient } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { Paywall } from "./Paywall";
@@ -13,7 +15,7 @@ export default async function AreaClientePage() {
 
     const { data: profile } = await supabase
         .from("profiles")
-        .select("salon_name, role, plan_type, trial_ends_at, assigned_channel_id")
+        .select("salon_name, role, plan_type, trial_ends_at, assigned_channel_id, assigned_channel_ids")
         .eq("id", user.id)
         .single();
 
@@ -33,18 +35,26 @@ export default async function AreaClientePage() {
     let channels = rawChannels || [];
 
     // Se l'utente è "client" puro, sovrascrivi tutto e pesca unicamente 
-    // il singolo radio_channel corrispondente al suo assigned_channel_id
-    if (profile?.plan_type === 'client' && profile?.assigned_channel_id) {
-        const { data: clientChannel } = await supabase
+    // i radio_channels corrispondenti al suo assigned_channel_ids (o fallback su old_id)
+    const clientChannelIds = profile?.plan_type === 'client' 
+        ? (profile.assigned_channel_ids?.length > 0 ? profile.assigned_channel_ids : (profile.assigned_channel_id ? [profile.assigned_channel_id] : []))
+        : [];
+
+    if (profile?.plan_type === 'client' && clientChannelIds.length > 0) {
+        const supabaseAdmin = createAdminClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            process.env.SUPABASE_SERVICE_ROLE_KEY!
+        );
+
+        const { data: clientChannels } = await supabaseAdmin
             .from('radio_channels')
             .select('*')
-            .eq('id', profile.assigned_channel_id)
-            .single();
+            .in('id', clientChannelIds);
             
-        if (clientChannel) {
-            channels = [clientChannel];
+        if (clientChannels && clientChannels.length > 0) {
+            channels = clientChannels;
         } else {
-            channels = []; // Se il canale non esiste o è stato eliminato
+            channels = []; // Nessun canale valido
         }
     } else if (profile?.plan_type === 'premium') {
         const { data: premiumExclusives } = await supabase
@@ -77,10 +87,14 @@ export default async function AreaClientePage() {
                 <>
                     {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic' || profile?.plan_type === 'premium' || profile?.plan_type === 'client') && (
                         <div className="mb-8">
-                            <BasicHeroChannel
-                                planType={profile?.plan_type}
-                                channel={profile?.plan_type === 'client' ? (channels[0] || null) : getStandardChannel()}
-                            />
+                            {profile?.plan_type === 'client' && channels.length > 1 ? (
+                                <ChannelGrid initialChannels={channels} />
+                            ) : (
+                                <BasicHeroChannel
+                                    planType={profile?.plan_type}
+                                    channel={profile?.plan_type === 'client' ? (channels[0] || null) : getStandardChannel()}
+                                />
+                            )}
                         </div>
                     )}
                 </>

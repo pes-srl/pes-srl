@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, User, LogOut, Settings } from "lucide-react";
 import { createClient } from "@/utils/supabase/client";
 import { User as SupabaseUser } from "@supabase/supabase-js";
+import { useAudioStore } from "@/store/useAudioStore";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -21,9 +22,10 @@ export function HeaderNew({
     initialProfile = null
 }: {
     initialUser?: SupabaseUser | null;
-    initialProfile?: { role: string | null; plan_type: string | null; salon_name: string | null; trial_ends_at?: string | null } | null;
+    initialProfile?: { role: string | null; plan_type: string | null; salon_name: string | null; trial_ends_at?: string | null; primary_channel_name?: string | null } | null;
 } = {}) {
     const pathname = usePathname();
+    const { currentChannel } = useAudioStore();
 
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -234,37 +236,48 @@ export function HeaderNew({
         >
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <Link href="/" className="flex items-center gap-2 group">
-                        {pathname === "/login" ? (
-                            <img
-                                src="/assets-pes-srl/pes-logo-new.png"
-                                alt="PES SRL Logo"
-                                className="h-[42px] w-auto md:h-[40px] group-hover:scale-105 transition-transform object-contain"
-                            />
-                        ) : (
-                            <img
-                                src="/assets-pes-srl/pes-logo-new.png"
-                                alt="Beautify Channel Logo"
-                                className="h-[52px] w-auto md:h-[50px] group-hover:scale-105 transition-transform"
-                            />
-                        )}
-                    </Link>
-                </div>
-
-                {/* Desktop Nav - Show on all pages */}
-                <nav className="hidden md:flex flex-1 items-center justify-center gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleScrollTo(e, link.href)}
-                            className="text-sm font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
-                        >
-                            {link.name}
+                {/* Logo or Channel Name */}
+                {!pathname?.startsWith("/area-riservata") ? (
+                    <div className="flex items-center gap-2">
+                        <Link href="/" className="flex items-center gap-2 group">
+                            {pathname === "/login" ? (
+                                <img
+                                    src="/assets-pes-srl/pes-logo-new.png"
+                                    alt="PES SRL Logo"
+                                    className="h-[42px] w-auto md:h-[40px] group-hover:scale-105 transition-transform object-contain"
+                                />
+                            ) : (
+                                <img
+                                    src="/assets-pes-srl/pes-logo-new.png"
+                                    alt="Beautify Channel Logo"
+                                    className="h-[52px] w-auto md:h-[50px] group-hover:scale-105 transition-transform"
+                                />
+                            )}
                         </Link>
-                    ))}
-                </nav>
+                    </div>
+                ) : (
+                    <div className="flex items-center flex-1">
+                        <h1 className="text-xl md:text-2xl font-[family-name:var(--font-montserrat)] font-extrabold text-white tracking-widest uppercase drop-shadow-md truncate max-w-[200px] sm:max-w-xs md:max-w-md lg:max-w-lg">
+                            {currentChannel?.name || (profile as any)?.primary_channel_name || profile?.salon_name || 'AREA RISERVATA'}
+                        </h1>
+                    </div>
+                )}
+
+                {/* Desktop Nav - Show on all pages except area-riservata */}
+                {!pathname?.startsWith("/area-riservata") && (
+                    <nav className="hidden md:flex flex-1 items-center justify-center gap-8">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                onClick={(e) => handleScrollTo(e, link.href)}
+                                className="text-sm font-medium text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+                )}
 
                 {/* Right Side Buttons & Avatar */}
                 <div className="flex items-center gap-4 ml-auto md:ml-0 flex-1 justify-end">
@@ -357,7 +370,7 @@ export function HeaderNew({
             {/* Mobile Nav */}
             {isMobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-white/10 p-6 flex flex-col gap-4 shadow-xl">
-                    {navLinks.map((link) => (
+                    {!pathname?.startsWith("/area-riservata") && navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}

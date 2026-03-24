@@ -13,6 +13,7 @@ interface ClientLayoutWrapperProps {
 export function ClientLayoutWrapper({ children, user, profile }: ClientLayoutWrapperProps) {
   const pathname = usePathname();
   const isHomepage = pathname === "/";
+  const isAreaRiservata = pathname.startsWith("/area-riservata");
 
   return (
     <>

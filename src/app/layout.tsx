@@ -42,10 +42,25 @@ export default async function RootLayout({
   if (user) {
     const { data } = await supabase
       .from("profiles")
-      .select("salon_name, role, plan_type")
+      .select("salon_name, role, plan_type, assigned_channel_id, assigned_channel_ids")
       .eq("id", user.id)
       .single();
     profile = data;
+
+    if (profile?.plan_type === 'client') {
+      const { createClient: createAdmin } = await import("@supabase/supabase-js");
+      const supabaseAdmin = createAdmin(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.SUPABASE_SERVICE_ROLE_KEY!
+      );
+      const cIds = profile.assigned_channel_ids?.length > 0 ? profile.assigned_channel_ids : (profile.assigned_channel_id ? [profile.assigned_channel_id] : []);
+      if (cIds.length > 0) {
+        const { data: channels } = await supabaseAdmin.from('radio_channels').select('name').in('id', cIds);
+        if (channels && channels.length > 0) {
+            (profile as any).primary_channel_name = channels[0].name;
+        }
+      }
+    }
   }
 
   return (
