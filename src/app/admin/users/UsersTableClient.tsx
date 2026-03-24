@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
     Table,
     TableBody,
@@ -14,42 +15,228 @@ import {
 import { UserRowActions } from "./UserRowActions";
 import { formatDistanceToNow, differenceInMinutes, differenceInSeconds, parseISO } from "date-fns";
 import { it } from "date-fns/locale";
-import { Search, Clock } from "lucide-react";
+import { Search, Clock, Plus, X, Loader2 } from "lucide-react";
 import { format } from "date-fns";
 
-export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }) {
+export function UsersTableClient({ initialProfiles, activeChannels = [] }: { initialProfiles: any[], activeChannels?: any[] }) {
     const [searchTerm, setSearchTerm] = useState("");
     const [now, setNow] = useState(new Date());
 
-    // Update 'now' every 30 seconds to keep the session timing and online status fresh
+    // Modal State
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
+
+    const [formData, setFormData] = useState({
+        userId: "",
+        email: "",
+        password: "",
+        salon_name: "",
+        assigned_channel_id: "",
+        plan_type: ""
+    });
+
+    const openCreateModal = () => {
+        setIsEditing(false);
+        setFormData({ userId: "", email: "", password: "", salon_name: "", assigned_channel_id: "", plan_type: "client" });
+        setErrorMsg("");
+        setSuccessMsg("");
+        setIsModalOpen(true);
+    };
+
+    const openEditModal = (user: any) => {
+        setIsEditing(true);
+        setFormData({
+            userId: user.id || "",
+            email: user.email || "",
+            password: "", // We left it empty, to only update if typed
+            salon_name: user.salon_name || "",
+            assigned_channel_id: user.assigned_channel_id || "",
+            plan_type: user.plan_type || "free"
+        });
+        setErrorMsg("");
+        setSuccessMsg("");
+        setIsModalOpen(true);
+    };
+
+    const handleCreateOrEditClient = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setErrorMsg("");
+        setSuccessMsg("");
+        setIsSubmitting(true);
+
+        const endpoint = isEditing ? "/api/admin/edit-client" : "/api/admin/create-client";
+
+        // Avoid sending empty password on edit
+        const payload = { ...formData };
+        if (isEditing && payload.password === "") {
+            delete payload.password;
+        }
+
+        try {
+            const res = await fetch(endpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || "Errore sconosciuto");
+            }
+
+            setSuccessMsg(isEditing ? "Utente aggiornato con successo!" : "Cliente creato con successo! Attendi il refresh...");
+            setTimeout(() => {
+                setIsModalOpen(false);
+                setSuccessMsg("");
+                window.location.reload(); 
+            }, 1000);
+        } catch (err: any) {
+            setErrorMsg(err.message);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     useEffect(() => {
-        const timer = setInterval(() => {
-            setNow(new Date());
-        }, 30000);
+        const timer = setInterval(() => setNow(new Date()), 30000);
         return () => clearInterval(timer);
     }, []);
 
-    // Filter profiles based on searchTerm (checking salon_name and email)
     const filteredProfiles = initialProfiles.filter((user) => {
         const searchUpper = searchTerm.toUpperCase();
-        const salonMatch = user.salon_name?.toUpperCase().includes(searchUpper);
-        const emailMatch = user.email?.toUpperCase().includes(searchUpper);
-        return salonMatch || emailMatch;
+        return user.salon_name?.toUpperCase().includes(searchUpper) || user.email?.toUpperCase().includes(searchUpper);
     });
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center gap-2 max-w-sm">
-                <div className="relative w-full">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
-                    <Input
-                        placeholder="Cerca per istituto o email..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-9 bg-zinc-900 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-fuchsia-500"
-                    />
+        <div className="space-y-6 relative">
+            <div className="flex justify-between items-center max-w-full">
+                <div className="flex items-center gap-2 w-full max-w-sm">
+                    <div className="relative w-full">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
+                        <Input
+                            placeholder="Cerca per istituto o email..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="pl-9 bg-zinc-900 border-white/10 text-white placeholder:text-zinc-500 focus-visible:ring-fuchsia-500"
+                        />
+                    </div>
                 </div>
+                <Button 
+                    onClick={openCreateModal}
+                    className="bg-emerald-600 hover:bg-emerald-500 text-white gap-2 border-0 shadow-lg shrink-0"
+                >
+                    <Plus className="w-4 h-4" /> Nuovo Client
+                </Button>
             </div>
+
+            {/* MODALE NUOVO / MODIFICA CLIENT */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+                    <div className="bg-[#17092b] border border-white/10 shadow-2xl rounded-2xl p-6 md:p-8 max-w-lg w-full relative">
+                        <button 
+                            onClick={() => setIsModalOpen(false)}
+                            className="absolute top-4 right-4 text-zinc-400 hover:text-white"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+                        
+                        <h2 className="text-2xl font-bold text-white mb-2">
+                            {isEditing ? `Modifica Utente` : `Crea Nuovo Client`}
+                        </h2>
+                        <p className="text-zinc-400 text-sm mb-6">
+                            {isEditing 
+                                ? "Modifica l'email, la password (lascia vuoto per non cambiarla) e i dettagli del profilo." 
+                                : "Questo utente avrà accesso esclusivo a un singolo canale. Usa una password sicura."}
+                        </p>
+
+                        <form onSubmit={handleCreateOrEditClient} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">Email Cliente</label>
+                                <Input 
+                                    required={!isEditing}
+                                    type="email" 
+                                    placeholder="cliente@email.com"
+                                    value={formData.email}
+                                    onChange={e => setFormData({...formData, email: e.target.value})}
+                                    className="bg-black/50 border-white/10 text-white"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">Password</label>
+                                <Input 
+                                    required={!isEditing}
+                                    type="text" 
+                                    placeholder={isEditing ? "Lascia vuoto per non modificare" : "Password di accesso"}
+                                    value={formData.password}
+                                    onChange={e => setFormData({...formData, password: e.target.value})}
+                                    className="bg-black/50 border-white/10 text-white"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">Nome Istituto / Attività</label>
+                                <Input 
+                                    required 
+                                    type="text" 
+                                    placeholder="Es. Palestra Fit"
+                                    value={formData.salon_name}
+                                    onChange={e => setFormData({...formData, salon_name: e.target.value})}
+                                    className="bg-black/50 border-white/10 text-white"
+                                />
+                            </div>
+                            
+                            {isEditing && (
+                                <div>
+                                    <label className="block text-sm font-medium text-zinc-300 mb-1">Abbonamento</label>
+                                    <select 
+                                        value={formData.plan_type}
+                                        onChange={e => setFormData({...formData, plan_type: e.target.value})}
+                                        className="w-full bg-black/50 border border-white/10 text-white rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-fuchsia-500"
+                                    >
+                                        <option value="free">Free (Scaduto)</option>
+                                        <option value="free_trial">Free Trial</option>
+                                        <option value="basic">Basic</option>
+                                        <option value="premium">Premium</option>
+                                        <option value="client">Client Custom</option>
+                                    </select>
+                                </div>
+                            )}
+
+                            <div>
+                                <label className="block text-sm font-medium text-zinc-300 mb-1">
+                                    Canale Audio Esclusivo (Opzionale se non è Client)
+                                </label>
+                                <select 
+                                    required={!isEditing || formData.plan_type === 'client'}
+                                    value={formData.assigned_channel_id || ""}
+                                    onChange={e => setFormData({...formData, assigned_channel_id: e.target.value})}
+                                    className="w-full bg-black/50 border border-white/10 text-white rounded-md px-3 py-2 outline-none focus:ring-2 focus:ring-fuchsia-500"
+                                >
+                                    <option value="" disabled>Nessun Canale (Standard)</option>
+                                    {activeChannels.map(ch => (
+                                        <option key={ch.id} value={ch.id}>{ch.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {errorMsg && <p className="text-red-400 text-sm font-medium pt-2">{errorMsg}</p>}
+                            {successMsg && <p className="text-emerald-400 text-sm font-medium pt-2">{successMsg}</p>}
+
+                            <div className="pt-4 flex justify-end gap-3">
+                                <Button type="button" variant="ghost" onClick={() => setIsModalOpen(false)} className="text-zinc-300">
+                                    Annulla
+                                </Button>
+                                <Button type="submit" disabled={isSubmitting} className={isEditing ? "bg-sky-600 hover:bg-sky-500 text-white" : "bg-fuchsia-600 hover:bg-fuchsia-500 text-white"}>
+                                    {isSubmitting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
+                                    {isEditing ? (isSubmitting ? "Salvataggio..." : "Salva Modifiche") : (isSubmitting ? "Creazione in corso..." : "Crea Utente Client")}
+                                </Button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
 
             <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
                 <Table>
@@ -68,94 +255,40 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                     </TableHeader>
                     <TableBody>
                         {filteredProfiles.map((user) => {
-                            // UNA PERSONA È CONSIDERATA "EFFETTIVAMENTE ONLINE" SE 
-                            // 1. Il flag is_online è true
-                            // 2. Ha mandato un ping negli ultimi 3 minuti (grace period più stretto)
                             const isDbOnline = user.is_online === true;
                             const lastPingDate = user.last_ping_at ? parseISO(user.last_ping_at) : null;
                             const isPingRecent = lastPingDate && (differenceInMinutes(now, lastPingDate) < 3);
 
                             const isOnline = isDbOnline && isPingRecent;
-
                             let lastSeenText = "Mai connesso";
 
                             if (user.last_seen) {
-                                const lastSeenDate = parseISO(user.last_seen);
-                                lastSeenText = formatDistanceToNow(lastSeenDate, { addSuffix: true, locale: it });
+                                lastSeenText = formatDistanceToNow(parseISO(user.last_seen), { addSuffix: true, locale: it });
                             }
 
-                            // --- CALCOLO STATUS ABBONAMENTO ---
                             let computedPlanType = user.plan_type;
                             let isPlanActive = user.plan_status === 'active';
                             let displayStatus = user.plan_status || 'no active';
 
-                            // Se l'utente è "free" (trial scaduto)
                             if (!user.plan_type || user.plan_type === 'free') {
                                 isPlanActive = false;
                                 displayStatus = 'no active';
                                 computedPlanType = 'free';
-                            }
-                            // Se l'utente è "free_trial" ma la data di trial è passata
-                            else if (user.plan_type === 'free_trial' && user.trial_ends_at && new Date(user.trial_ends_at) < now) {
+                            } else if (user.plan_type === 'free_trial' && user.trial_ends_at && new Date(user.trial_ends_at) < now) {
                                 isPlanActive = false;
                                 displayStatus = 'no active';
                                 computedPlanType = 'free';
-                            }
-                            // Se l'utente è "basic" o "premium" ma la data di scadenza è passata
-                            else if ((user.plan_type === 'basic' || user.plan_type === 'premium' || user.plan_type === 'premiumcustomizzato') && user.subscription_expiration && new Date(user.subscription_expiration) < now) {
+                            } else if ((user.plan_type === 'basic' || user.plan_type === 'premium') && user.subscription_expiration && new Date(user.subscription_expiration) < now) {
                                 isPlanActive = false;
                                 displayStatus = 'no active';
                             }
 
-                            // Assicuriamoci che se non è attivo per qualsiasi motivo, e il testo è inattivo o null, stampi "no active"
-                            if (!isPlanActive) {
+                            if (computedPlanType === 'client') {
+                                isPlanActive = true;
+                                displayStatus = 'Client Attivo';
+                            } else if (!isPlanActive) {
                                 displayStatus = 'no active';
                             }
-                            // -----------------------------------
-
-                            // --- CALCOLO TIMING (DURATA CONNESSIONE) ---
-                            let timingText = "-";
-                            if (isOnline) {
-                                if (user.last_login_at) {
-                                    const loginTime = parseISO(user.last_login_at);
-                                    const mins = differenceInMinutes(now, loginTime);
-                                    if (mins === 0) {
-                                        const secs = differenceInSeconds(now, loginTime);
-                                        timingText = `${secs} sec`;
-                                    } else {
-                                        timingText = `${mins} min`;
-                                    }
-                                } else {
-                                    timingText = "-";
-                                }
-                            } else {
-                                // Se è offline, usiamo l'ultimo momento utile: il logout esplicito o l'ultimo ping (heartbeat)
-                                if (user.last_login_at) {
-                                    const loginTime = parseISO(user.last_login_at);
-                                    const logoutTime = user.last_logout_at ? parseISO(user.last_logout_at) : null;
-                                    const pingTime = user.last_ping_at ? parseISO(user.last_ping_at) : null;
-
-                                    // Scegliamo il più recente tra logout e ping come fine sessione
-                                    let endTime = logoutTime;
-                                    if (pingTime && (!endTime || pingTime > endTime)) {
-                                        endTime = pingTime;
-                                    }
-
-                                    // Se abbiamo un orario di fine e questo è successivo o uguale al login
-                                    if (endTime && endTime >= loginTime) {
-                                        const mins = differenceInMinutes(endTime, loginTime);
-                                        if (mins === 0) {
-                                            const secs = differenceInSeconds(endTime, loginTime);
-                                            timingText = `${secs} sec`;
-                                        } else {
-                                            timingText = `${mins} min`;
-                                        }
-                                    } else {
-                                        timingText = "-";
-                                    }
-                                }
-                            }
-                            // -------------------------------------------
 
                             return (
                                 <TableRow key={user.id} className="border-white/10 hover:bg-white/5 transition-colors">
@@ -170,6 +303,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                         <Badge variant="outline" className={`
                                             bg-transparent uppercase text-[10px] font-bold tracking-wider
                                             ${computedPlanType === 'premium' ? 'bg-amber-500/10 text-amber-500 border-amber-500/50' :
+                                                computedPlanType === 'client' ? 'text-sky-400 border-sky-400/50' :
                                                 computedPlanType === 'free_trial' ? 'text-emerald-400 border-emerald-400/50' :
                                                     computedPlanType === 'basic' ? 'text-indigo-400 border-indigo-400/50' :
                                                         'text-red-500 border-red-500/50'}
@@ -185,7 +319,7 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                     </TableCell>
                                     <TableCell>
                                         <span className="text-zinc-300 text-sm whitespace-nowrap">
-                                            {user.subscription_expiration
+                                            {computedPlanType === 'client' ? 'Senza Limiti' : user.subscription_expiration
                                                 ? format(parseISO(user.subscription_expiration), "dd MMM yyyy", { locale: it })
                                                 : "-"}
                                         </span>
@@ -213,28 +347,18 @@ export function UsersTableClient({ initialProfiles }: { initialProfiles: any[] }
                                     <TableCell>
                                         <div className="flex items-center gap-1.5 text-zinc-300 bg-white/5 px-2.5 py-1 rounded-md w-fit border border-white/10">
                                             <Clock className="w-3.5 h-3.5 text-zinc-400" />
-                                            <span suppressHydrationWarning className="text-sm font-medium">{timingText}</span>
+                                            <span className="text-sm font-medium">--</span>
                                         </div>
                                     </TableCell>
                                     <TableCell className="text-right">
-                                        <UserRowActions user={{
-                                            id: user.id,
-                                            role: user.role,
-                                            plan_type: computedPlanType,
-                                            salon_name: user.salon_name,
-                                            subscription_expiration: user.subscription_expiration
-                                        }} />
+                                        <UserRowActions 
+                                            user={user} 
+                                            onEditClick={() => openEditModal(user)} 
+                                        />
                                     </TableCell>
                                 </TableRow>
                             );
                         })}
-                        {filteredProfiles.length === 0 && (
-                            <TableRow>
-                                <TableCell colSpan={8} className="text-center py-8 text-zinc-500">
-                                    Nessun utente trovato corrispondente alla ricerca.
-                                </TableCell>
-                            </TableRow>
-                        )}
                     </TableBody>
                 </Table>
             </div>

@@ -86,12 +86,23 @@ export async function deleteUserAccount(userIdToDelete: string) {
         }
     );
 
-    // Delete user from Auth. This will trigger Supabase's CASCADE rule to delete the profile if configured, 
-    // or just remove the auth representation making the profile orphan (which is fine, or we can delete both).
-    // Deleting from Auth is the critical security step.
+    // Eliminiamo anche il profilo forzatamente per evitare profili "orfani" (ghost users)
+    const { error: profileError } = await supabaseAdmin
+        .from('profiles')
+        .delete()
+        .eq('id', userIdToDelete);
+
+    if (profileError) {
+        console.error("Error deleting profile row:", profileError);
+        // Non blocchiamo l'eliminazione auth, andiamo avanti
+    }
+
+    // Delete user from Auth.
     const { data, error } = await supabaseAdmin.auth.admin.deleteUser(userIdToDelete);
 
-    if (error) {
+    // Se l'errore è "User not found", ignora perché significa che è già un fantasma auth
+    // e per noi l'importante era cancellare la sua riga (già fatto sopra).
+    if (error && !error.message.includes("User not found")) {
         console.error("Error deleting user from Auth:", error);
         return { error: error.message };
     }

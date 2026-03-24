@@ -14,7 +14,7 @@ import {
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
-import { MoreHorizontal, Loader2, UserCog, ScrollText, CalendarClock } from "lucide-react";
+import { MoreHorizontal, Loader2, UserCog, ScrollText, CalendarClock, Pencil } from "lucide-react";
 import { updateUserProfile, deleteUserAccount } from "./actions";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
@@ -26,10 +26,13 @@ interface UserRowActionsProps {
         plan_type: string | null;
         salon_name: string | null;
         subscription_expiration: string | null;
+        email?: string;
+        assigned_channel_id?: string | null;
     };
+    onEditClick: () => void;
 }
 
-export function UserRowActions({ user }: UserRowActionsProps) {
+export function UserRowActions({ user, onEditClick }: UserRowActionsProps) {
     const [isLoading, setIsLoading] = useState(false);
 
     const handleUpdate = async (field: 'role' | 'plan_type', value: string) => {
@@ -49,9 +52,7 @@ export function UserRowActions({ user }: UserRowActionsProps) {
 
     const handleDateUpdate = async (value: string) => {
         setIsLoading(true);
-        // Transform the YYYY-MM-DD input string to a proper ISO 8601 string, or null
         const formattedValue = value ? new Date(value).toISOString() : null;
-        // In updateUserProfile we can't easily pass null to 'value: string', so we can pass empty string and convert it back, or update the Server Action. Let's pass 'formattedValue' as string or empty string.
         const result = await updateUserProfile(user.id, 'subscription_expiration' as any, formattedValue || '');
         if (result.error) {
             toast.error("Errore di aggiornamento", { description: result.error });
@@ -80,7 +81,6 @@ export function UserRowActions({ user }: UserRowActionsProps) {
                 id: `delete-${user.id}`,
                 description: "L'account e tutti i dati associati sono stati rimossi."
             });
-            // The row will unmount automatically due to Next.js revalidatePath
         }
     };
 
@@ -94,6 +94,14 @@ export function UserRowActions({ user }: UserRowActionsProps) {
             <DropdownMenuContent align="end" className="w-56 bg-zinc-950 border-white/10 relative z-50">
                 <DropdownMenuLabel className="text-zinc-400">Azioni: {user.salon_name || "Utente"}</DropdownMenuLabel>
                 <DropdownMenuSeparator className="bg-white/10" />
+
+                <button
+                    onClick={() => onEditClick()}
+                    className="w-full flex items-center px-2 py-1.5 text-sm text-zinc-200 hover:bg-white/10 hover:text-white rounded-sm outline-none transition-colors"
+                >
+                    <Pencil className="mr-2 h-4 w-4 text-sky-400" />
+                    Modifica Utente / Email
+                </button>
 
                 <DropdownMenuSub>
                     <DropdownMenuSubTrigger className="text-zinc-200 focus:bg-white/10">
@@ -119,6 +127,7 @@ export function UserRowActions({ user }: UserRowActionsProps) {
                             <DropdownMenuRadioItem value="free_trial" onSelect={(e) => { e.preventDefault(); handleUpdate('plan_type', 'free_trial'); }} className="text-emerald-400 focus:bg-white/10 cursor-pointer font-medium">Free Trial</DropdownMenuRadioItem>
                             <DropdownMenuRadioItem value="basic" onSelect={(e) => { e.preventDefault(); handleUpdate('plan_type', 'basic'); }} className="text-indigo-400 focus:bg-white/10 cursor-pointer font-medium">Basic</DropdownMenuRadioItem>
                             <DropdownMenuRadioItem value="premium" onSelect={(e) => { e.preventDefault(); handleUpdate('plan_type', 'premium'); }} className="text-amber-500 focus:bg-white/10 cursor-pointer font-medium">Premium</DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="client" onSelect={(e) => { e.preventDefault(); handleUpdate('plan_type', 'client'); }} className="text-sky-400 focus:bg-white/10 cursor-pointer font-medium">Client Custom</DropdownMenuRadioItem>
                         </DropdownMenuRadioGroup>
                     </DropdownMenuSubContent>
                 </DropdownMenuSub>
@@ -134,13 +143,9 @@ export function UserRowActions({ user }: UserRowActionsProps) {
                             type="date"
                             defaultValue={user.subscription_expiration ? user.subscription_expiration.substring(0, 10) : ""}
                             className="bg-white/5 border-white/10 text-white h-8 text-sm"
-                            onChange={(e) => {
-                                // Just a visual update, do nothing directly here. We submit on blur or with a button
-                            }}
+                            onChange={(e) => {}}
                             onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    handleDateUpdate(e.currentTarget.value);
-                                }
+                                if (e.key === 'Enter') handleDateUpdate(e.currentTarget.value);
                             }}
                             onBlur={(e) => {
                                 if (e.target.value !== (user.subscription_expiration ? user.subscription_expiration.substring(0, 10) : "")) {
@@ -148,12 +153,7 @@ export function UserRowActions({ user }: UserRowActionsProps) {
                                 }
                             }}
                         />
-                        <Button
-                            variant="ghost"
-                            size="sm"
-                            className="w-full text-xs text-red-400 hover:text-red-300 hover:bg-white/5"
-                            onClick={() => handleDateUpdate("")}
-                        >
+                        <Button variant="ghost" size="sm" className="w-full text-xs text-red-400 hover:text-red-300 hover:bg-white/5" onClick={() => handleDateUpdate("")}>
                             Rimuovi Scadenza
                         </Button>
                     </DropdownMenuSubContent>
@@ -163,7 +163,7 @@ export function UserRowActions({ user }: UserRowActionsProps) {
 
                 <button
                     onClick={handleDelete}
-                    className="w-full text-left px-2 py-1.5 text-sm text-red-400 hover:bg-white/10 hover:text-red-300 rounded-sm outline-none transition-colors"
+                    className="w-full text-left px-2 py-1.5 text-sm font-semibold text-red-500 hover:bg-red-500/20 hover:text-red-400 rounded-sm outline-none transition-colors"
                     disabled={isLoading}
                 >
                     Elimina Definitivamente

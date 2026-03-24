@@ -13,7 +13,7 @@ export default async function AreaClientePage() {
 
     const { data: profile } = await supabase
         .from("profiles")
-        .select("salon_name, role, plan_type, trial_ends_at")
+        .select("salon_name, role, plan_type, trial_ends_at, assigned_channel_id")
         .eq("id", user.id)
         .single();
 
@@ -26,12 +26,27 @@ export default async function AreaClientePage() {
         if (daysLeft <= 0) isExpired = true;
     }
 
+    // Fetching base channels
     const { data: rawChannels } = await supabase
         .rpc('get_authorized_channels', { req_user_id: user.id });
 
     let channels = rawChannels || [];
 
-    if (profile?.plan_type === 'premium') {
+    // Se l'utente è "client" puro, sovrascrivi tutto e pesca unicamente 
+    // il singolo radio_channel corrispondente al suo assigned_channel_id
+    if (profile?.plan_type === 'client' && profile?.assigned_channel_id) {
+        const { data: clientChannel } = await supabase
+            .from('radio_channels')
+            .select('*')
+            .eq('id', profile.assigned_channel_id)
+            .single();
+            
+        if (clientChannel) {
+            channels = [clientChannel];
+        } else {
+            channels = []; // Se il canale non esiste o è stato eliminato
+        }
+    } else if (profile?.plan_type === 'premium') {
         const { data: premiumExclusives } = await supabase
             .from('radio_channels')
             .select('*')
@@ -48,19 +63,23 @@ export default async function AreaClientePage() {
         }
     }
 
+    // Define the correct generic channel for standards
+    const getStandardChannel = () => {
+        if (profile?.plan_type === 'premium') {
+            return channels?.find((c: any) => c.name.toLowerCase().includes('premium') || c.name.toLowerCase() === 'beautify channel premium') || null;
+        }
+        return channels?.find((c: any) => c.name.toLowerCase().includes('basic') || c.name.toLowerCase() === 'beautify channel basic') || null;
+    }
+
     return (
         <div className="pt-24 pb-32">
             {(!isExpired || isAdmin) ? (
                 <>
-                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic' || profile?.plan_type === 'premium') && (
+                    {(profile?.plan_type === 'free_trial' || profile?.plan_type === 'basic' || profile?.plan_type === 'premium' || profile?.plan_type === 'client') && (
                         <div className="mb-8">
                             <BasicHeroChannel
                                 planType={profile?.plan_type}
-                                channel={channels?.find((c: any) =>
-                                    profile?.plan_type === 'premium'
-                                        ? (c.name.toLowerCase().includes('premium') || c.name.toLowerCase() === 'beautify channel premium')
-                                        : (c.name.toLowerCase().includes('basic') || c.name.toLowerCase() === 'beautify channel basic')
-                                ) || null}
+                                channel={profile?.plan_type === 'client' ? (channels[0] || null) : getStandardChannel()}
                             />
                         </div>
                     )}

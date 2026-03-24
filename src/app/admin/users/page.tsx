@@ -24,8 +24,15 @@ export default async function UsersManagementPage() {
         .select('*')
         .order('salon_name', { ascending: true });
 
+    // Fetch all radio channels (active and inactive) to pass to the Client Component
+    const { data: channels, error: channelsError } = await supabaseAdmin
+        .from('radio_channels')
+        .select('id, name')
+        .order('name', { ascending: true });
+
     // Fallback to empty array in case of error
     const profiles = users || [];
+    const activeChannels = channels || [];
 
     if (error) {
         return (
@@ -49,7 +56,7 @@ export default async function UsersManagementPage() {
                 </div>
             </div>
 
-            <UsersTableClient initialProfiles={profiles} />
+            <UsersTableClient initialProfiles={profiles} activeChannels={activeChannels} />
         </div>
     );
 }
